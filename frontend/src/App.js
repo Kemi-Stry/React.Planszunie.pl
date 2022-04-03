@@ -1,10 +1,10 @@
 import './App.css';
-import Account from './components/Account';
+import {Route, Switch, Link} from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
-      <Account/>
+      <h1>Strona główna</h1>
     </div>
   );
 }
