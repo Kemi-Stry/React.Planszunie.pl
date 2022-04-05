@@ -1,7 +1,5 @@
 # Planszunie.pl
-
+🚀**Projekt: Inżyniera Oprogramowania**🚀 <br>
 Użyte technologie:
-<ul>
-  <li>Front-End: React
-  <li>Back-End: Strapi
-<ul>    
+- Front-End: React
+- Back-End: Node.js, Strapi CMS
