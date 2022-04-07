@@ -1,0 +1,15 @@
+.header
+{
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+}
+
+a
+{
+    margin-left: 10px;
+    text-decoration: none;
+    color: black;
+    font-size: 48px;
+    font-weight: bold;
+}
