@@ -1,10 +1,22 @@
 import './App.css';
-import {Route, Switch, Link} from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
+import Login from './pages/Login';
+import ErrorPage from './pages/ErrorPage';
+import Regulations from './pages/Regulations';
+
 
 function App() {
   return (
     <div className="App">
-      <h1>Strona główna</h1>
+      <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home/>} />
+            <Route path="/logowanie" element={<Login/>} />
+            <Route path="/regulamin" element={<Regulations/>} />
+            <Route path="*" element={<ErrorPage/>}/>
+          </Routes>
+      </BrowserRouter>
     </div>
   );
 }
