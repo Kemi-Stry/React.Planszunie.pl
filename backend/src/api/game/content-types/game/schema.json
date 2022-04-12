@@ -4,7 +4,8 @@
   "info": {
     "singularName": "game",
     "pluralName": "games",
-    "displayName": "Game"
+    "displayName": "Game",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -14,24 +15,73 @@
     "title": {
       "type": "string",
       "required": true,
-      "unique": true
+      "unique": true,
+      "minLength": 1
     },
     "description": {
-      "type": "text"
+      "type": "text",
+      "required": true
     },
     "icon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "photos": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
+    },
+    "opinions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::opinion.opinion",
+      "mappedBy": "game"
+    },
+    "author": {
+      "type": "string",
+      "required": true
+    },
+    "author2": {
+      "type": "string"
+    },
+    "artist": {
+      "type": "string",
+      "required": true
+    },
+    "artist2": {
+      "type": "string"
+    },
+    "publisher": {
+      "type": "string",
+      "required": true
+    },
+    "players_from": {
+      "type": "integer",
+      "min": 1
+    },
+    "players_to": {
+      "type": "integer",
+      "min": 1
+    },
+    "time": {
+      "type": "integer",
+      "min": 5
+    },
+    "game_id": {
+      "type": "uid"
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::category.category",
+      "mappedBy": "games"
     }
   }
 }

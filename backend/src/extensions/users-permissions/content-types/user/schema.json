@@ -70,6 +70,14 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "opinions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::opinion.opinion"
+    },
+    "user_id": {
+      "type": "uid"
     }
   }
 }
