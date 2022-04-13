@@ -2,3 +2,8 @@ body
 {
     background: linear-gradient(90deg, rgba(130, 232, 164, 0.82) 0%, rgba(178, 188, 65, 0.676) 45%, rgba(255, 0, 138, 0.5) 100%);
 }
+
+a
+{
+    text-decoration: none;
+}
