@@ -1,3 +1,5 @@
+import Loading from "../components/Loading"
+
 const Register = () =>
 {
 
@@ -20,8 +22,9 @@ const Register = () =>
             <br />
             <button>Zarejestruj się!</button>{' '}
             
+            <Loading />
         </div>
-     
+        
     )
     
 }

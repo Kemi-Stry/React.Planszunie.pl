@@ -1,0 +1,19 @@
+.loading
+{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.loadingImg
+{
+    border-radius: 175px;
+    width: 350px;
+    height: 350px;
+}
+
+.loadingText
+{
+    font-size: 48px;
+    font-weight: 700;
+}

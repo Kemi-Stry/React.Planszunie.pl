@@ -1,7 +1,11 @@
+import Loading from "../components/Loadin"
+
 const Signup = () =>
 {
     return(
-        <h1>Rejestrowanko</h1>
+        <>
+        <Loading />
+        </>
     )
 }
 export default Signup
