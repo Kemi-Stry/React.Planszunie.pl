@@ -1,37 +1,26 @@
-//imports?
-import { useEffect, useState } from "react"
+import { useState } from "react"
 
-function usePostRequest(url) {
+const usePostRequest = async (url, body) => {
   const [data, setData] = useState(null)
   const [error, setError] = useState(null)
   const [loading, setLoading] = useState(true)
 
-  useEffect(() => {
-    const postData = async () => {
       setLoading(true)
+
       const requestOption= {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({"data":{"title":"Super gra"}})
+        body: JSON.stringify(body)
       };
  
       try {
-        //body
-        const res = await fetch(url, requestOption)
-        
-
+        await fetch(url, requestOption)
         setLoading(false)
       }
       catch (error) {
         setError(error)
         setLoading(false)
       }
-    }
-
-    postData()
-  }, [])
-
-  return { loading, error, data }
-}
-
+      return { loading, error, data }
+    }    
 export default usePostRequest
