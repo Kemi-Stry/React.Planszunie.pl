@@ -1,8 +1,7 @@
 import Loading from "../components/Loading"
 import './Register.css'
 import { Link } from 'react-router-dom'
-import { useRef } from 'react'
-import * as React from 'react';
+import { useRef, useState } from 'react'
 
 
 
@@ -13,12 +12,12 @@ const Register = () =>
     const emailRef = useRef()
     const passwordRef = useRef()
     const checkPasswordRef = useRef()
-    const [checked, setChecked] = React.useState(false);
+    const [checked, setChecked] = useState(false);
     
-
     const handleChange = () => {
-      setChecked(!checked);
-    };
+      setChecked(false)
+    }
+
     const onSubmit = async (e) =>
     {
         e.preventDefault()
@@ -97,10 +96,9 @@ const Register = () =>
             <input className='input' ref={emailRef} type="email" name="email" placeholder="Email" required/><br />
             <input className='input' ref={passwordRef} type="text" name="password" placeholder="Hasło" minLength="6" required/><br />
             <input className='input' ref={checkPasswordRef} type="text" name="chechPassword" placeholder="Powtórz hasło" minLength="6" required/><br />
-            <div className="link1">
-                <input type="checkbox" checked={checked}  onChange={handleChange}/> 
-                <h6 className='text1'>Akceptuję</h6>
-                <Link to="/regulamin"><h6 className='text1' id='text-link'>Regulamin</h6></Link>
+            <div className="accept">
+                <input type="checkbox" id="checkbox" checked={checked} onChange={handleChange}/> 
+                <label htmlFor="checkbox">Akceptuję <Link id="text-link" to="/regulamin" target="_blank">Regulamin</Link></label><br />
             </div>
             <input className="submitButton1" type="submit" value="Zarejestruj się"/>
         </form>

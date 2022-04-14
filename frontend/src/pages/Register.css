@@ -32,12 +32,12 @@
 }
 .submitButton1
 {
-    width: 185px;
+    width: 200px;
     height: 68.67px;
     font-weight: 600;
     font-size: 24px;
     margin-top: 40px;
-    padding-bottom: 80px;
+    margin-bottom: 80px;
     background: rgba(82, 255, 130, 1);
     color: black;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -50,31 +50,8 @@
     background: #FF8BA7;
 }
 
-.chechBox
-{
-    width: 24px;
-    height: 24px;
-    left: 584px;
-    top: 668px;
-
-    background: #FFFFFF;
-    opacity: 0.3;
-    border: 3px solid #888888;
-}
-.link1
-{
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-    padding-top: 30px;
-}
-
 .text1
 {
-    margin: auto;
     font-weight: 400;
     font-size: 24px;
 }
@@ -82,4 +59,29 @@
 #text-link
 {
     color: #FF8BA7;
+}
+/* 
+input[type="checkbox"]
+{
+    -webkit-appearance: none;
+    appearance: none;
+    width: 50px;
+    height: 50px;
+    background: #FFFFFF;
+    opacity: 0.3;
+    border: 3px solid #888888;
+}
+input[type="checkbox"]:checked
+{
+    background: #000000;
+} */
+label
+{
+    font-weight: 400;
+    font-size: 24px;
+}
+
+.accept
+{
+    margin-top: 40px;
 }

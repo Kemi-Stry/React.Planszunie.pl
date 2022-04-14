@@ -1,5 +1,5 @@
 import './Login.css'
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 import { useRef } from 'react'
 
 const Login = () =>
@@ -24,6 +24,7 @@ const Login = () =>
         })
         const json = await response.json()
         console.log(json)
+            //Navigate('/home')
         }
         catch
         {
