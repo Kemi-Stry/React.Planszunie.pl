@@ -1,4 +1,4 @@
-.rejestracja
+.register
 {
     width: 40%;
     margin-left: auto;
@@ -30,54 +30,56 @@
     font-size: 24px;
     filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.05));
 }
-.submitButton
+.submitButton1
 {
     width: 185px;
     height: 68.67px;
     font-weight: 600;
     font-size: 24px;
     margin-top: 40px;
+    padding-bottom: 80px;
     background: rgba(82, 255, 130, 1);
     color: black;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 46.25px;
     border-color: rgba(0, 0, 0, 0);
 }
-.submitButton:hover
+.submitButton1:hover
 {
     cursor: pointer;
     background: #FF8BA7;
 }
 
-
-
-
-
-
-
-
-
-
-.backqround
+.chechBox
 {
-    width: 1449px;
-    height: 1024px;
-    left: 0px;
-    top: 0px;
-    
-    background: linear-gradient(90deg, rgba(130, 232, 164, 0.82) 0%, rgba(178, 188, 65, 0.676) 45%, rgba(255, 0, 138, 0.5) 100%);
+    width: 24px;
+    height: 24px;
+    left: 584px;
+    top: 668px;
+
+    background: #FFFFFF;
+    opacity: 0.3;
+    border: 3px solid #888888;
+}
+.link1
+{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    padding-top: 30px;
 }
 
-.login_input
+.text1
 {
-    width: 348px;
-    height: 55px;
-    left: 551px;
-    bottom: 615px;
+    margin: auto;
+    font-weight: 400;
+    font-size: 24px;
+}
 
-    background: #F2F2F2;
-    border: 1px solid #A8A5A5;
-    box-sizing: border-box;
-    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.05);
-    border-radius: 5px;
+#text-link
+{
+    color: #FF8BA7;
 }
