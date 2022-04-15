@@ -7,3 +7,26 @@ a
 {
     text-decoration: none;
 }
+
+body::-webkit-scrollbar 
+{
+    width: 8px;
+}
+
+body::-webkit-scrollbar-track 
+{
+    background: rgba(0, 0, 0, 0.0);
+    border-radius: 11px;
+}
+
+body::-webkit-scrollbar-thumb 
+{
+    background: rgb(136, 136, 136);
+    border-radius: 11px;
+}
+
+body::-webkit-scrollbar-thumb:hover 
+{
+    background: #FFB5CF;
+    border-radius: 11px;
+}
