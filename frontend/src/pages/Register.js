@@ -4,18 +4,30 @@ import { Link } from 'react-router-dom'
 import { useRef, useState } from 'react'
 
 
-
-
 const Register = () =>
 {
     const usernameRef = useRef()
     const emailRef = useRef()
     const passwordRef = useRef()
     const checkPasswordRef = useRef()
-    const [checked, setChecked] = useState(false);
+    const checkbox = useRef()
+    const [checked, setChecked] = useState(false)
     
+    var disabled = true
     const handleChange = () => {
-      setChecked(false)
+        setChecked(!checked)
+        if(checked == true)
+        {
+            disabled = false
+            console.log("cheched")
+        }
+        else
+        {
+            disabled = true
+            console.log("uncheched")
+        }
+
+        return disabled
     }
 
     const onSubmit = async (e) =>
@@ -25,7 +37,6 @@ const Register = () =>
         const email= emailRef.current.value
         const password = passwordRef.current.value
         const checkPassword = checkPasswordRef.current.value
-        const data = {"identifier": username, "email": email,"password": password,"checkPassword": checkPassword}
 
         try
         {
@@ -97,10 +108,10 @@ const Register = () =>
             <input className='input' ref={passwordRef} type="text" name="password" placeholder="Hasło" minLength="6" required/><br />
             <input className='input' ref={checkPasswordRef} type="text" name="chechPassword" placeholder="Powtórz hasło" minLength="6" required/><br />
             <div className="accept">
-                <input type="checkbox" id="checkbox" checked={checked} onChange={handleChange}/> 
+                <input type="checkbox" id="checkbox" onChange={handleChange} /> 
                 <label htmlFor="checkbox">Akceptuję <Link id="text-link" to="/regulamin" target="_blank">Regulamin</Link></label><br />
             </div>
-            <input className="submitButton1" type="submit" value="Zarejestruj się"/>
+            <input className="submitButton1" type="submit" value="Zarejestruj się" disabled={disabled}/>
         </form>
     </div>
     )

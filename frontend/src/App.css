@@ -10,23 +10,34 @@ a
 
 body::-webkit-scrollbar 
 {
-    width: 8px;
+    width: 10px;
 }
 
 body::-webkit-scrollbar-track 
 {
-    background: rgba(0, 0, 0, 0.0);
-    border-radius: 11px;
+    background: #fe7fc4;
+    
 }
 
 body::-webkit-scrollbar-thumb 
 {
-    background: rgb(136, 136, 136);
+    background: #504f53;
     border-radius: 11px;
 }
 
-body::-webkit-scrollbar-thumb:hover 
+input[type="checkbox"]
 {
-    background: #FFB5CF;
-    border-radius: 11px;
+    -webkit-appearance: none;
+    appearance: none;
+    display: inline-flex;
+    border-radius: 4px;
+    width: 24px;
+    height: 24px;
+    background: #FFFFFF;
+    opacity: 0.5;
+    border: 3px solid #888888;
+}
+input[type="checkbox"]:checked
+{
+    background-image: url('./img/checked.svg')
 }

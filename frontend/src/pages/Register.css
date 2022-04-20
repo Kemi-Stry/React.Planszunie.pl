@@ -50,6 +50,13 @@
     background: #FF8BA7;
 }
 
+.submitButton1:disabled
+{
+    background-color: #A8A5A5;
+    cursor: default;
+    box-shadow: none;
+}
+
 .text1
 {
     font-weight: 400;
@@ -60,21 +67,8 @@
 {
     color: #FF8BA7;
 }
-/* 
-input[type="checkbox"]
-{
-    -webkit-appearance: none;
-    appearance: none;
-    width: 50px;
-    height: 50px;
-    background: #FFFFFF;
-    opacity: 0.3;
-    border: 3px solid #888888;
-}
-input[type="checkbox"]:checked
-{
-    background: #000000;
-} */
+
+
 label
 {
     font-weight: 400;
@@ -84,4 +78,10 @@ label
 .accept
 {
     margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 5px;
 }
