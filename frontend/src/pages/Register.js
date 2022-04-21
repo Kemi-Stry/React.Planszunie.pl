@@ -12,18 +12,19 @@ const Register = () =>
     const checkPasswordRef = useRef()
     const checkbox = useRef()
     const [checked, setChecked] = useState(false)
+    const [disabled, setDisabled] = useState(true)
     
-    var disabled = true
+    
     const handleChange = () => {
         setChecked(!checked)
-        if(checked == true)
+        if(checked != true)
         {
-            disabled = false
+            setDisabled(!disabled)
             console.log("cheched")
         }
         else
         {
-            disabled = true
+            setDisabled(true)
             console.log("uncheched")
         }
 
