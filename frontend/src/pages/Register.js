@@ -1,8 +1,6 @@
-import Loading from "../components/Loading"
 import './Register.css'
 import { Link } from 'react-router-dom'
 import { useRef, useState } from 'react'
-
 
 const Register = () =>
 {
@@ -10,14 +8,12 @@ const Register = () =>
     const emailRef = useRef()
     const passwordRef = useRef()
     const checkPasswordRef = useRef()
-    const checkbox = useRef()
     const [checked, setChecked] = useState(false)
     const [disabled, setDisabled] = useState(true)
     
-    
     const handleChange = () => {
         setChecked(!checked)
-        if(checked != true)
+        if(checked !== true)
         {
             setDisabled(!disabled)
             console.log("cheched")
@@ -27,8 +23,6 @@ const Register = () =>
             setDisabled(true)
             console.log("uncheched")
         }
-
-        return disabled
     }
 
     const onSubmit = async (e) =>
@@ -41,35 +35,31 @@ const Register = () =>
 
         try
         {
-            alert("1")
-            const data = await fetch('http://localhost:1337/api/users')
-            const response = data.json()
+            // alert("1")
+            // const data = await fetch('http://localhost:1337/api/users')
+            // const response = data.json()
             
-            const dataArray = [data.username]
-            console.log(dataArray)
-            alert("2")
-           /* for(user in dataArray){
-                if (user.email== username) {
-                    alert("Podany login jest już zajęty")
-                    return
-                }*/
-               /* if (user.email == email) {
-                    alert("Podana nazwa użytkownika jest już zajęty")
-                    return
-                }*/
-            /*if( user.username==username) {
-                alert("Podany login jest już zajęty")
-                return
-            }
-            if(user.email==email) {
-                alert("Podana nazwa użytkownika jest już zajęty")
-                return
-            }*/
-            if(!checked) {
-                alert("Musisz zaakceptować regulamin")
-                return
-            }
-            if(password!=checkPassword) {
+            // const dataArray = [data.username]
+            // console.log(dataArray)
+            // alert("2")
+        //    for(user in dataArray){
+        //         if (user.email== username) {
+        //             alert("Podany login jest już zajęty")
+        //             return
+                
+        //        if (user.email == email) {
+        //             alert("Podana nazwa użytkownika jest już zajęty")
+        //             return
+                
+            // if( user.username==username) {
+            //     alert("Podany login jest już zajęty")
+            //     return
+            // }
+            // if(user.email==email) {
+            //     alert("Podana nazwa użytkownika jest już zajęty")
+        //         return
+            
+            if(password!==checkPassword) {
                 alert("Pola Haslo oraz Powtórz hasło muszą być takie same!")
                 return
             }
