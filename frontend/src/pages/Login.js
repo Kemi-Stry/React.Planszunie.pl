@@ -1,10 +1,12 @@
 import './Login.css'
-import { Link, Navigate } from 'react-router-dom'
-import { useRef } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { useRef, useState } from 'react'
+import  {setUser}  from '../components/Auth' 
 
 const Login = () =>
 {
-
+    let navigate = useNavigate()
+    const [error, setError] = useState(null)
     const indentifierRef = useRef()
     const passwordRef = useRef()
 
@@ -15,27 +17,31 @@ const Login = () =>
         const password = passwordRef.current.value
         const data = {"identifier": identifier, "password": password}
 
-        try
-        {
+      
         const response = await fetch('http://localhost:1337/api/auth/local', {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(data)
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(data)
         })
-        const json = await response.json()
-        console.log(json)
-            //Navigate('/home')
-        }
-        catch
-        {
-            alert("error")
-        }
-    }
-   
 
+        if (!response.ok)
+        {
+            setError("Błąd logowania")
+        }
+        else
+        {
+            setError(null)
+            const json = await response.json()
+            console.log(json)
+            setUser(json)
+            navigate('/')
+        }    
+    }
+    
     return(
         <div className="login">
             <h1 className="title">Logowanie</h1>
+                <h3>{error}</h3>
             <form onSubmit= {onSubmit}>
                 <input className='input' ref={indentifierRef} type="text" name="identifier" placeholder="Nazwa użytkownika"/><br />
                 <input className='input' ref={passwordRef} type="password" name="password" placeholder="Hasło"/><br />
@@ -47,6 +53,5 @@ const Login = () =>
             </div>
         </div>
     )
-    
 }
 export default Login
