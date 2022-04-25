@@ -37,7 +37,13 @@ input[type="checkbox"]
     opacity: 0.5;
     border: 3px solid #888888;
 }
+
 input[type="checkbox"]:checked
 {
     background-image: url('./img/checked.svg')
+}
+
+.error
+{
+    color: #FF8BA7;
 }

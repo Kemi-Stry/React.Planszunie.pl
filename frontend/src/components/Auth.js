@@ -7,8 +7,13 @@ export const getUser = () =>
     ? JSON.parse(window.localStorage.getItem('user'))
     : {}
 
-
 export const isLogged = () => {
     const user = getUser()
     return !!user.jwt
+}
+
+export const getToken = () =>
+{
+    const user = getUser()
+    return user.jwt
 }

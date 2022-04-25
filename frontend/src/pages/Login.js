@@ -47,7 +47,7 @@ const Login = () =>
     return(
         <div className="login">
             <h1 className="title">Logowanie</h1>
-                <h3 id="error">{error}</h3>
+                <h3 className="error">{error}</h3>
             <form onSubmit= {onSubmit}>
                 <input className='input' ref={indentifierRef} type="text" name="identifier" placeholder="Nazwa użytkownika"/><br />
                 <input className='input' ref={passwordRef} type="password" name="password" placeholder="Hasło"/><br />
