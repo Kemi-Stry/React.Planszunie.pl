@@ -17,7 +17,8 @@ const Login = () =>
         const password = passwordRef.current.value
         const data = {"identifier": identifier, "password": password}
 
-      
+      try
+      {
         const response = await fetch('http://localhost:1337/api/auth/local', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
@@ -26,7 +27,7 @@ const Login = () =>
 
         if (!response.ok)
         {
-            setError("Błąd logowania")
+            setError("Błędne dane logowania")
         }
         else
         {
@@ -37,11 +38,16 @@ const Login = () =>
             navigate('/')
         }    
     }
+        catch
+        {
+            setError("Brak komunikacji z serwerem")
+        }
+    }
     
     return(
         <div className="login">
             <h1 className="title">Logowanie</h1>
-                <h3>{error}</h3>
+                <h3 id="error">{error}</h3>
             <form onSubmit= {onSubmit}>
                 <input className='input' ref={indentifierRef} type="text" name="identifier" placeholder="Nazwa użytkownika"/><br />
                 <input className='input' ref={passwordRef} type="password" name="password" placeholder="Hasło"/><br />
@@ -54,4 +60,5 @@ const Login = () =>
         </div>
     )
 }
+
 export default Login
