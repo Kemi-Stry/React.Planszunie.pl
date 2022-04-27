@@ -30,7 +30,8 @@ const MyProfile = () => {
             }
         }  
         fetchData() 
-    },[])    
+    },[])
+    console.log(data)    
 
     if (loading === true)
     {

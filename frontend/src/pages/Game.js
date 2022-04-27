@@ -4,17 +4,20 @@ import useFetch from "../hooks/useFetch"
 
 const Game = () => {
     const { id }  = useParams()
-    const { loading, error, data } = useFetch('http://localhost:1337/api/games/'+id+'?populate=*')
+    const { loading, error, data } = useFetch('http://localhost:1337/api/games/'+id)
     console.log(data)
 
     if(error)
     return(error)
 
-    if(loading === true)
+    if(loading)
     return(<Loading/>)
    
     return(
-        <h1>{data.title}</h1> 
+        <div>
+            <h1>{data.title}</h1> 
+        </div>
+        
     )
 }
 export default Game
