@@ -6,6 +6,9 @@ import Register from './pages/Register';
 import ErrorPage from './pages/ErrorPage';
 import Regulations from './pages/Regulations';
 import MyProfile from './pages/MyProfile';
+import Profile from './pages/Profile';
+import Game from './pages/Game';
+import BrowseGame from './pages/BrowseGame';
 
 
 function App() {
@@ -17,6 +20,9 @@ function App() {
             <Route path="/logowanie" element={<Login/>} />
             <Route path="/rejestracja" element={<Register/>} />
             <Route path='/profil/me' element={<MyProfile/>}/>
+            <Route path='/profil/:id' element={<Profile/>}/>
+            <Route path='/gra/:id' element={<Game/>}/>
+            <Route path='/przegladaj' element={<BrowseGame/>}/>
             <Route path="/regulamin" element={<Regulations/>} />
             <Route path="*" element={<ErrorPage/>}/>
           </Routes>
