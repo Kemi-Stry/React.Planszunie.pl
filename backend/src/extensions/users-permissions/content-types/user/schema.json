@@ -78,6 +78,9 @@
     },
     "user_id": {
       "type": "uid"
+    },
+    "description": {
+      "type": "text"
     }
   }
 }

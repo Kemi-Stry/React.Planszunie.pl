@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom"
 import Loading from '../components/Loading'
 import useFetch from "../hooks/useFetch"
+import Header from "../components/Header"
 
 const Game = () => {
     const { id }  = useParams()
@@ -14,9 +15,12 @@ const Game = () => {
     return(<Loading/>)
    
     return(
+        <>
+        <Header/>
         <div>
             <h1>{data.title}</h1> 
         </div>
+        </>
         
     )
 }

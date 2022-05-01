@@ -8,7 +8,7 @@ import Regulations from './pages/Regulations';
 import MyProfile from './pages/MyProfile';
 import Profile from './pages/Profile';
 import Game from './pages/Game';
-import BrowseGame from './pages/BrowseGame';
+import BrowseGames from './pages/BrowseGames';
 
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
             <Route path='/profil/me' element={<MyProfile/>}/>
             <Route path='/profil/:id' element={<Profile/>}/>
             <Route path='/gra/:id' element={<Game/>}/>
-            <Route path='/przegladaj' element={<BrowseGame/>}/>
+            <Route path='/przegladaj' element={<BrowseGames/>}/>
             <Route path="/regulamin" element={<Regulations/>} />
             <Route path="*" element={<ErrorPage/>}/>
           </Routes>

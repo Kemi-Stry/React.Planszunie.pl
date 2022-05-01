@@ -1,0 +1,87 @@
+.search
+{
+    width: 776px;
+    height: 68px;
+    background: rgba(255, 255, 255, 0.75);
+    border-radius: 10px;
+    border-color: transparent;
+    font-weight: 400;
+    font-size: 24px;
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+.options
+{
+    float: left;
+    width: 270px;
+    margin-top: 120px;
+}
+
+.filtr
+{
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    max-height: 400px;
+    width: 100%;
+    padding-left: 15px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    background: rgba(255, 255, 255, 0.75);
+    border-radius: 10px;
+    border-color: transparent;
+}
+.content
+{
+    float: right;
+    text-align: center;
+    width: 70%;
+    margin-right: 10px;
+}
+
+.games
+{
+    display: flex;
+    align-content: space-between;
+    flex-flow: row;
+    flex-wrap: wrap;
+    gap: 25px;
+    overflow: auto;
+    width: 100%;
+    height: 750px;
+    margin-top: 45px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.game
+{
+    width: 300px;
+    height: 250px;
+    background: rgba(255, 255, 255, 0.75);
+    border-radius: 10px;
+}
+
+.game:hover
+{
+    cursor: pointer;
+}
+
+.games::-webkit-scrollbar 
+{
+    width: 10px;
+}
+
+.games::-webkit-scrollbar-track 
+{
+    background: #d6d6d6;
+    
+}
+
+.game::-webkit-scrollbar-thumb 
+{
+    background: #504f53;
+    border-radius: 11px;
+}

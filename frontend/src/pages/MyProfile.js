@@ -1,3 +1,4 @@
+import './MyProfile.css'
 import Header from "../components/Header"
 import Loading from '../components/Loading'
 import { getToken } from '../components/Auth'
@@ -56,7 +57,8 @@ const MyProfile = () => {
     return(
         <>
         <Header/>
-        <h1>{data.username}</h1>
+        <h1 className='username'>{data.username}</h1>
+        <pre className="description">{data.description}</pre>
 
         </>
 

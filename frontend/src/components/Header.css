@@ -2,7 +2,9 @@
 {
     width: 100%;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 10px
 }
 
 .homelink
@@ -12,4 +14,40 @@
     color: black;
     font-size: 48px;
     font-weight: bold;
+}
+
+.buttonlink
+{
+    align-self: flex-end;
+    justify-self: flex-end;
+    margin-left: auto;
+    margin-right: 10px;
+}
+
+.loginbutton
+{
+    justify-self: flex-end;
+    margin-right: 10px;
+    width: 178.82px;
+    height: 60px;
+    background: #E1D1E4;
+    border-radius: 10px;
+    border-color: transparent;
+    font-weight: 400;
+    font-size: 24px;
+}
+
+.loginbutton:hover
+{
+    cursor: pointer;
+}
+
+#profil
+{
+    justify-self: flex-end;
+    margin-left: auto;
+    margin-right: 48px;
+    font-weight: 400;
+    font-size: 24px;
+    color: black;
 }
