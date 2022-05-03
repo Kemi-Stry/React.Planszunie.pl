@@ -34,7 +34,7 @@ const MyProfile = () => {
     },[])
     console.log(data)    
 
-    if (loading === true)
+    if (loading)
     {
         return (
         <>
@@ -44,7 +44,7 @@ const MyProfile = () => {
         )
     }
 
-    if (error === true)
+    if (error)
     {
         return(
             <>
