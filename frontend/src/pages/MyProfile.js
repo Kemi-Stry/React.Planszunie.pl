@@ -1,4 +1,4 @@
-import './MyProfile.css'
+import './styles/MyProfile.css'
 import Header from "../components/Header"
 import Loading from '../components/Loading'
 import { getToken } from '../components/Auth'

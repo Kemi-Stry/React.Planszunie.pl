@@ -1,4 +1,4 @@
-import './Regulations.css'
+import './styles/Regulations.css'
 
 const Regulations = () =>
 {

@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom"
 import Loading from '../components/Loading'
 import useFetch from "../hooks/useFetch"
 import Header from "../components/Header"
+import "./styles/Game.css"
 
 const Game = () => {
     const { id }  = useParams()

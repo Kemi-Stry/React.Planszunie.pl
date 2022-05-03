@@ -1,4 +1,4 @@
-import './Register.css'
+import './styles/Register.css'
 import { Link } from 'react-router-dom'
 import { useRef, useState } from 'react'
 

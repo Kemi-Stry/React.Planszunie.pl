@@ -1,4 +1,4 @@
-import "./BrowseGame.css"
+import "./styles/BrowseGame.css"
 import useFetch from "../hooks/useFetch"
 import Header from "../components/Header"
 import Loading from "../components/Loading"

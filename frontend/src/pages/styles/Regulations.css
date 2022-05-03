@@ -1,0 +1,44 @@
+.regulations
+{
+    padding: 10px;
+    padding-right: 20px;
+    background-color: white;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: justify;
+    
+}
+
+ul
+{
+    list-style: inside;
+}
+
+li 
+{
+    word-wrap: break-word;
+    font-size: 14px;
+    list-style-position: outside;
+
+}
+
+p
+{
+    font-size: 14px;
+}
+
+#h1
+{
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#h2
+{
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+
