@@ -18,25 +18,25 @@ const Login = () =>
         const data = {"identifier": identifier, "password": password}
 
       try
-      {
-        const response = await fetch('http://localhost:1337/api/auth/local', {
+        {
+            const response = await fetch('http://localhost:1337/api/auth/local', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(data)
-        })
+            })
 
-        if (!response.ok)
-        {
-            setError("Błędne dane logowania")
+            if (!response.ok)
+            {
+                setError("Błędne dane logowania")
+            }
+            else
+            {
+                setError(null)
+                const json = await response.json()
+                setUser(json)
+                navigate('/')
+            }    
         }
-        else
-        {
-            setError(null)
-            const json = await response.json()
-            setUser(json)
-            navigate('/')
-        }    
-    }
         catch
         {
             setError("Brak komunikacji z serwerem")

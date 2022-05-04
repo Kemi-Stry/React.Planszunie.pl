@@ -16,12 +16,10 @@ const Register = () =>
         if(checked !== true)
         {
             setDisabled(!disabled)
-            console.log("cheched")
         }
         else
         {
             setDisabled(true)
-            console.log("uncheched")
         }
     }
 
@@ -35,36 +33,11 @@ const Register = () =>
 
         try
         {
-            // alert("1")
-            // const data = await fetch('http://localhost:1337/api/users')
-            // const response = data.json()
-            
-            // const dataArray = [data.username]
-            // console.log(dataArray)
-            // alert("2")
-        //    for(user in dataArray){
-        //         if (user.email== username) {
-        //             alert("Podany login jest już zajęty")
-        //             return
-                
-        //        if (user.email == email) {
-        //             alert("Podana nazwa użytkownika jest już zajęty")
-        //             return
-                
-            // if( user.username==username) {
-            //     alert("Podany login jest już zajęty")
-            //     return
-            // }
-            // if(user.email==email) {
-            //     alert("Podana nazwa użytkownika jest już zajęty")
-        //         return
-            
             if(password!==checkPassword) {
                 alert("Pola Haslo oraz Powtórz hasło muszą być takie same!")
                 return
             }
-            try
-            {
+            
             const response = await fetch('http://localhost:1337/api/auth/local/register', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
@@ -75,15 +48,9 @@ const Register = () =>
             const json = await response.json()
             console.log(json)
             }
-            catch
-            {
-                if(username.length<3)
-                    alert("Nazwa użytkownika musi się składać z conajmniej 3 znaków!")
-                if(password.length<6)
-                    alert("Hasło musi się składać z conajmniej 6 znaków!")
-            }
             
-        }
+            
+        
         catch
         {
             alert("error")

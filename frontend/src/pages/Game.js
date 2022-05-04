@@ -7,7 +7,6 @@ import "./styles/Game.css"
 const Game = () => {
     const { id }  = useParams()
     const { loading, error, data } = useFetch('http://localhost:1337/api/games/'+id+'?populate=*')
-    console.log(data)
 
     if(error)
     return(error)
