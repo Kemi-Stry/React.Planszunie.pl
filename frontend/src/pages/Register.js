@@ -2,17 +2,20 @@ import './styles/Register.css'
 import { Link, useNavigate } from 'react-router-dom'
 import { useRef, useState } from 'react'
 
-
 const Register = () =>
-{
+{   
     let navigate = useNavigate()
     const [error, setError] = useState(null)
+    const [checked, setChecked] = useState(false)
+    const [disabled, setDisabled] = useState(true)
+    const [success, setSuccess] = useState(null)
     const usernameRef = useRef()
     const emailRef = useRef()
     const passwordRef = useRef()
     const checkPasswordRef = useRef()
-    const [checked, setChecked] = useState(false)
-    const [disabled, setDisabled] = useState(true)
+
+    if(success !== null)
+    return(<h1>{success}</h1>)
     
     const handleChange = () => {
         setChecked(!checked)
@@ -54,15 +57,10 @@ const Register = () =>
             else
             {
                 setError(null)
-                const json = await response.json()
-                console.log(json)
-                error("Zostałeś pomyślnie zarejestrowany, teraz możesz się zalogować!")
-                //SetTimeout(()=>navigate('/logowanie'),2000)  próba opóźnienia
+                setSuccess("Konto zostało stworzone, za chwilę nastąpi przekierowanie")
+                setTimeout(()=>navigate('/logowanie'),3000)
             }  
-            //To przełożyłem wyżej
-            /*const json = await response.json()
-            console.log(json)*/
-            }
+        }
         catch
         {
             setError("Brak komunikacji z serwerem.")
@@ -73,6 +71,7 @@ const Register = () =>
     <div className="register">
         <h1 className="title">Rejestracja</h1>
         <form onSubmit= {onSubmit}>
+            <h3 className="error">{error}</h3>
             <input className='input' ref={usernameRef} type="text" name="username" placeholder="Nazwa użytkownika" minLength="3" required/><br />
             <input className='input' ref={emailRef} type="email" name="email" placeholder="Email" required/><br />
             <input className='input' ref={passwordRef} type="text" name="password" placeholder="Hasło" minLength="6" required/><br />
