@@ -1,9 +1,12 @@
 import './styles/Register.css'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useRef, useState } from 'react'
+
 
 const Register = () =>
 {
+    let navigate = useNavigate()
+    const [error, setError] = useState(null)
     const usernameRef = useRef()
     const emailRef = useRef()
     const passwordRef = useRef()
@@ -30,7 +33,6 @@ const Register = () =>
         const email= emailRef.current.value
         const password = passwordRef.current.value
         const checkPassword = checkPasswordRef.current.value
-
         try
         {
             if(password!==checkPassword) {
@@ -45,15 +47,25 @@ const Register = () =>
                 "email": email,
                 "password": password})
             })
-            const json = await response.json()
-            console.log(json)
+            if (!response.ok)
+            {
+                setError("Nazwa użytkownika lub email jest już zajęta.")
             }
-            
-            
-        
+            else
+            {
+                setError(null)
+                const json = await response.json()
+                console.log(json)
+                error("Zostałeś pomyślnie zarejestrowany, teraz możesz się zalogować!")
+                //SetTimeout(()=>navigate('/logowanie'),2000)  próba opóźnienia
+            }  
+            //To przełożyłem wyżej
+            /*const json = await response.json()
+            console.log(json)*/
+            }
         catch
         {
-            alert("error")
+            setError("Brak komunikacji z serwerem.")
         }
     }
 
