@@ -1,11 +1,88 @@
+.left
+{
+    float: left;
+    width: 50%;
+    margin-left: 10px;
+}
+
+.right
+{
+    float: left;
+    width: 50%;
+    
+}
+
+.title
+{
+    text-align: center;
+}
+
+.opinions
+{
+    clear: both;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 #description
 {
-    width: 75%;
+    width: 100%;
+}
+
+pre
+{
+    white-space: pre-wrap;
+    word-wrap: break-word;
 }
 
 .img
 {
-    max-width:100%;
-    max-height:100%;
-    object-fit: cover;
+    width: 350px;
+    height: 250px;
+    object-fit: scale-down;
+}
+
+#opinia
+{
+    width: 500px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.75);
+    border: 1px solid #A7A4A4;
+    border-radius: 10px;
+    font-weight: 400;
+    font-size: 24px;
+    padding-left: 10px;
+}
+
+#ocena
+{
+    width: 120px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.75);
+    border: 1px solid #A7A4A4;
+    border-radius: 10px;
+    font-weight: 400;
+    font-size: 24px;
+    text-align: center;
+    margin-left: 5px;
+}
+
+#ocena::-webkit-outer-spin-button,
+#ocena::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+#submit_opinion
+{
+    background: rgba(82, 255, 130, 0.75);
+    border-radius: 10px;
+    width: 120px;
+    height: 60px;
+    font-weight: 400;
+    font-size: 24px;
+    border-color: transparent;
+    margin-left: 5px;
 }

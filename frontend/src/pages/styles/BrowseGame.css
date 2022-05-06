@@ -82,6 +82,13 @@
 
 .game::-webkit-scrollbar-thumb 
 {
-    background: #504f53;
+    background: #3201c5;
     border-radius: 11px;
+}
+
+.cover
+{
+    width: 300px;
+    height: 250px;
+    object-fit: scale-down;
 }

@@ -6,7 +6,7 @@ import { Link } from "react-router-dom"
 
 const BrowseGames = () => {
     
-    const { loading, error, data } = useFetch('http://localhost:1337/api/games')
+    const { loading, error, data } = useFetch('http://localhost:1337/api/games?populate=*')
     console.log(data)
 
     if(error)
@@ -39,7 +39,7 @@ const BrowseGames = () => {
                 {data.data.map(game => (
                     <Link key={game.attributes.title} to={"/gra/"+game.id}>
                         <div className="game">
-                            <h1>{game.attributes.title}</h1>
+                            <img className="cover" src={"http://localhost:1337"+game.attributes.icon.data.attributes.url} alt={game.attributes.title}/>
                         </div>
                     </Link>
                 ))}
