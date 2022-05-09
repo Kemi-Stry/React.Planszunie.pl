@@ -2,9 +2,10 @@
 {
     width: 100%;
     display: flex;
-    align-items: center;
     justify-content: flex-start;
-    margin-top: 10px
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .homelink
@@ -15,10 +16,19 @@
     font-size: 48px;
     font-weight: bold;
 }
+.headerlink
+{
+    justify-self: center;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 400;
+    font-size: 24px;
+    color: black;
+    
+}
 
 .buttonlink
 {
-    align-self: flex-end;
     justify-self: flex-end;
     margin-left: auto;
     margin-right: 10px;
@@ -51,3 +61,4 @@
     font-size: 24px;
     color: black;
 }
+

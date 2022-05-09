@@ -32,17 +32,19 @@ useEffect(() => {
   {
     return(
         <div className="header">
-           <Link className='homelink' to="/">Planszunie</Link>
-           <Link className='buttonlink' to="/logowanie"><button className='loginbutton'>Zaloguj</button></Link>
+           <Link className="homelink" to="/">Planszunie</Link>
+           <Link className="headerlink" to="/przegladaj">Przeglądaj gry</Link>
+           <Link className="headerlink" to="/dodawanie">Dodaj grę</Link>
+           <Link className="buttonlink" to="/logowanie"><button className='loginbutton'>Zaloguj</button></Link>
         </div>
     )
   }
  
     return(
         <div className="header">
-           <Link className='homelink' to="/">Planszunie</Link>
-           <Link id='profil' to="/profil/me">Mój profil</Link>
-           <button className='loginbutton' onClick={logout}>Wyloguj</button>
+           <Link className="homelink" to="/">Planszunie</Link>
+           <Link id="profil" to="/profil/me">Mój profil</Link>
+           <button className="loginbutton" onClick={logout}>Wyloguj</button>
         </div>
     )
 }
