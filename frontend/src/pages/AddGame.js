@@ -58,11 +58,31 @@ const AddGame = () => {
     return(
         <>
         <Header/>
-        <div className="form">
+        
             <form onSubmit={onSubmit}>
-
+                <div className="form">
+                    <div className="basics">
+                        <input type="file" name="image" />
+                        <input type="text" placeholder='Tytył' required/> <br />
+                        <textarea name="" id="" cols="30" rows="10" placeholder='Opis' required></textarea>
+                    </div>  
+                    <div className="parameters">
+                        <label htmlFor="authors">Autorzy:</label><br />
+                        <input type="text" name='authors' className='long' placeholder='Autor1, Autor2...'/><br />
+                        <label htmlFor="illustrators">Ilustratorzy:</label><br />
+                        <input type="text" name='illustrators' className='long' placeholder='Ilustrator1, Ilustrator2...'/><br />
+                        <label htmlFor="publisher">Wydawca:</label><br />
+                        <input type="text" name='publisher' className='long'/><br />
+                        <label htmlFor="number">Ilość graczy:</label><br />
+                        <input type="text" name='number' className='short' placeholder='od'/>
+                        <input type="text" name='number' className='short' placeholder='do'/><br />
+                        <label htmlFor="number">Czas gry:</label><br />
+                        <input type="text" className='short' name='time' placeholder=''/> <br />
+                    </div>
+                </div>
+                <input type="submit" value="Dodaj"/>
             </form>
-        </div>
+        
         </>
     )
 }

@@ -1,113 +1,35 @@
-.addGame
+.form
 {
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    background: rgba(251, 251, 251, 0.65);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 33px;
+   display: flex;
+   flex-direction: row;
+   align-items: flex-start;
+   margin-left: auto;
+   margin-right: auto;
+   justify-content: flex-start;
 }
-.Row
-{
-    display: flex;
-    flex-direction: row;
-    overflow: auto;
-    max-height: 400px;
-    width: 100%;
-    padding-left: 15px;
-    margin-top: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
-    background: rgba(255, 255, 255, 0.75);
-    border-radius: 10px;
-    border-color: transparent;
-}
-.Column
-{
-    display: flex;
-    flex-direction: column;
-    overflow: auto;
-    max-height: 400px;
-    width: 100%;
-    padding-left: 5px;
-    margin-top: 5px;
-    margin-left: 5px;
-    margin-right: 5px;
-    background: rgba(255, 255, 255, 0.75);
-    border-radius: 5px;
-    border-color: transparent;
-}
-.Image
-{
-    box-sizing: border-box;
 
-    width: 404px;
-    height: 286px;
-    left: 94px;
-    top: 146px;
-    
+.long
+{
+    width: 570px;
+    height: 60px;
+    font-weight: 400;
+    font-size: 24px;
+    margin-top: 5px;
+    margin-bottom: 5px;
     background: #F2F2F2;
     border: 1px solid #A8A5A5;
     border-radius: 5px;
+    padding-left: 10px;
 }
 
-.smallLable
+.short
 {
-    flex-direction: column;
     width: 160px;
-    height: 55px;
-    left: 506px;
-    top: 147px;
-
-    padding-left: 5px;
-    padding-right: 5px;
-    margin: 2px;
-    
-    filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.05));
-}
-
-.mediumLable
-{
-    width: 570px;
-    height: 55px;
-    left: 96px;
-    top: 437px;
-    
-    filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.05));
-}
-.bigLabel
-{
-    width: 570px;
-    height: 104px;
-    left: 96px;
-    top: 497px;
-    
-    filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.05));
-}
-
-.description
-{
-    width: 392px;
-    height: 628px;
-    left: 673px;
-    top: 149px;
-    
-    filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.05));
-}
-
-.category
-{
-    display: flex;
-    flex-direction: column;
-    overflow: auto;
-    max-height: 400px;
-    width: 100%;
-    padding-left: 15px;
-    margin-top: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
-    background: rgba(255, 255, 255, 0.75);
-    border-radius: 10px;
-    border-color: transparent;
+    height: 60px;
+    background: #F2F2F2;
+    border: 1px solid #A8A5A5;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: 400;
+    font-size: 24px;
 }
