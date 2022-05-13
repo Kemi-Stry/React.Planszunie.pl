@@ -8,6 +8,14 @@
     margin-bottom: 10px;
 }
 
+.links{
+    display: flex;
+    margin-left: auto;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+
 .homelink
 {
     margin-left: 10px;
@@ -61,4 +69,3 @@
     font-size: 24px;
     color: black;
 }
-
