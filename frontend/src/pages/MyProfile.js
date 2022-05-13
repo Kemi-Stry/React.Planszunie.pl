@@ -3,6 +3,7 @@ import Header from "../components/Header"
 import Loading from '../components/Loading'
 import { getToken } from '../components/Auth'
 import { useState,useEffect } from "react"
+import { Link } from 'react-router-dom'
 
 const MyProfile = () => {
     const [data, setData] = useState(null)
@@ -14,7 +15,7 @@ const MyProfile = () => {
         {
             setLoading(true)
             const token = 'Bearer '+getToken()
-            const response = await fetch('http://localhost:1337/api/users/me', {
+            const response = await fetch('http://localhost:1337/api/users/me?populate=*', {
                 headers: {Authorization: token},
             })
 
@@ -32,7 +33,7 @@ const MyProfile = () => {
         }  
         fetchData() 
     },[])
-    console.log(data)    
+    console.log(data)
 
     if (loading)
     {
@@ -58,8 +59,8 @@ const MyProfile = () => {
         <>
         <Header/>
         <h1 className='username'>{data.username}</h1>
+        <Link to="/profil/edytuj">Edytuj profil</Link>
         <pre className="description">{data.description}</pre>
-
         </>
 
     )

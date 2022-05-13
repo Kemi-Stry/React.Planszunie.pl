@@ -45,6 +45,10 @@ useEffect(() => {
     return(
         <div className="header">
            <Link className="homelink" to="/">Planszunie</Link>
+           <div className="links">
+                  <Link className="headerlink" to="/przegladaj">Przeglądaj gry</Link>
+                  <Link className="headerlink" to="/dodawanie">Dodaj grę</Link>
+            </div>
            <Link id="profil" to="/profil/me">Mój profil</Link>
            <button className="loginbutton" onClick={logout}>Wyloguj</button>
         </div>

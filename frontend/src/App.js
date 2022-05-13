@@ -10,6 +10,7 @@ import MyProfile from './pages/MyProfile';
 import Profile from './pages/Profile';
 import Game from './pages/Game';
 import BrowseGames from './pages/BrowseGames';
+import EditProfile from './pages/EditProfile';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
             <Route path="/dodawanie" element={<AddGame/>} />
             <Route path='/profil/me' element={<MyProfile/>}/>
             <Route path='/profil/:id' element={<Profile/>}/>
+            <Route path='/profil/edytuj' element={<EditProfile/>}/>
             <Route path='/gra/:id' element={<Game/>}/>
             <Route path='/przegladaj' element={<BrowseGames/>}/>
             <Route path="/regulamin" element={<Regulations/>} />

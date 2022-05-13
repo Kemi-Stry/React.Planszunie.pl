@@ -21,9 +21,9 @@ const Game = () => {
         <Header/>
         
 
-        <div class="wrapper-game">
-            <div class="flex-game">
-                <div class="left">
+        <div className="wrapper-game">
+            <div className="flex-game">
+                <div className="left">
                     <img src={img} className="img" alt={data.data.attributes.title}/> 
                     <h4>Autorzy: {data.data.attributes.authors}</h4>
                     <h4>Ilustratorzy: {data.data.attributes.artists}</h4>
@@ -37,7 +37,7 @@ const Game = () => {
                     ))}
                     </b>
                 </div>
-                <div class="right">
+                <div className="right">
                     <center>
                     <center><h1>{data.data.attributes.title}</h1></center>
                     <div id="description">
