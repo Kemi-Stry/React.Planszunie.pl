@@ -1,14 +1,16 @@
 .left
 {
-    float: left;
+    
     width: 50%;
     margin-left: 10px;
 }
 
 .right
 {
-    float: left;
-    width: 50%;
+    
+    width: 60%;
+    text-align: center;
+    margin-right: 10px;
     
 }
 
@@ -19,43 +21,42 @@
 
 .opinions
 {
-    clear: both;
     width: 60%;
     margin-left: auto;
     margin-right: auto;
-}
-
-#game
-.wrapper-game{
-    width: 100%;
-    max-width: 960px;
-    margin: 0 auto;
 }
 
 .flex-game{
     display: flex;
     justify-content: right;
     align-items: right;
-    width: calc(95% - 2em);
-    margin: 1em;
+    width: 100%;
+    height: auto;
+   
 }
 
 .left{
     text-align: left;
-    width: calc(50% - 2em);
+    width: 40%;
     margin: 1em;
 }
 
 #description
 {
     width: 100%;
+    margin: auto;
+    text-align: start;
+    height: auto;
 }
 
-pre
+.description
 {
     white-space: pre-wrap;
     word-wrap: break-word;
+    height: auto;
+    width: 90%;
 }
+
 
 .img
 {

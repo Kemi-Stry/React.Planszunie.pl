@@ -18,10 +18,7 @@ const Game = () => {
 
     return(
         <>
-        <Header/>
-        
-
-        <div className="wrapper-game">
+            <Header/>
             <div className="flex-game">
                 <div className="left">
                     <img src={img} className="img" alt={data.data.attributes.title}/> 
@@ -38,29 +35,25 @@ const Game = () => {
                     </b>
                 </div>
                 <div className="right">
-                    <center>
-                    <center><h1>{data.data.attributes.title}</h1></center>
+                    <h1>{data.data.attributes.title}</h1>
                     <div id="description">
                         <pre className="description">{data.data.attributes.description}</pre>
                     </div>
-                    </center>
                 </div>
             </div>
-        <div className="opinions">
-            <center><h1>Recenzje</h1></center>
-            <center><form onSubmit={null}>
+            <div className="opinions">
+            <h1>Recenzje</h1>
+            <form onSubmit={null}>
                         <input id="opinia" type="text" placeholder="Opinia"/>
                         <input id="ocena" type="number" placeholder="Ocena/10" max={10} min={0}/>
                         <input type="submit" id="submit_opinion" value="Dodaj" />
-            </form></center>
-            <center>
+            </form>
                     {data.data.attributes.opinions.data.map(opinions =>(
                     <p key={opinions.attributes.content}>{opinions.attributes.content}</p>
                     ))}
-            </center>
             </div>
-        </div>  
-    </>
+        
+        </>
   
     )
 }

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { useEffect } from 'react'
 import { isLogged, setUser } from '../components/Auth'
 import { useState } from 'react'
+import dice from '../img/dice.png'
 
 const Header = () => {
 
@@ -32,6 +33,7 @@ useEffect(() => {
   {
     return(
         <div className="header">
+              <Link to="/"><img className="dice" src={dice}/></Link>
               <Link className="homelink" to="/">Planszunie</Link>
               <div className="links">
                   <Link className="headerlink" to="/przegladaj">Przeglądaj gry</Link>

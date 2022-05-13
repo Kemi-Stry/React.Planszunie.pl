@@ -84,7 +84,7 @@ const AddGame = () => {
             <form onSubmit={onSubmit}>
                 <div className="form">
                     <div className="basics">
-                        <input ref={imageRef} type="image" name="image" required /><br />
+                        <input ref={imageRef} type="file" name="image" required /><br />
                         <input ref={titleRef} type="text" placeholder='Tytył' required/><br />
                         <textarea ref={decritionRef} name="" id="" cols="30" rows="10" placeholder='Opis' required></textarea><br />
                     </div>  

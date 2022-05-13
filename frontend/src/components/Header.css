@@ -69,3 +69,9 @@
     font-size: 24px;
     color: black;
 }
+.dice
+{
+    margin-left: 10px;
+    width: 64px;
+    height: 74px;
+}
