@@ -1,0 +1,26 @@
+.textarea
+{
+    resize: none;
+    font-weight: 400;
+    font-size: 24px;
+    width: 500px;
+    height: 400px;
+}
+
+.avatarInput
+{
+    width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.imgInput
+{
+    background: #F2F2F2;
+    border-radius: 128px;
+    width: 256px;
+    height: 256px;
+}
