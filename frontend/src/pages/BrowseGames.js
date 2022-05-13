@@ -3,11 +3,20 @@ import useFetch from "../hooks/useFetch"
 import Header from "../components/Header"
 import Loading from "../components/Loading"
 import { Link } from "react-router-dom"
+import { useState } from "react"
 
 const BrowseGames = () => {
     
     const { loading, error, data } = useFetch('http://localhost:1337/api/games?populate=*')
     console.log(data)
+
+    const search = (e) => {
+        let text = e.target.value
+        setSearchText(text)
+        console.log(text)
+    }
+
+    const [searchText, setSearchText] = useState("")
 
     if(error)
     return(error)
@@ -34,9 +43,14 @@ const BrowseGames = () => {
                 </div> 
            
             <div className="content">
-                <input className="search" type="text" placeholder="Wyszukiwanko"/>
+                <input className="search" type="text" placeholder="Wyszukiwanko" value={searchText} onChange={search}/>
                 <div className="games">
-                {data.data.map(game => (
+                {data.data.filter((game)=>{
+                    if (searchText == "")
+                        return game
+                    else if (game.attributes.title.toLowerCase().includes(searchText))
+                        return game    
+                }).map(game => (
                     <Link key={game.attributes.title} to={"/gra/"+game.id}>
                         <div className="game">
                             <img className="cover" src={"http://localhost:1337"+game.attributes.icon.data.attributes.url} alt={game.attributes.title}/>
