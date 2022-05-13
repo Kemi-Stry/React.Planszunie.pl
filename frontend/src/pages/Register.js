@@ -31,6 +31,7 @@ const Register = () =>
 
     const onSubmit = async (e) =>
     {
+        
         e.preventDefault()
         const username = usernameRef.current.value
         const email= emailRef.current.value
