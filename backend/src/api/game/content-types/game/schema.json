@@ -44,19 +44,13 @@
       "target": "api::opinion.opinion",
       "mappedBy": "game"
     },
-    "author": {
+    "authors": {
       "type": "string",
       "required": true
     },
-    "author2": {
-      "type": "string"
-    },
-    "artist": {
+    "artists": {
       "type": "string",
       "required": true
-    },
-    "artist2": {
-      "type": "string"
     },
     "publisher": {
       "type": "string",
@@ -70,7 +64,7 @@
       "type": "integer",
       "min": 1
     },
-    "time": {
+    "time_from": {
       "type": "integer",
       "min": 5
     },
@@ -82,6 +76,12 @@
       "relation": "manyToMany",
       "target": "api::category.category",
       "mappedBy": "games"
+    },
+    "time_to": {
+      "type": "integer"
+    },
+    "age": {
+      "type": "string"
     }
   }
 }
