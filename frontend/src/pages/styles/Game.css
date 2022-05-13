@@ -25,6 +25,27 @@
     margin-right: auto;
 }
 
+#game
+.wrapper-game{
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.flex-game{
+    display: flex;
+    justify-content: right;
+    align-items: right;
+    width: calc(95% - 2em);
+    margin: 1em;
+}
+
+.left{
+    text-align: left;
+    width: calc(50% - 2em);
+    margin: 1em;
+}
+
 #description
 {
     width: 100%;

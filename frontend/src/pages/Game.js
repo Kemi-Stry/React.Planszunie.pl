@@ -19,44 +19,49 @@ const Game = () => {
     return(
         <>
         <Header/>
-        <div className="left">
-            <img src={img} className="img" alt={data.data.attributes.title}/> 
-            <div className="parameteres">
-                <h4>Autorzy: {data.data.attributes.authors}</h4>
-                <h4>Ilustratorzy: {data.data.attributes.artists}</h4>
-                <h4>Wydawca: {data.data.attributes.publisher}</h4>
-                <h4>Ilość graczy: {data.data.attributes.players_from}-{data.data.attributes.players_to}</h4>
-                <h4>Czas gry: {data.data.attributes.time_from}-{data.data.attributes.time_to} min</h4>
-                <h4>Wiek: {data.data.attributes.age}</h4>
-            </div>
-
-            <div className="categories">
-                {data.data.attributes.categories.data.map(categories =>(
-                    <ul key={categories.attributes.name}><li>{categories.attributes.name}</li></ul>
-                    
-                ))}
-            </div>
-        </div>
-        <div className="right">
-            <h1>{data.data.attributes.title}</h1>
-            <div id="description">
-                <pre className="description">{data.data.attributes.description}</pre>
-            <div/>
-        </div>
-        </div>
-        <div className="opinions">
-            <h1>Recenzje</h1>
-                <form onSubmit={null}>
-                    <input id="opinia" type="text" placeholder="Opinia"/>
-                    <input id="ocena" type="number" placeholder="Ocena/10" max={10} min={0}/>
-                    <input type="submit" id="submit_opinion" value="Dodaj" />
-                </form>
-            {data.data.attributes.opinions.data.map(opinions =>(
-                    <p key={opinions.attributes.content}>{opinions.attributes.content}</p>
-                ))}
-            </div>
-        </>
         
+
+        <div class="wrapper-game">
+            <div class="flex-game">
+                <div class="left">
+                    <img src={img} className="img" alt={data.data.attributes.title}/> 
+                    <h4>Autorzy: {data.data.attributes.authors}</h4>
+                    <h4>Ilustratorzy: {data.data.attributes.artists}</h4>
+                    <h4>Wydawca: {data.data.attributes.publisher}</h4>
+                    <h4>Ilość graczy: {data.data.attributes.players_from}-{data.data.attributes.players_to}</h4>
+                    <h4>Czas gry: {data.data.attributes.time_from}-{data.data.attributes.time_to} min</h4>
+                    <h4>Wiek: {data.data.attributes.age}</h4>
+                    <b>Kategorie:
+                    {data.data.attributes.categories.data.map(categories =>(
+                        <ul key={categories.attributes.name}><li>{categories.attributes.name}</li></ul>
+                    ))}
+                    </b>
+                </div>
+                <div class="right">
+                    <center>
+                    <center><h1>{data.data.attributes.title}</h1></center>
+                    <div id="description">
+                        <pre className="description">{data.data.attributes.description}</pre>
+                    </div>
+                    </center>
+                </div>
+            </div>
+        <div className="opinions">
+            <center><h1>Recenzje</h1></center>
+            <center><form onSubmit={null}>
+                        <input id="opinia" type="text" placeholder="Opinia"/>
+                        <input id="ocena" type="number" placeholder="Ocena/10" max={10} min={0}/>
+                        <input type="submit" id="submit_opinion" value="Dodaj" />
+            </form></center>
+            <center>
+                    {data.data.attributes.opinions.data.map(opinions =>(
+                    <p key={opinions.attributes.content}>{opinions.attributes.content}</p>
+                    ))}
+            </center>
+            </div>
+        </div>  
+    </>
+  
     )
 }
 export default Game
