@@ -11,9 +11,7 @@ const BrowseGames = () => {
     console.log(data)
 
     const search = (e) => {
-        let text = e.target.value
-        setSearchText(text)
-        console.log(text)
+        setSearchText(e.target.value)
     }
 
     const [searchText, setSearchText] = useState("")
