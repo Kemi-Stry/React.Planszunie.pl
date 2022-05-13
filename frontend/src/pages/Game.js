@@ -22,11 +22,12 @@ const Game = () => {
         <div className="left">
             <img src={img} className="img" alt={data.data.attributes.title}/> 
             <div className="parameteres">
-                <h4>Autorzy: {data.data.attributes.author}, {data.data.attributes.author2}</h4>
-                <h4>Ilustratorzy: {data.data.attributes.artist}, {data.data.attributes.artist2}</h4>
+                <h4>Autorzy: {data.data.attributes.authors}</h4>
+                <h4>Ilustratorzy: {data.data.attributes.artists}</h4>
                 <h4>Wydawca: {data.data.attributes.publisher}</h4>
                 <h4>Ilość graczy: {data.data.attributes.players_from}-{data.data.attributes.players_to}</h4>
-                <h4>Czas gry: {data.data.attributes.time} min</h4>
+                <h4>Czas gry: {data.data.attributes.time_from}-{data.data.attributes.time_to} min</h4>
+                <h4>Wiek: {data.data.attributes.age}</h4>
             </div>
 
             <div className="categories">
