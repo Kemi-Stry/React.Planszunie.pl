@@ -48,24 +48,19 @@ const AddGame = () => {
         console.log(body)                
         try
         {
-            const response = await fetch('http://localhost:1337/api/games', {
+            const response1 = await fetch('http://localhost:1337/api/games', {
                 method: 'POST',
-                headers: {Authorization: token},
+                headers: {Authorization: token, 'Content-Type': 'application/json'},
                 body: body
-                // body: JSON.stringify({"data":{"title":title,
-                // "description": description,
-                // "authors": authors,
-                // "artists": artists,
-                // "publisher": publisher,
-                // "players_from": players_from,
-                // "players_to": players_to,
-                // "time_from": time_from,
-                // "time_to": time_to,
-                // "age": age}})
             })
-            if (!response.ok)
+            const response2 = await fetch('http://localhost:1337/api/upload', {
+                method: 'POST',
+                headers: {Authorization: token, 'Content-Type': 'application/json'},
+                body: {}
+            })
+            if (!response1.ok && !response2.ok)
             {
-                setError("Bład")
+                setError("Błąd")
             }
             else
             {

@@ -9,8 +9,8 @@ const EditProfile = () => {
     const [loading, setLoading] = useState(true)
 
     const descriptionRef = useRef()
-
     const token = 'Bearer '+getToken()
+
     useEffect(() => {
         const fetchData = async () =>
         {
@@ -31,7 +31,7 @@ const EditProfile = () => {
                 setLoading(false)
             }
         }  
-        fetchData() 
+        fetchData()
     },[])
     console.log(data)
 
@@ -41,7 +41,7 @@ const EditProfile = () => {
         e.preventDefault()
              await fetch('http://localhost:1337/api/users/'+data.id, {
                 method: 'PUT',
-                headers: {Authorization: token},
+                headers: {Authorization: token, 'Content-Type': 'application/json'},
                 body: JSON.stringify({"description":descriptionRef.current.value})
             })
     } 
