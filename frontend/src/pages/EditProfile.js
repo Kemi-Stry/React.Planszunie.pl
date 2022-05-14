@@ -52,10 +52,10 @@ const EditProfile = () => {
             <Header/>
             <form id="editProfile "onSubmit={onSubmit}>
                 <div className=''>
-                <input type="file" id='avatar'className='avatarInput' accept=".png, .jpg, .jpeg, .gif" />
-                <label htmlFor="avatar" id='avatarLabel' className='avatarLabel'><div className="imgInput"></div></label>
-                <textarea form='editProfile' className='textarea' ref={descriptionRef} defaultValue={data.description} />
-                <input type="submit" value="zapisz"/>
+                    <input type="file" id='avatar'className='avatarInput' accept=".png, .jpg, .jpeg, .gif" />
+                    <label htmlFor="avatar" id='avatarLabel' className='avatarLabel'><div className="imgInput"></div></label>
+                    <textarea form='editProfile' className='textarea' ref={descriptionRef} defaultValue={data.description} />
+                    <input type="submit" value="zapisz"/>
                 </div>
             </form>
        </>

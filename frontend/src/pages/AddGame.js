@@ -22,7 +22,7 @@ const AddGame = () => {
     const onSubmit = async (e) =>
     {
         e.preventDefault()
-        const image = imageRef.current.value
+        // const image = imageRef.current.value
         const title = titleRef.current.value
         const description = decritionRef.current.value
         const authors = authorRef.current.value
@@ -34,7 +34,9 @@ const AddGame = () => {
         const time_to = timeToRef.current.value
         const age = ageToRef.current.value
         const token = "Bearer "+getToken()
-        const data = {"data":{"description": description,
+        const body = JSON.stringify({"data":{
+                        "title": title,
+                        "description": description,
                         "authors": authors,
                         "artists": artists,
                         "publisher": publisher,
@@ -42,14 +44,14 @@ const AddGame = () => {
                         "players_to": players_to,
                         "time_from": time_from,
                         "time_to": time_to,
-                        "age": age}}
-        console.log(data)                
+                        "age": age}})
+        console.log(body)                
         try
         {
-            const response = await fetch(' http://localhost:1337/api/games', {
+            const response = await fetch('http://localhost:1337/api/games', {
                 method: 'POST',
                 headers: {Authorization: token},
-                body: data
+                body: body
                 // body: JSON.stringify({"data":{"title":title,
                 // "description": description,
                 // "authors": authors,
@@ -80,11 +82,11 @@ const AddGame = () => {
     return(
         <>
         <Header/>
-        
+        <h1>{error}</h1>
             <form onSubmit={onSubmit}>
                 <div className="form">
                     <div className="basics">
-                        <input ref={imageRef} type="file" name="image" required /><br />
+                        {/* <input ref={imageRef} type="file" name="image" required /><br /> */}
                         <input ref={titleRef} type="text" placeholder='Tytył' required/><br />
                         <textarea ref={decritionRef} name="" id="" cols="30" rows="10" placeholder='Opis' required></textarea><br />
                     </div>  
