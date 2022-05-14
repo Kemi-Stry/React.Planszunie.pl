@@ -3,6 +3,7 @@ import useFetch from "../hooks/useFetch"
 import Loading from '../components/Loading'
 import './styles/Profile.css'
 import Header from '../components/Header'
+import neko from '../img/neko_fly.gif'
 
 
 const Profile = () => {
@@ -16,13 +17,18 @@ const Profile = () => {
     if(loading)
     return(<Loading/>)
 
-    const avatar = 'http://localhost:1337'+data.avatar.url
+    let avatar
+
+    if (data.avatar === null)
+        avatar = neko
+    else
+        avatar = 'http://localhost:1337'+data.avatar.url    
     
     return(
         <>
         <Header/>
         <div className="user">
-            <img className="avatar" src={avatar} alt="" />
+            <img className="avatar" src={avatar} alt="avatar" />
             <h1 className='username'>{data.username}</h1>
         </div>
         </>

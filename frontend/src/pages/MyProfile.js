@@ -4,7 +4,7 @@ import Loading from '../components/Loading'
 import { getToken, getID } from '../components/Auth'
 import { useState,useEffect } from "react"
 import { Link } from 'react-router-dom'
-
+import neko from '../img/neko_fly.gif'
 
 const MyProfile = () => {
     const [data, setData] = useState(null)
@@ -38,7 +38,6 @@ const MyProfile = () => {
     },[])
     console.log(data)
 
-    
 
     if (loading)
     {
@@ -59,13 +58,19 @@ const MyProfile = () => {
             </>
         )
     }
-    const avatar = 'http://localhost:1337'+data.avatar.url
+
+        let avatar
+
+    if (data.avatar === null)
+        avatar = neko
+    else
+        avatar = 'http://localhost:1337'+data.avatar.url  
 
     return(
         <>
         <Header/>
         <div className="user">
-            <img className="avatar" src={avatar} alt="avatar" />
+            <img className="avatar" defaultValue={neko} src={avatar} alt="avatar" />
             <h1 className='username'>{data.username}</h1>
             <Link className="editProfile" to="/profil/edytuj">Edytuj profil</Link>
         </div>

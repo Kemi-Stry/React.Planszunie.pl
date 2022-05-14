@@ -39,7 +39,7 @@ const EditProfile = () => {
         console.log(descriptionRef.current.value)
         
         e.preventDefault()
-        const response = await fetch('http://localhost:1337/api/users/'+data.id, {
+             await fetch('http://localhost:1337/api/users/'+data.id, {
                 method: 'PUT',
                 headers: {Authorization: token},
                 body: JSON.stringify({"description":descriptionRef.current.value})
@@ -50,12 +50,11 @@ const EditProfile = () => {
     return(
         <>
             <Header/>
-            <form onSubmit={onSubmit}>
+            <form id="editProfile "onSubmit={onSubmit}>
                 <div className=''>
                 <input type="file" id='avatar'className='avatarInput' accept=".png, .jpg, .jpeg, .gif" />
                 <label htmlFor="avatar" id='avatarLabel' className='avatarLabel'><div className="imgInput"></div></label>
-                
-                <textarea name="" className='textarea' ref={descriptionRef} defaultValue={data.description} />
+                <textarea form='editProfile' className='textarea' ref={descriptionRef} defaultValue={data.description} />
                 <input type="submit" value="zapisz"/>
                 </div>
             </form>
