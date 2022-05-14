@@ -17,3 +17,9 @@ export const getToken = () =>
     const user = getUser()
     return user.jwt
 }
+
+export const getID = () =>
+{
+    const user = getUser()
+    return user.user.id
+}

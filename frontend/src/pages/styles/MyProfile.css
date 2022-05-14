@@ -1,11 +1,20 @@
-.description
-{
-    font-weight: 400;
-    font-size: 24px;
-}
-
 .username
 {
     font-weight: 700;
     font-size: 48px;
+}
+
+.editProfile
+{
+    color: black;
+    font-weight: 400;
+    font-size: 24px;
+    margin-left: 60px;
+}
+
+.description
+{
+    font-weight: 400;
+    font-size: 24px;
+    margin-left: 90px;
 }

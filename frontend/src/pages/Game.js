@@ -28,11 +28,10 @@ const Game = () => {
                     <h4>Ilość graczy: {data.data.attributes.players_from}-{data.data.attributes.players_to}</h4>
                     <h4>Czas gry: {data.data.attributes.time_from}-{data.data.attributes.time_to} min</h4>
                     <h4>Wiek: {data.data.attributes.age}</h4>
-                    <b>Kategorie:
+                    <h2>Kategorie</h2>
                     {data.data.attributes.categories.data.map(categories =>(
                         <ul key={categories.attributes.name}><li>{categories.attributes.name}</li></ul>
                     ))}
-                    </b>
                 </div>
                 <div className="right">
                     <h1>{data.data.attributes.title}</h1>

@@ -1,0 +1,16 @@
+.user
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.avatar
+{
+    width: 128px;
+    height: 128px;
+    border-radius: 64px;
+    margin-left: 90px;
+    margin-right: 10px;
+}
+

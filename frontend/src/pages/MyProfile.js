@@ -1,21 +1,24 @@
 import './styles/MyProfile.css'
 import Header from "../components/Header"
 import Loading from '../components/Loading'
-import { getToken } from '../components/Auth'
+import { getToken, getID } from '../components/Auth'
 import { useState,useEffect } from "react"
 import { Link } from 'react-router-dom'
+
 
 const MyProfile = () => {
     const [data, setData] = useState(null)
     const [error, setError] = useState(null)
     const [loading, setLoading] = useState(true)
 
+   
+
     useEffect(() => {
         const fetchData = async () =>
         {
             setLoading(true)
             const token = 'Bearer '+getToken()
-            const response = await fetch('http://localhost:1337/api/users/me?populate=*', {
+            const response = await fetch('http://localhost:1337/api/users/'+getID()+'?populate=*', {
                 headers: {Authorization: token},
             })
 
@@ -34,6 +37,8 @@ const MyProfile = () => {
         fetchData() 
     },[])
     console.log(data)
+
+    
 
     if (loading)
     {
@@ -54,12 +59,17 @@ const MyProfile = () => {
             </>
         )
     }
+    const avatar = 'http://localhost:1337'+data.avatar.url
 
     return(
         <>
         <Header/>
-        <h1 className='username'>{data.username}</h1>
-        <Link to="/profil/edytuj">Edytuj profil</Link>
+        <div className="user">
+            <img className="avatar" src={avatar} alt="avatar" />
+            <h1 className='username'>{data.username}</h1>
+            <Link className="editProfile" to="/profil/edytuj">Edytuj profil</Link>
+        </div>
+            
         <pre className="description">{data.description}</pre>
         </>
 
