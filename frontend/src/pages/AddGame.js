@@ -18,10 +18,17 @@ const AddGame = () => {
     const ageToRef = useRef()
     const imageRef = useRef()
     const [error, setError] = useState(null)
+    const [data, setData] = useState({})
+    const [picture, setPicture] = useState({})
 
-    const onSubmit = async (e) =>
-    {
+    const onChange = (e) => {
+        setPicture(e.target.files[0])
+        console.log(picture)
+    }
+
+    const onSubmit = async (e) => {
         e.preventDefault()
+        console.log(picture)
         // const image = imageRef.current.value
         const title = titleRef.current.value
         const description = decritionRef.current.value
@@ -45,7 +52,7 @@ const AddGame = () => {
                         "time_from": time_from,
                         "time_to": time_to,
                         "age": age}})
-        console.log(body)                
+        
         try
         {
             const response1 = await fetch('http://localhost:1337/api/games', {
@@ -53,12 +60,18 @@ const AddGame = () => {
                 headers: {Authorization: token, 'Content-Type': 'application/json'},
                 body: body
             })
+
+            setData(response1.json)
+
             const response2 = await fetch('http://localhost:1337/api/upload', {
                 method: 'POST',
                 headers: {Authorization: token, 'Content-Type': 'application/json'},
+                files: picture,
+                refID: data.id,
+                field: "icon",
                 body: {}
             })
-            if (!response1.ok && !response2.ok)
+            if (!response1.ok || !response2.ok)
             {
                 setError("Błąd")
             }
@@ -71,6 +84,7 @@ const AddGame = () => {
         {
             setError("Brak komunikacji z serwerem.")
         }
+        console.log(picture)
         
     }
 
@@ -81,7 +95,7 @@ const AddGame = () => {
             <form onSubmit={onSubmit}>
                 <div className="form">
                     <div className="basics">
-                        {/* <input ref={imageRef} type="file" name="image" required /><br /> */}
+                        <input ref={imageRef} type="file" id="image" name="image" onChange={onChange} required /><br />
                         <input ref={titleRef} type="text" placeholder='Tytył' required/><br />
                         <textarea ref={decritionRef} name="" id="" cols="30" rows="10" placeholder='Opis' required></textarea><br />
                     </div>  
@@ -100,7 +114,6 @@ const AddGame = () => {
                         <input ref={timeToRef} type="text" className='short' name='time' placeholder='do' required/> <br />
                         <label htmlFor="publisher">Wiek:</label><br />
                         <input ref={ageToRef}type="text" name='wiek' className='long' required/><br />
-
                     </div>
                     <input  type="submit" value="Dodaj" />
                 </div> 
