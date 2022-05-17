@@ -52,6 +52,10 @@ const AddGame = () => {
                         "time_from": time_from,
                         "time_to": time_to,
                         "age": age}})
+
+        const file = picture
+        const formdata = new FormData()
+        
         
         try
         {
@@ -62,14 +66,15 @@ const AddGame = () => {
             })
 
             setData(response1.json)
+            formdata.append('files', file)
+            formdata.append('refId', data.data.id)
+            formdata.append('ref', data.data.game_id)
+            formdata.append('field', 'icon')
 
             const response2 = await fetch('http://localhost:1337/api/upload', {
                 method: 'POST',
-                headers: {Authorization: token, 'Content-Type': 'application/json'},
-                files: picture,
-                refID: data.id,
-                field: "icon",
-                body: {}
+                headers: {Authorization: token},
+                body: formdata
             })
             if (!response1.ok || !response2.ok)
             {

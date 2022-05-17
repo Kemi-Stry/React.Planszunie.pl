@@ -44,10 +44,12 @@ const EditProfile = () => {
 
     const onSubmit = async (e) => {
         e.preventDefault()
-        const formdata = new formdata()
+        const formdata = new FormData()
         const file = picture
-        formdata.append('file', file)
-        formdata.append('refID', getID())
+        formdata.append('files', file)
+        formdata.append('refId', getID())
+        formdata.append('ref', data.user_id)
+        formdata.append('field', 'avatar')
         
         
              await fetch('http://localhost:1337/api/users/'+data.id, {
@@ -58,10 +60,10 @@ const EditProfile = () => {
 
             await fetch('http://localhost:1337/api/upload/', {
                 method: 'POST',
-                headers: {Authorization: token, 'Content-Type': 'multipart/form-data'},
+                headers: {Authorization: token},
                 body: formdata
             })
-    } 
+    }
 
 
     return(
