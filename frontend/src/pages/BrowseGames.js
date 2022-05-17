@@ -61,7 +61,7 @@ const BrowseGames = () => {
                 {data.data.filter((game)=>{
                     if (searchText == "")
                         return game
-                    else if (game.attributes.title.toLowerCase().includes(searchText))
+                    else if (game.attributes.title.toLowerCase().includes(searchText.toLocaleLowerCase()))
                         return game    
                 }).map(game => (
                     <Link key={game.attributes.title} to={"/gra/"+game.id}>
