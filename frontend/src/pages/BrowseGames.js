@@ -11,8 +11,7 @@ const BrowseGames = () => {
     const [categories, setCategories] = useState({})
     
     useEffect(() => {
-        const getCategories = async () =>
-        {
+        const getCategories = async () =>{
             const cat = await fetch('http://localhost:1337/api/categories')
             const json = await cat.json()
             setCategories(json)   
@@ -27,20 +26,31 @@ const BrowseGames = () => {
     }
 
     const [searchText, setSearchText] = useState("")
-
     const [categoriesList, setCategoriesList] = useState([])
+
     const categoriesOnChange = (e) => {
-        if(e.target.checked)
-        {
+        if(e.target.checked){
             addFilterCategory(e.target.value)
         }
-        else
-        {
+        else{
             setCategoriesList(categoriesList.filter(category=> category!=e.target.value))
         }
     }
     const addFilterCategory=(e) =>{
         setCategoriesList([...categoriesList,e])
+    }
+
+    const[sortValue,setSortValue]= useState("alphabetically")
+
+    const sortOnChange = (e) => {
+        if(e.target.value=="alphabetically"){
+            console.log(e.target.value)
+            setSortValue('???')
+        }
+        else if(e.target.value=="rating"){
+            console.log(e.target.value)
+            setSortValue('???')
+        }
     }
 
     if(error)
@@ -54,17 +64,25 @@ const BrowseGames = () => {
             <Header/>
             <div className="options">
                 <div className="filtr">
-                    <h1>Kategorie</h1>
+                    <h1>Sortowanie</h1>
+                    <div>
+                        <input type="radio" name="sort" id="alphabetically" value="alphabetically"  onClick={sortOnChange} /> 
+                        <label htmlFor="checkbox">Alfabetycznie</label>
+                    </div>
+                    <div>
+                        <input type="radio"  name="sort" id="rating" value="rating" onClick={sortOnChange}/> 
+                        <label htmlFor="checkbox">Według ocen</label>
+                    </div>
+                </div> 
+                <div className="filtr">
+                    <h1>Filtry</h1>
                     {categories.data.map(categories => (
                         <div className="list" key={categories.attributes.name}>
-                            <input type="checkbox" id="checkbox" value={categories.attributes.name} onChange={categoriesOnChange}/>
+                            <input type="checkbox" id={categories.attributes.name} value={categories.attributes.name} onChange={categoriesOnChange}/>
                             <label htmlFor="checkbox">{categories.attributes.name}</label>
                         </div>
                     ))}
                 </div>
-                <div className="sortowanie">
-                    <h1>filtry</h1>
-                    </div> 
             </div> 
            
             <div className="content">
