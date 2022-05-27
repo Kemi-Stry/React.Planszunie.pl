@@ -19,65 +19,16 @@ const BrowseGames = () => {
         }  
         getCategories() 
     },[])
-<<<<<<< HEAD
-=======
     console.log(categories)
     
-<<<<<<< Updated upstream
-=======
->>>>>>> ec34d00e92039f89da0c04a6e1c08da230561110
->>>>>>> Stashed changes
     const { loading, error, data } = useFetch('http://localhost:1337/api/games?populate=*')
     
     const search = (e) => {
         setSearchText(e.target.value)
     }
+
     const [searchText, setSearchText] = useState("")
 
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
-    // var list =[];
-    // const check = (e) => {
-    //     list.push(e.target.value)
-    //     console.log(list)
-    // }
-    // const [checkBoxe, setCheckBox] = useState("") //?
-    // var valueList =document.getElementById('valueList');
-    // var text='<span> you have selected : /<span>'
-    // var listArrays=[];
-
-    var checkboxes=document.querySelectorAll("#checkbox");
-    const handleChange = () => {
-        if(checkboxes.length==0){
-            checkboxes=document.querySelectorAll("#checkbox");
-            console.log(checkboxes.length)
-            for(var checkbox of checkboxes) {
-                checkbox.addEventListener('click',function(){
-                    if(this.checked == true){
-                        console.log('check '+this.value);
-                    } else {
-                        console.log('you unchecked '+this.value);
-                    }
-                })
-                checkbox.addEventListener()
-            }
-        }
-    }
-
-    // var checkboxes=document.querySelectorAll("#checkbox");
-    //     for(var checkbox of checkboxes) {
-    //         checkbox.addEventListener('click',function eh(){
-    //             if(this.checked == true){
-    //                 console.log('check '+this.value);
-    //             } else {
-    //                 console.log('you unchecked '+this.value);
-    //             }
-    //         })
-    //     }
-        
-=======
->>>>>>> Stashed changes
     const categoriesList = []
     const categoriesOnChange = (e) => {
         if(e.target.checked)
@@ -92,10 +43,6 @@ const BrowseGames = () => {
         console.log(categoriesList)
     }
 
-<<<<<<< Updated upstream
-=======
->>>>>>> ec34d00e92039f89da0c04a6e1c08da230561110
->>>>>>> Stashed changes
     if(error)
     return("error")
 
@@ -108,26 +55,10 @@ const BrowseGames = () => {
             <div className="options">
                 <div className="filtr">
                     <h1>Kategorie</h1>
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
-                    {categories.data.filter((categories)=>{
-                        // if(list.length==0)
-                            return categories
-                    }).map(categories => (
-                        <div>
-                            <input type='checkbox' id='checkbox' value={categories.attributes.name} key={categories.attributes.name} onChange={handleChange}/>
-                            <label htmlFor={categories.attributes.name} >{categories.attributes.name}</label>
-=======
->>>>>>> Stashed changes
                     {categories.data.map(categories => (
                         <div className="list" key={categories.attributes.name}>
                             <input type="checkbox" id="checkbox" value={categories.attributes.name} onChange={categoriesOnChange}/>
                             <label htmlFor="checkbox">{categories.attributes.name}</label>
-<<<<<<< Updated upstream
-=======
->>>>>>> ec34d00e92039f89da0c04a6e1c08da230561110
->>>>>>> Stashed changes
                         </div>
                     ))}
                 </div>
@@ -154,7 +85,6 @@ const BrowseGames = () => {
                 ))}
                 </div>
             </div>
-            afterReturn
         </>
     )
 }
