@@ -31,7 +31,15 @@ const BrowseGames = () => {
 
     const categoriesList = []
     const categoriesOnChange = (e) => {
-        categoriesList.push(e.target.value)
+        if(e.target.checked)
+        {
+            categoriesList.push(e.target.value)
+        }
+        else
+        {
+            categoriesList.pop(e.target.value)
+        }
+        
         console.log(categoriesList)
     }
 
