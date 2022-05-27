@@ -71,11 +71,6 @@
         "images"
       ]
     },
-    "opinions": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::opinion.opinion"
-    },
     "user_id": {
       "type": "uid"
     },
@@ -91,6 +86,12 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::game.game"
+    },
+    "opinions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::opinion.opinion",
+      "mappedBy": "owner"
     }
   }
 }

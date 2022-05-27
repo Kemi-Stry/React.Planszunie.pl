@@ -26,6 +26,12 @@
       "type": "integer",
       "max": 10,
       "min": 0
+    },
+    "owner": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "opinions"
     }
   }
 }
