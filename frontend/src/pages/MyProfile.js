@@ -66,6 +66,9 @@ const MyProfile = () => {
     else
         avatar = 'http://localhost:1337'+data.avatar.url  
 
+    var gamesList=[];
+
+
     return(
         <>
         <Header/>
@@ -76,8 +79,29 @@ const MyProfile = () => {
         </div>
             
         <pre className="description">{data.description}</pre>
-        </>
 
+
+
+        {/* <div className="content">
+            <input className="search" type="text" placeholder="listy" value={searchText} onChange={search}/>
+            <div className="games">
+            {data.data.filter((game)=>{
+                for(var i=0;i<gamesList.length;i++){
+                    if(gamesList[i]==game.attributes.title){
+                        return game
+                    }
+                }
+                }).map(game => (
+                    <Link key={game.attributes.title} to={"/gra/"+game.id}>
+                        <div className="game">
+                            <img className="cover" src={"http://localhost:1337"+game.attributes.icon.data.attributes.url} alt={game.attributes.title}/>
+                        </div>
+                    </Link>
+                ))}
+            </div>
+        </div> */}
+
+        </>
     )
 }
 export default MyProfile
