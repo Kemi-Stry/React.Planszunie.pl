@@ -19,8 +19,7 @@ const BrowseGames = () => {
         }  
         getCategories() 
     },[])
-    console.log(categories)
-    
+
     const { loading, error, data } = useFetch('http://localhost:1337/api/games?populate=*')
     
     const search = (e) => {
@@ -34,15 +33,11 @@ const BrowseGames = () => {
         if(e.target.checked)
         {
             categoriesList.push(e.target.value)
-            console.log('dodano '+e.target.value)
         }
         else
         {
-            console.log('usunieto '+categoriesList.indexOf(e.target.value))
             categoriesList.splice(categoriesList.indexOf(e.target.value),1)
         }
-        
-        console.log(categoriesList)
     }
 
     if(error)
@@ -64,7 +59,6 @@ const BrowseGames = () => {
                         </div>
                     ))}
                 </div>
-
                 <div className="filtr">
                     <h1>filtry</h1>
                     </div> 
@@ -74,6 +68,8 @@ const BrowseGames = () => {
                 <input className="search" type="text" placeholder="Wyszukiwanko" value={searchText} onChange={search}/>
                 <div className="games">
                 {data.data.filter((game)=>{
+                    console.log(typeof(game.attributes.categories.data[0].attributes.name))
+                    console.log(game.attributes.categories.data[0].attributes.name)
                     if (searchText == "")
                         return game
                     else if (game.attributes.title.toLowerCase().includes(searchText.toLocaleLowerCase()))
