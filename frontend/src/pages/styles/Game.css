@@ -114,5 +114,19 @@
 .opin
 {
     display: flex;
-    align-items: center;
+    
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.opinContent
+{
+    font-weight: 400;
+    font-size: 24px;
+}
+
+.opinRate
+{
+    font-weight: 400;
+    font-size: 36px;
 }

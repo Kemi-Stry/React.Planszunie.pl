@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom"
-import { useRef } from "react"
+import { useRef, useState } from "react"
 import Loading from '../components/Loading'
 import useFetch from "../hooks/useFetch"
 import Header from "../components/Header"
@@ -40,8 +40,10 @@ const Game = () => {
                     }
                 }
             )
-        }) 
+            
+        })
     }
+
     const rateChange = (e) => {
         console.log("value changed")
         //jeżeli nie było oceny
@@ -84,9 +86,8 @@ const Game = () => {
             </form>
                     {data.data.attributes.opinions.data.map(opinions =>(
                     <div className="opin" key={opinions.attributes.publishedAt}>
-                    <p key={opinions.attributes.owner.data.attributes.username}></p>
-                    <p key={opinions.attributes.content}>{opinions.attributes.content}</p>
-                    <p key={opinions.attributes.rate}>{opinions.attributes.rate}/10</p>
+                        <h3 className="opinRate">{opinions.attributes.rate}/10</h3>
+                        <pre className="opinContent">{opinions.attributes.content}</pre>
                     </div>
                     ))}
             </div>
