@@ -34,10 +34,12 @@ const BrowseGames = () => {
         if(e.target.checked)
         {
             categoriesList.push(e.target.value)
+            console.log('dodano '+e.target.value)
         }
         else
         {
-            categoriesList.pop(e.target.value)
+            console.log('usunieto '+categoriesList.indexOf(e.target.value))
+            categoriesList.splice(categoriesList.indexOf(e.target.value),1)
         }
         
         console.log(categoriesList)
