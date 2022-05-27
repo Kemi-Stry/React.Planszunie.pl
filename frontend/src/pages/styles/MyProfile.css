@@ -18,3 +18,10 @@
     font-size: 24px;
     margin-left: 90px;
 }
+.content
+{
+    float: right;
+    text-align: center;
+    width: 70%;
+    margin-right: 10px;
+}

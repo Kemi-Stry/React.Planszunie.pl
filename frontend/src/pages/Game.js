@@ -3,7 +3,7 @@ import { useRef } from "react"
 import Loading from '../components/Loading'
 import useFetch from "../hooks/useFetch"
 import Header from "../components/Header"
-import { getToken } from "../components/Auth"
+import { getToken, getID } from "../components/Auth"
 import "./styles/Game.css"
 
 const Game = () => {
@@ -27,23 +27,28 @@ const Game = () => {
         e.preventDefault()
         const content = contentRef.current.value
         const rate = rateRef.current.value
+        const userID = getID()
 
         const postOpinion = await fetch('http://localhost:1337/api/opinions',{
             method: 'POST',
             headers: {Authorization: token, 'Content-Type': 'application/json'},
-            body: JSON.stringify(
-                {data:
-                    {
+            body: JSON.stringify({data:{
                         "content": content,
                         "rate": rate,
-                        "game": gameID
+                        "game": gameID,
+                        "owner": userID
                     }
                 }
             )
-        }
-            
-        )
-
+        }) 
+    }
+    const rateChange = (e) => {
+        console.log("value changed")
+        //jeżeli nie było oceny
+        //
+        
+        // ocenaużytkownika?=e.target.value
+        //wywołanie funkcji obliczającą średnią
     }
 
     return(
@@ -71,14 +76,15 @@ const Game = () => {
                 </div>
             </div>
             <div className="opinions">
+            <input id="ocena" type="number" placeholder="Ocena/10" onChange={rateChange} ref={rateRef} max={10} min={0} required/>
             <h1>Recenzje</h1>
             <form onSubmit={createOpinion}>
-                        <textarea id="opinia" placeholder="Opinia" ref={contentRef} required></textarea>
-                        <input id="ocena" type="number" placeholder="Ocena/10" ref={rateRef} max={10} min={0} required/>
-                        <input type="submit" id="submit_opinion" value="Dodaj" />
+                <textarea id="opinia" placeholder="Opinia" ref={contentRef} required></textarea>
+                <input type="submit" id="submit_opinion" value="Dodaj" />
             </form>
                     {data.data.attributes.opinions.data.map(opinions =>(
                     <div className="opin" key={opinions.attributes.publishedAt}>
+                    <p key={opinions.attributes.owner.data.attributes.username}></p>
                     <p key={opinions.attributes.content}>{opinions.attributes.content}</p>
                     <p key={opinions.attributes.rate}>{opinions.attributes.rate}/10</p>
                     </div>
