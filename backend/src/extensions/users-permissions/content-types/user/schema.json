@@ -81,6 +81,16 @@
     },
     "description": {
       "type": "text"
+    },
+    "owned": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::game.game"
+    },
+    "wish": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::game.game"
     }
   }
 }

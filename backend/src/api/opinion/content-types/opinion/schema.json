@@ -14,9 +14,7 @@
   "attributes": {
     "content": {
       "type": "text",
-      "maxLength": 1000,
-      "required": true,
-      "minLength": 10
+      "required": true
     },
     "game": {
       "type": "relation",
