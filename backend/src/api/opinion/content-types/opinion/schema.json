@@ -18,15 +18,16 @@
       "required": true,
       "minLength": 10
     },
-    "date": {
-      "type": "date",
-      "required": true
-    },
     "game": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::game.game",
       "inversedBy": "opinions"
+    },
+    "rate": {
+      "type": "integer",
+      "max": 10,
+      "min": 0
     }
   }
 }

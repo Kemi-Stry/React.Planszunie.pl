@@ -1,12 +1,17 @@
 import { useParams } from "react-router-dom"
+import { useRef } from "react"
 import Loading from '../components/Loading'
 import useFetch from "../hooks/useFetch"
 import Header from "../components/Header"
+import { getToken } from "../components/Auth"
 import "./styles/Game.css"
 
 const Game = () => {
     const { id }  = useParams()
     const { loading, error, data } = useFetch('http://localhost:1337/api/games/'+id+'?populate=*')
+    const contentRef = useRef()
+    const rateRef = useRef()
+    const token = 'Bearer '+getToken()
 
     if(error)
     return(error)
@@ -15,6 +20,31 @@ const Game = () => {
     return(<Loading/>)
    
     const img = "http://localhost:1337"+data.data.attributes.icon.data.attributes.url
+    const gameID = data.data.id
+
+    
+    const createOpinion = async (e) => {
+        e.preventDefault()
+        const content = contentRef.current.value
+        const rate = rateRef.current.value
+
+        const postOpinion = await fetch('http://localhost:1337/api/opinions',{
+            method: 'POST',
+            headers: {Authorization: token, 'Content-Type': 'application/json'},
+            body: JSON.stringify(
+                {data:
+                    {
+                        "content": content,
+                        "rate": rate,
+                        "game": gameID
+                    }
+                }
+            )
+        }
+            
+        )
+
+    }
 
     return(
         <>
@@ -42,13 +72,16 @@ const Game = () => {
             </div>
             <div className="opinions">
             <h1>Recenzje</h1>
-            <form onSubmit={null}>
-                        <input id="opinia" type="text" placeholder="Opinia"/>
-                        <input id="ocena" type="number" placeholder="Ocena/10" max={10} min={0}/>
+            <form onSubmit={createOpinion}>
+                        <textarea id="opinia" placeholder="Opinia" ref={contentRef} required></textarea>
+                        <input id="ocena" type="number" placeholder="Ocena/10" ref={rateRef} max={10} min={0} required/>
                         <input type="submit" id="submit_opinion" value="Dodaj" />
             </form>
                     {data.data.attributes.opinions.data.map(opinions =>(
+                    <div className="opin" key={opinions.attributes.publishedAt}>
                     <p key={opinions.attributes.content}>{opinions.attributes.content}</p>
+                    <p key={opinions.attributes.rate}>{opinions.attributes.rate}/10</p>
+                    </div>
                     ))}
             </div>
         

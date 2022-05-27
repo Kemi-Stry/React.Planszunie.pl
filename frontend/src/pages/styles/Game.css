@@ -68,13 +68,15 @@
 #opinia
 {
     width: 500px;
-    height: 60px;
+    height: auto;
+    min-height: 60px;
     background: rgba(255, 255, 255, 0.75);
     border: 1px solid #A7A4A4;
     border-radius: 10px;
     font-weight: 400;
     font-size: 24px;
     padding-left: 10px;
+    resize: none;
 }
 
 #ocena
@@ -107,4 +109,10 @@
     font-size: 24px;
     border-color: transparent;
     margin-left: 5px;
+}
+
+.opin
+{
+    display: flex;
+    align-items: center;
 }
