@@ -82,6 +82,10 @@
     },
     "age": {
       "type": "string"
+    },
+    "rating": {
+      "type": "decimal",
+      "default": 0
     }
   }
 }
