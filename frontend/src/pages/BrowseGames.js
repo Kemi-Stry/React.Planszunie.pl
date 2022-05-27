@@ -28,16 +28,19 @@ const BrowseGames = () => {
 
     const [searchText, setSearchText] = useState("")
 
-    const categoriesList = []
+    const [categoriesList, setCategoriesList] = useState([])
     const categoriesOnChange = (e) => {
         if(e.target.checked)
         {
-            categoriesList.push(e.target.value)
+            addFilterCategory(e.target.value)
         }
         else
         {
-            categoriesList.splice(categoriesList.indexOf(e.target.value),1)
+            setCategoriesList(categoriesList.filter(category=> category!=e.target.value))
         }
+    }
+    const addFilterCategory=(e) =>{
+        setCategoriesList([...categoriesList,e])
     }
 
     if(error)
@@ -59,7 +62,7 @@ const BrowseGames = () => {
                         </div>
                     ))}
                 </div>
-                <div className="filtr">
+                <div className="sortowanie">
                     <h1>filtry</h1>
                     </div> 
             </div> 
@@ -68,12 +71,28 @@ const BrowseGames = () => {
                 <input className="search" type="text" placeholder="Wyszukiwanko" value={searchText} onChange={search}/>
                 <div className="games">
                 {data.data.filter((game)=>{
-                    console.log(typeof(game.attributes.categories.data[0].attributes.name))
-                    console.log(game.attributes.categories.data[0].attributes.name)
                     if (searchText == "")
                         return game
                     else if (game.attributes.title.toLowerCase().includes(searchText.toLocaleLowerCase()))
                         return game    
+                }).filter((game)=>{
+  
+                    if(categoriesList.length==0){
+                        return game
+                    }
+                    else{
+                        var convergentCategory=0;
+                        for(var i=0;i<categoriesList.length;i++){
+                            for(var j=0;j<game.attributes.categories.data.length;j++){
+                                if(categoriesList[i]==game.attributes.categories.data[j].attributes.name){
+                                    convergentCategory++
+                                }
+                            }
+                            if(convergentCategory==categoriesList.length){
+                                return game
+                            }
+                        }
+                    }
                 }).map(game => (
                     <Link key={game.attributes.title} to={"/gra/"+game.id}>
                         <div className="game">
