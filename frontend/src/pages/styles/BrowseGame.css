@@ -77,7 +77,7 @@
 
 .games::-webkit-scrollbar-track 
 {
-    background: #d6d6d6;
+    background: transparent;
     
 }
 
@@ -85,6 +85,35 @@
 {
     background: #3201c5;
     border-radius: 11px;
+}
+
+
+.filtr:hover
+{
+    cursor: pointer;
+}
+
+.filtr::-webkit-scrollbar 
+{
+    width: 10px;
+}
+
+.filtr::-webkit-scrollbar-track 
+{
+    background: transparent;
+    
+}
+
+.filtr::-webkit-scrollbar-thumb 
+{
+    background: rgb(70, 70, 70);
+    border-radius: 11px;
+}
+
+.list
+{
+    display: flex;
+    align-items: center;
 }
 
 .cover

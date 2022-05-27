@@ -4,6 +4,7 @@ import Header from "../components/Header"
 import Loading from "../components/Loading"
 import { Link } from "react-router-dom"
 import { useState, useEffect } from "react"
+import { dblClick } from "@testing-library/user-event/dist/click"
 
 const BrowseGames = () => {
 
@@ -20,7 +21,6 @@ const BrowseGames = () => {
     },[])
     console.log(categories)
     
-    
     const { loading, error, data } = useFetch('http://localhost:1337/api/games?populate=*')
     
     const search = (e) => {
@@ -28,6 +28,12 @@ const BrowseGames = () => {
     }
 
     const [searchText, setSearchText] = useState("")
+
+    const categoriesList = []
+    const categoriesOnChange = (e) => {
+        categoriesList.push(e.target.value)
+        console.log(categoriesList)
+    }
 
     if(error)
     return("error")
@@ -41,13 +47,12 @@ const BrowseGames = () => {
             <div className="options">
                 <div className="filtr">
                     <h1>Kategorie</h1>
-                    {/* {categories.data.map((categories) => {
-                    <>
-                    <input id={categories.attributes.name} type='checkbox' key={categories.data.attributes.name}/>
-                    <label htmlFor={categories.attributes.name}>{categories.data.attributes.name}</label>
-                    </>
-                    })} */}
-                    
+                    {categories.data.map(categories => (
+                        <div className="list" key={categories.attributes.name}>
+                            <input type="checkbox" id="checkbox" value={categories.attributes.name} onChange={categoriesOnChange}/>
+                            <label htmlFor="checkbox">{categories.attributes.name}</label>
+                        </div>
+                    ))}
                 </div>
 
                 <div className="filtr">

@@ -15,7 +15,7 @@ body::-webkit-scrollbar
 
 body::-webkit-scrollbar-track 
 {
-    background: #fe7fc4;
+    background: transparent;
     
 }
 
