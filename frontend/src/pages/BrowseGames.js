@@ -75,7 +75,7 @@ const BrowseGames = () => {
                     </div>
                 </div> 
                 <div className="filtr">
-                    <h1>Filtry</h1>
+                    <h1>Kategorie</h1>
                     {categories.data.map(categories => (
                         <div className="list" key={categories.attributes.name}>
                             <input type="checkbox" id={categories.attributes.name} value={categories.attributes.name} onChange={categoriesOnChange}/>

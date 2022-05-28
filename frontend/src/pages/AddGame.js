@@ -18,7 +18,8 @@ const AddGame = () => {
     const ageToRef = useRef()
     const imageRef = useRef()
     const [error, setError] = useState(null)
-    const [data, setData] = useState({})
+    const [data1, setData1] = useState({})
+    const [data2, setData2] = useState({})
     const [picture, setPicture] = useState({})
 
     const onChange = (e) => {
@@ -65,10 +66,10 @@ const AddGame = () => {
                 body: body
             })
 
-            setData(response1.json)
+            setData1(response1.json)
             formdata.append('files', file)
-            formdata.append('refId', data.data.id)
-            formdata.append('ref', data.data.game_id)
+            formdata.append('refId', data1.data.id)
+            formdata.append('ref', data1.data.game_id)
             formdata.append('field', 'icon')
 
             const response2 = await fetch('http://localhost:1337/api/upload', {
@@ -76,6 +77,7 @@ const AddGame = () => {
                 headers: {Authorization: token},
                 body: formdata
             })
+            setData2(response2.json)
             if (!response1.ok || !response2.ok)
             {
                 setError("Błąd")

@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom"
-import { useRef, useState } from "react"
+import { useRef } from "react"
 import Loading from '../components/Loading'
 import useFetch from "../hooks/useFetch"
 import Header from "../components/Header"
@@ -12,6 +12,8 @@ const Game = () => {
     const contentRef = useRef()
     const rateRef = useRef()
     const token = 'Bearer '+getToken()
+   
+
 
     if(error)
     return(error)
@@ -21,7 +23,7 @@ const Game = () => {
    
     const img = "http://localhost:1337"+data.data.attributes.icon.data.attributes.url
     const gameID = data.data.id
-
+    
     
     const createOpinion = async (e) => {
         e.preventDefault()
@@ -42,6 +44,7 @@ const Game = () => {
             )
             
         })
+        window.location.reload(false);
     }
 
     const rateChange = (e) => {

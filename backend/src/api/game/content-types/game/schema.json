@@ -69,7 +69,8 @@
       "min": 5
     },
     "game_id": {
-      "type": "uid"
+      "type": "uid",
+      "targetField": "title"
     },
     "categories": {
       "type": "relation",
