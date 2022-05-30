@@ -48,7 +48,7 @@ const EditProfile = () => {
         const file = picture
         formdata.append('files', file)
         formdata.append('refId', getID())
-        formdata.append('ref', data.user_id)
+        formdata.append('ref', 'plugin::users-permissions.user')
         formdata.append('field', 'avatar')
         
          await fetch('http://localhost:1337/api/users/'+data.id, {
