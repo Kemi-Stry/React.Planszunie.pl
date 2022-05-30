@@ -47,25 +47,22 @@ const EditProfile = () => {
         const formdata = new FormData()
         const file = picture
         formdata.append('files', file)
-        formdata.append('refId', getID)
+        formdata.append('refId', getID())
+        formdata.append('ref', data.user_id)
         formdata.append('field', 'avatar')
-        formdata.append('ref', 'user')
         
-        
-        
-             await fetch('http://localhost:1337/api/users/'+data.id, {
-                method: 'PUT',
-                headers: {Authorization: token, 'Content-Type': 'application/json'},
-                body: JSON.stringify({"description":descriptionRef.current.value})
-            })
+         await fetch('http://localhost:1337/api/users/'+data.id, {
+             method: 'PUT',
+             headers: {Authorization: token, 'Content-Type': 'application/json'},
+             body: JSON.stringify({"description":descriptionRef.current.value})
+         })
 
-            await fetch('http://localhost:1337/api/upload/', {
-                method: 'POST',
-                headers: {Authorization: token},
-                body: formdata
-            })
+         await fetch('http://localhost:1337/api/upload/', {
+            method: 'POST',
+             headers: {Authorization: token},
+            body: formdata
+        })
     }
-
 
     return(
         <>

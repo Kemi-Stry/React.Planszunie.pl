@@ -13,7 +13,15 @@ const Game = () => {
     const rateRef = useRef()
     const token = 'Bearer '+getToken()
    
-
+    //
+    // const ratingRef = useRef()
+    // const allRatingRef = useRef()
+    // const rating = ratingRef.current.value
+    // const allRating =allRatingRef.current.value
+    // const body = JSON.stringify({"data":{
+    //     "rating": rating,
+    //     "allRating": allRating}})
+    //
 
     if(error)
     return(error)
@@ -31,7 +39,7 @@ const Game = () => {
         const rate = rateRef.current.value
         const userID = getID()
 
-        const postOpinion = await fetch('http://localhost:1337/api/opinions',{
+        const postOpinion = await fetch('http://localhost:1337/api/opinions/?populate=*',{
             method: 'POST',
             headers: {Authorization: token, 'Content-Type': 'application/json'},
             body: JSON.stringify({data:{
@@ -48,7 +56,16 @@ const Game = () => {
     }
 
     const rateChange = (e) => {
-        console.log("value changed")
+        console.log(e.target.value)
+        // console.log(typeof(data.data.attributes.averageRating))
+        // console.log(typeof(data.data.attributes.rates.user))
+        console.log(typeof(data.data))
+        console.log(typeof(data.data.attributes))
+        console.log(typeof(data.data.attributes.Rate))
+        console.log(typeof(data.data.attributes.rates))
+
+        // console.log(data.data.attributes.averageRating)
+        // data.data.attributes.allRating.push(e.target.value)
         //jeżeli nie było oceny
         //
         
@@ -78,6 +95,7 @@ const Game = () => {
                     <div id="description">
                         <pre className="description">{data.data.attributes.description}</pre>
                     </div>
+                    <h2>Ocena: {data.data.attributes.rating}</h2>
                 </div>
             </div>
             <div className="opinions">

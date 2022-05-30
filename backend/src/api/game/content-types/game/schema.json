@@ -84,9 +84,15 @@
     "age": {
       "type": "string"
     },
-    "rating": {
+    "averageRating": {
       "type": "decimal",
       "default": 0
+    },
+    "rates": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::rate.rate",
+      "mappedBy": "game"
     }
   }
 }
