@@ -94,7 +94,7 @@ const BrowseGames = () => {
                     else if (game.attributes.title.toLowerCase().includes(searchText.toLocaleLowerCase()))
                         return game    
                 }).filter((game)=>{
-  
+
                     if(categoriesList.length==0){
                         return game
                     }

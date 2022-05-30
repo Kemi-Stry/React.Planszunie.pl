@@ -88,11 +88,11 @@
       "type": "decimal",
       "default": 0
     },
-    "rates": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::rate.rate",
-      "mappedBy": "game"
+    "Rate": {
+      "displayName": "Rate2",
+      "type": "component",
+      "repeatable": true,
+      "component": "rate3.rate2"
     }
   }
 }

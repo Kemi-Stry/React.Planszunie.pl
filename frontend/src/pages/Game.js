@@ -3,7 +3,7 @@ import { useRef } from "react"
 import Loading from '../components/Loading'
 import useFetch from "../hooks/useFetch"
 import Header from "../components/Header"
-import { getToken, getID } from "../components/Auth"
+import { getToken, getID, getUserName } from "../components/Auth"
 import "./styles/Game.css"
 
 const Game = () => {
@@ -12,16 +12,10 @@ const Game = () => {
     const contentRef = useRef()
     const rateRef = useRef()
     const token = 'Bearer '+getToken()
-   
-    //
-    // const ratingRef = useRef()
-    // const allRatingRef = useRef()
-    // const rating = ratingRef.current.value
-    // const allRating =allRatingRef.current.value
-    // const body = JSON.stringify({"data":{
-    //     "rating": rating,
-    //     "allRating": allRating}})
-    //
+    // var rate = []
+
+  
+
 
     if(error)
     return(error)
@@ -32,6 +26,7 @@ const Game = () => {
     const img = "http://localhost:1337"+data.data.attributes.icon.data.attributes.url
     const gameID = data.data.id
     
+
     
     const createOpinion = async (e) => {
         e.preventDefault()
@@ -55,22 +50,52 @@ const Game = () => {
         window.location.reload(false);
     }
 
-    const rateChange = (e) => {
-        console.log(e.target.value)
-        // console.log(typeof(data.data.attributes.averageRating))
-        // console.log(typeof(data.data.attributes.rates.user))
-        console.log(typeof(data.data))
-        console.log(typeof(data.data.attributes))
-        console.log(typeof(data.data.attributes.Rate))
-        console.log(typeof(data.data.attributes.rates))
+    const rateChange = async (e) => {
+        let data1 = await fetch('http://localhost:1337/api/games/'+id+'?populate=*')
+        let json1 = await data1.json()
+        console.log(json1.data.attributes.Rate)
+        var changed=false
+        if(e.target.value){
+            //zmiana
+            for (var i=0; i<json1.data.attributes.Rate.length;i++){
+                if(json1.data.attributes.Rate[i].user==getUserName()){
+                    console.log("change")
+                    json1.data.attributes.Rate[i].rate=e.target.value
+                    changed=true
+                    break;
+                 }
+             }
+             //dodanie
+             if(!changed){
+                 console.log("new")
+                 json1.data.attributes.Rate.push({"user":getUserName(), "rate":e.target.value})
+            }
+            const postOpinion = await fetch('http://localhost:1337/api/games/'+gameID,{
+                method: 'PUT',
+                headers: {Authorization: token, 'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                data:{
+                    Rate:json1.data.attributes.Rate}
+                    })
+                })
+        }
+     
+       
 
-        // console.log(data.data.attributes.averageRating)
-        // data.data.attributes.allRating.push(e.target.value)
-        //jeżeli nie było oceny
-        //
-        
-        // ocenaużytkownika?=e.target.value
-        //wywołanie funkcji obliczającą średnią
+        // const postOpinion = await fetch('http://localhost:1337/api/games/'+gameID,{
+        //     method: 'PUT',
+        //     headers: {Authorization: token, 'Content-Type': 'application/json'},
+        //     body: JSON.stringify({data:{
+        //         Rate:[{ 
+        //             "user": getUserName(),
+        //              "rate": e.target.value}
+        //            ]}
+        //      })
+        // })
+
+
+        // console.log(typeof(data.data.attributes.Rate[1].user))
+        // console.log(data.data.attributes.Rate[1].user)
     }
 
     return(
