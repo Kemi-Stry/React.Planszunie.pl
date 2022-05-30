@@ -19,8 +19,6 @@ const AddGame = () => {
     const ageToRef = useRef()
     const imageRef = useRef()
     const [error, setError] = useState(null)
-    // const [data1, setData1] = useState({})
-    const [data2, setData2] = useState({})
     const [picture, setPicture] = useState({})
 
     const onChange = (e) => {
@@ -68,7 +66,6 @@ const AddGame = () => {
             })
 
             let data1 = await response1.json()
-            console.log(data1)
             formdata.append('files', file)
             formdata.append('refId', data1.data.id)
             formdata.append('ref', 'api::game.game')
@@ -79,15 +76,16 @@ const AddGame = () => {
                 headers: {Authorization: token},
                 body: formdata
             })
-            // setData2(await response2.json())
-            // if (!response1.ok || !response2.ok)
-            // {
-            //     setError("Błąd")
-            // }
-            // else
-            // {
-            //     setError("Dodano grę")
-            // }  
+            await response2.json()
+            
+            if (!response1.ok || !response2.ok)
+            {
+                setError("Błąd")
+            }
+            else
+            {
+                setError("Dodano grę")
+            }  
         }
         catch
         {
