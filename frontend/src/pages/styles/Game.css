@@ -129,3 +129,17 @@
     font-weight: 400;
     font-size: 36px;
 }
+
+.owner
+{
+    display: flex;
+    align-items: center;
+}
+
+.avatar1
+{
+    width: 128px;
+    height: 128px;
+    border-radius: 64px;
+    margin-right: 10px;
+}

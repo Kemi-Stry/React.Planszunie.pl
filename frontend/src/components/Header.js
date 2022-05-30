@@ -33,7 +33,7 @@ useEffect(() => {
   {
     return(
         <div className="header">
-              <Link to="/"><img className="dice" src={dice}/></Link>
+              <Link to="/"><img className="dice" src={dice} alt="dice"/></Link>
               <Link className="homelink" to="/">Planszunie</Link>
               <div className="links">
                   <Link className="headerlink" to="/przegladaj">Przeglądaj gry</Link>

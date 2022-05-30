@@ -8,7 +8,7 @@ import "./styles/Game.css"
 
 const Game = () => {
     const { id }  = useParams()
-    const { loading, error, data } = useFetch('http://localhost:1337/api/games/'+id+'?populate=*')
+    const { loading, error, data } = useFetch('http://localhost:1337/api/games/'+id+'?populate[opinions][populate][owner][populate][0]=avatar&populate[icon][populate][1]=icon&populate[categories][populate][2]=categories')
     const contentRef = useRef()
     const rateRef = useRef()
     const token = 'Bearer '+getToken()
@@ -34,7 +34,7 @@ const Game = () => {
         const rate = rateRef.current.value
         const userID = getID()
 
-        const postOpinion = await fetch('http://localhost:1337/api/opinions/?populate=*',{
+        await fetch('http://localhost:1337/api/opinions/?populate=*',{
             method: 'POST',
             headers: {Authorization: token, 'Content-Type': 'application/json'},
             body: JSON.stringify({data:{
@@ -70,7 +70,7 @@ const Game = () => {
                  console.log("new")
                  json1.data.attributes.Rate.push({"user":getUserName(), "rate":e.target.value})
             }
-            const postOpinion = await fetch('http://localhost:1337/api/games/'+gameID,{
+                await fetch('http://localhost:1337/api/games/'+gameID,{
                 method: 'PUT',
                 headers: {Authorization: token, 'Content-Type': 'application/json'},
                 body: JSON.stringify({
@@ -79,7 +79,10 @@ const Game = () => {
                     })
                 })
         }
-     
+        
+           
+
+
        
 
         // const postOpinion = await fetch('http://localhost:1337/api/games/'+gameID,{
@@ -97,6 +100,8 @@ const Game = () => {
         // console.log(typeof(data.data.attributes.Rate[1].user))
         // console.log(data.data.attributes.Rate[1].user)
     }
+         
+    
 
     return(
         <>
@@ -120,7 +125,7 @@ const Game = () => {
                     <div id="description">
                         <pre className="description">{data.data.attributes.description}</pre>
                     </div>
-                    <h2>Ocena: {data.data.attributes.rating}</h2>
+                    <h2>Ocena: {}</h2>
                 </div>
             </div>
             <div className="opinions">
@@ -132,8 +137,12 @@ const Game = () => {
             </form>
                     {data.data.attributes.opinions.data.map(opinions =>(
                     <div className="opin" key={opinions.attributes.publishedAt}>
-                        <h3 className="opinRate">{opinions.attributes.rate}/10</h3>
+                        <div className="owner">
+                            <img className="avatar1" src={'http://localhost:1337'+opinions.attributes.owner.data.attributes.avatar.data.attributes.url} alt={opinions.attributes.owner.data.attributes.username} />
+                            <h3 className="opinRate">{opinions.attributes.owner.data.attributes.username}</h3>
+                        </div>
                         <pre className="opinContent">{opinions.attributes.content}</pre>
+                        <hr />
                     </div>
                     ))}
             </div>
