@@ -3,30 +3,140 @@
     min-height: 90vh;
 }
 
+.gif
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0%;
+}
+
 .footer
 {
-    position: absolute;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     font-weight: 400;
+    font-family: 'Rubik';
     font-size: 24px;
+    font-style: normal; 
     bottom: 0;
     text-align: center;
     width: 100%;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 1%;
 }
 
 .love
 {
-    width: 36px;
-    height: 33px;
+    width: 30px;
+    height: 27px;
     margin-left: 10px;
     margin-right: 10px;
     object-fit: scale-down;
     animation: breathing 2s ease-out infinite normal;
+}
+
+.top10
+{
+  width: 203px;
+  height: 71px;
+  left: 627px;
+  top: 104px;
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 71px;
+  display: flex;
+  align-items: center;
+}
+
+.content
+{
+    float: none;
+    text-align: center;
+    width: 100%;
+    margin-left: 60px;
+    margin-right: 60px;
+}
+
+.numbers
+{
+  position: absolute;
+  width: 49px;
+  height: 62px;
+  top: 204px;
+  font-family: 'Rubik';
+  font-style: italic;
+  font-weight: 700;
+  font-size: 65px;
+  line-height: 77px;
+  display: flex;
+  align-items: center;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.games
+{ 
+  display: flex;
+  text-align: center;
+
+  flex-flow: row;
+  flex-wrap: wrap;
+  gap: 25px;
+  overflow: auto;
+  width: 100%;
+  max-height: 75vh; 
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto; 
+}
+
+.game
+{
+    width: 300px;
+    height: 250px;
+    background: rgba(255, 255, 255, 0.75);
+    border-radius: 10px;
+}
+
+.game:hover
+{
+    cursor: pointer;
+}
+
+.games::-webkit-scrollbar 
+{
+    width: 10px;
+}
+
+.games::-webkit-scrollbar-track 
+{
+    background: transparent;
+    
+}
+
+.games::-webkit-scrollbar-thumb 
+{
+    background: rgb(70, 70, 70);
+    border-radius: 11px;
+}
+
+.cover
+{
+    width: 300px;
+    height: 250px;
+    object-fit: scale-down;
 }
 
 @keyframes breathing {
