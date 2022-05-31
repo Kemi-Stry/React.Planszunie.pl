@@ -8,14 +8,10 @@ import "./styles/Game.css"
 
 const Game = () => {
     const { id }  = useParams()
-    const { loading, error, data } = useFetch('http://localhost:1337/api/games/'+id+'?populate[opinions][populate][owner][populate][0]=avatar&populate[icon][populate][1]=icon&populate[categories][populate][2]=categories')
+    const { loading, error, data } = useFetch('http://localhost:1337/api/games/'+id+'?populate[opinions][populate][owner][populate][0]=avatar&populate[icon][populate][1]=icon&populate[categories][populate][2]=categories&populate[Rate]][populate][3]=Rate')
     const contentRef = useRef()
     const rateRef = useRef()
     const token = 'Bearer '+getToken()
-    // var rate = []
-
-  
-
 
     if(error)
     return(error)
@@ -45,64 +41,89 @@ const Game = () => {
                     }
                 }
             )
-            
         })
         window.location.reload(false);
     }
 
+    const calculateAvrageRate= async (actualRateList) => {
+        let calculatedRate=0
+        for (var i=0; i<actualRateList.data.attributes.Rate.length;i++){
+            calculatedRate+=parseInt(actualRateList.data.attributes.Rate[i].rate)
+        }
+        calculatedRate/=actualRateList.data.attributes.Rate.length
+        await fetch('http://localhost:1337/api/games/'+gameID,{
+            method: 'PUT',
+            headers: {Authorization: token, 'Content-Type': 'application/json'},
+            body: JSON.stringify({
+            data:{
+                'averageRating':calculatedRate}
+                })
+            })
+    }
+    const youreRate= () => {
+        for (var i=0; i<data.data.attributes.Rate.length;i++){
+            if(data.data.attributes.Rate[i].user==getUserName())
+                return data.data.attributes.Rate[i].rate
+        }
+        return 10
+    }
+
+    // const rateChange = async (e) => {
+    //     let data1 = await fetch('http://localhost:1337/api/games/'+id+'?populate=*')
+    //     let json1 = await data1.json()
+    //     var changed=false
+    //     if(e.target.value){
+    //         for (var i=0; i<json1.data.attributes.Rate.length;i++){
+    //             if(json1.data.attributes.Rate[i].user==getUserName()){
+    //                 json1.data.attributes.Rate[i].rate=e.target.value
+    //                 changed=true
+    //                 break;
+    //              }
+    //         }
+    //         if(!changed){
+    //             json1.data.attributes.Rate.push({"user":getUserName(), "rate":e.target.value})
+    //         }
+    //         await fetch('http://localhost:1337/api/games/'+gameID,{
+    //         method: 'PUT',
+    //         headers: {Authorization: token, 'Content-Type': 'application/json'},
+    //         body: JSON.stringify({
+    //         data:{
+    //             Rate:json1.data.attributes.Rate}
+    //             })
+    //         })
+    //         calculateAvrageRate(json1)
+    //     }
+    // }
     const rateChange = async (e) => {
+        e.preventDefault()
         let data1 = await fetch('http://localhost:1337/api/games/'+id+'?populate=*')
         let json1 = await data1.json()
-        console.log(json1.data.attributes.Rate)
         var changed=false
-        if(e.target.value){
-            //zmiana
+        let value=e.target[0].value
+        if(value){
             for (var i=0; i<json1.data.attributes.Rate.length;i++){
                 if(json1.data.attributes.Rate[i].user==getUserName()){
-                    console.log("change")
-                    json1.data.attributes.Rate[i].rate=e.target.value
+                    json1.data.attributes.Rate[i].rate=value
                     changed=true
                     break;
                  }
-             }
-             //dodanie
-             if(!changed){
-                 console.log("new")
-                 json1.data.attributes.Rate.push({"user":getUserName(), "rate":e.target.value})
             }
-                await fetch('http://localhost:1337/api/games/'+gameID,{
-                method: 'PUT',
-                headers: {Authorization: token, 'Content-Type': 'application/json'},
-                body: JSON.stringify({
-                data:{
-                    Rate:json1.data.attributes.Rate}
-                    })
+            if(!changed){
+                json1.data.attributes.Rate.push({"user":getUserName(), "rate":value})
+            }
+            await fetch('http://localhost:1337/api/games/'+gameID,{
+            method: 'PUT',
+            headers: {Authorization: token, 'Content-Type': 'application/json'},
+            body: JSON.stringify({
+            data:{
+                Rate:json1.data.attributes.Rate}
                 })
+            })
+            calculateAvrageRate(json1)
         }
-        
-           
-
-
-       
-
-        // const postOpinion = await fetch('http://localhost:1337/api/games/'+gameID,{
-        //     method: 'PUT',
-        //     headers: {Authorization: token, 'Content-Type': 'application/json'},
-        //     body: JSON.stringify({data:{
-        //         Rate:[{ 
-        //             "user": getUserName(),
-        //              "rate": e.target.value}
-        //            ]}
-        //      })
-        // })
-
-
-        // console.log(typeof(data.data.attributes.Rate[1].user))
-        // console.log(data.data.attributes.Rate[1].user)
+        window.location.reload(false);
     }
          
-    
-
     return(
         <>
             <Header/>
@@ -125,15 +146,18 @@ const Game = () => {
                     <div id="description">
                         <pre className="description">{data.data.attributes.description}</pre>
                     </div>
-                    <h2>Ocena: {}</h2>
+                    <h2>Ocena: {data.data.attributes.averageRating}</h2>
                 </div>
             </div>
             <div className="opinions">
-            <input id="ocena" type="number" placeholder="Ocena/10" onChange={rateChange} ref={rateRef} max={10} min={0} required/>
+            <form onSubmit={rateChange}>
+                <input id="ocena" type="number" placeholder="Ocena/10" defaultValue={youreRate(data)} ref={rateRef} max={10} min={1} required/> 
+                <input type="submit" id="submit_opinion" value="Dodaj Ocene" />
+            </form>
             <h1>Recenzje</h1>
             <form onSubmit={createOpinion}>
                 <textarea id="opinia" placeholder="Opinia" ref={contentRef} required></textarea>
-                <input type="submit" id="submit_opinion" value="Dodaj" />
+                <input type="submit" id="submit_opinion" value="Dodaj Opinie" />
             </form>
                     {data.data.attributes.opinions.data.map(opinions =>(
                     <div className="opin" key={opinions.attributes.publishedAt}>
@@ -150,5 +174,6 @@ const Game = () => {
         </>
   
     )
+
 }
 export default Game
