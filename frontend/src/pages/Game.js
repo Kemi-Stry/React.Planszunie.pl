@@ -27,7 +27,6 @@ const Game = () => {
     const createOpinion = async (e) => {
         e.preventDefault()
         const content = contentRef.current.value
-        const rate = rateRef.current.value
         const userID = getID()
 
         await fetch('http://localhost:1337/api/opinions/?populate=*',{
@@ -35,7 +34,6 @@ const Game = () => {
             headers: {Authorization: token, 'Content-Type': 'application/json'},
             body: JSON.stringify({data:{
                         "content": content,
-                        "rate": rate,
                         "game": gameID,
                         "owner": userID
                     }

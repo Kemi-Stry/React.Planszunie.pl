@@ -1,8 +1,3 @@
-.holder
-{
-    min-height: 90vh;
-}
-
 .gif
 {
   display: flex;
@@ -47,22 +42,18 @@
 
 .top10
 {
-  width: 203px;
-  height: 71px;
-  left: 627px;
-  top: 104px;
-  font-family: 'Rubik';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 60px;
-  line-height: 71px;
   display: flex;
   align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Rubik';
+  font-weight: 700;
+  font-size: 36px;
 }
 
 .content
 {
-    float: none;
     text-align: center;
     width: 100%;
     margin-left: 60px;
@@ -85,57 +76,23 @@
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.games
+.games1
 { 
   display: flex;
   text-align: center;
-
   flex-flow: row;
   flex-wrap: wrap;
-  gap: 25px;
-  overflow: auto;
   width: 100%;
-  max-height: 75vh; 
   align-items: center;
   justify-content: center;
   margin-left: auto;
   margin-right: auto; 
 }
 
-.game
+.cover1
 {
-    width: 300px;
-    height: 250px;
-    background: rgba(255, 255, 255, 0.75);
-    border-radius: 10px;
-}
-
-.game:hover
-{
-    cursor: pointer;
-}
-
-.games::-webkit-scrollbar 
-{
-    width: 10px;
-}
-
-.games::-webkit-scrollbar-track 
-{
-    background: transparent;
-    
-}
-
-.games::-webkit-scrollbar-thumb 
-{
-    background: rgb(70, 70, 70);
-    border-radius: 11px;
-}
-
-.cover
-{
-    width: 300px;
-    height: 250px;
+    width: 225px;
+    height: 190px;
     object-fit: scale-down;
 }
 
