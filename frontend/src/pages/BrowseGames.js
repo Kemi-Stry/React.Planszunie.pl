@@ -40,17 +40,10 @@ const BrowseGames = () => {
         setCategoriesList([...categoriesList,e])
     }
 
-    const[sortValue,setSortValue]= useState("alphabetically")
+     const[sortValue,setSortValue]= useState("alphabetically")
 
     const sortOnChange = (e) => {
-        if(e.target.value=="alphabetically"){
-            console.log(e.target.value)
-            setSortValue('???')
-        }
-        else if(e.target.value=="rating"){
-            console.log(e.target.value)
-            setSortValue('???')
-        }
+        setSortValue(e.target.value)
     }
 
     if(error)
@@ -66,7 +59,7 @@ const BrowseGames = () => {
                 <div className="filtr">
                     <h1>Sortowanie</h1>
                     <div>
-                        <input type="radio" name="sort" id="alphabetically" value="alphabetically"  onClick={sortOnChange} /> 
+                        <input type="radio" name="sort" id="alphabetically" value="alphabetically"  defaultChecked onClick={sortOnChange} /> 
                         <label htmlFor="checkbox">Alfabetycznie</label>
                     </div>
                     <div>
@@ -111,6 +104,11 @@ const BrowseGames = () => {
                             }
                         }
                     }
+                }).sort((a, b) => {
+                    if(sortValue=='rating'){
+                        return b.attributes.averageRating- a.attributes.averageRating
+                    }
+                    return a
                 }).map(game => (
                     <Link key={game.attributes.title} to={"/gra/"+game.id}>
                         <div className="game">

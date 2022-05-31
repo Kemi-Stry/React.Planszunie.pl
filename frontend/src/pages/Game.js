@@ -65,35 +65,8 @@ const Game = () => {
             if(data.data.attributes.Rate[i].user==getUserName())
                 return data.data.attributes.Rate[i].rate
         }
-        return 10
+        return ''
     }
-
-    // const rateChange = async (e) => {
-    //     let data1 = await fetch('http://localhost:1337/api/games/'+id+'?populate=*')
-    //     let json1 = await data1.json()
-    //     var changed=false
-    //     if(e.target.value){
-    //         for (var i=0; i<json1.data.attributes.Rate.length;i++){
-    //             if(json1.data.attributes.Rate[i].user==getUserName()){
-    //                 json1.data.attributes.Rate[i].rate=e.target.value
-    //                 changed=true
-    //                 break;
-    //              }
-    //         }
-    //         if(!changed){
-    //             json1.data.attributes.Rate.push({"user":getUserName(), "rate":e.target.value})
-    //         }
-    //         await fetch('http://localhost:1337/api/games/'+gameID,{
-    //         method: 'PUT',
-    //         headers: {Authorization: token, 'Content-Type': 'application/json'},
-    //         body: JSON.stringify({
-    //         data:{
-    //             Rate:json1.data.attributes.Rate}
-    //             })
-    //         })
-    //         calculateAvrageRate(json1)
-    //     }
-    // }
     const rateChange = async (e) => {
         e.preventDefault()
         let data1 = await fetch('http://localhost:1337/api/games/'+id+'?populate=*')
