@@ -34,8 +34,8 @@ const Home = () =>
         <div className="games1">
             {data.data.sort((a, b) => b.attributes.averageRating- a.attributes.averageRating).slice(0,10).map(game => (
                 <Link key={game.attributes.title} to={"/gra/"+game.id}>
-                    <h1>{printNumber()}</h1>
                     <div className="game1">
+                        <h1 className='num'>{"#"+printNumber()}</h1>
                         <img className="cover1" src={"http://localhost:1337"+game.attributes.icon.data.attributes.url} alt={game.attributes.title}/>
                     </div>
                 </Link>

@@ -3,6 +3,9 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: flex-start;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .avatar

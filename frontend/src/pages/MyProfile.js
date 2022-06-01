@@ -72,13 +72,22 @@ const MyProfile = () => {
     return(
         <>
         <Header/>
-        <div className="user">
-            <img className="avatar" defaultValue={neko} src={avatar} alt="avatar" />
-            <h1 className='username'>{data.username}</h1>
-            <Link className="editProfile" to="/profil/edytuj">Edytuj profil</Link>
-        </div>
+        <div className="grid">
+            <div className="left">
+            <div className="user">
+                <img className="avatar" defaultValue={neko} src={avatar} alt="avatar" />
+                <h1 className='username'>{data.username}</h1>
+                <Link className="editProfile" to="/profil/edytuj">Edytuj profil</Link>
+            </div>
             
         <pre className="description">{data.description}</pre>
+        </div>
+        <div className="right">
+            <div className="friends">
+                <input id='friendSearch' type="text" placeholder='Szukaj znajomych' />
+            </div>
+        </div>
+        
 
 
 
@@ -100,7 +109,7 @@ const MyProfile = () => {
                 ))}
             </div>
         </div> */}
-
+        </div>
         </>
     )
 }

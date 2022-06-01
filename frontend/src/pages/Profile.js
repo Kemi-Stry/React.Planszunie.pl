@@ -31,6 +31,7 @@ const Profile = () => {
             <img className="avatar" src={avatar} alt="avatar" />
             <h1 className='username'>{data.username}</h1>
         </div>
+        <pre className="description">{data.description}</pre>
         </>
         
     )

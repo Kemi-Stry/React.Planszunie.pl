@@ -1,3 +1,21 @@
+.grid
+{
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    height: 80vh;
+}
+
+.left
+{
+    width: 100%;
+}
+
+.right
+{
+    width: 100%;
+}
+
+
 .username
 {
     font-weight: 700;
@@ -10,6 +28,7 @@
     font-weight: 400;
     font-size: 24px;
     margin-left: 60px;
+    margin-right: auto;
 }
 
 .description
@@ -17,11 +36,27 @@
     font-weight: 400;
     font-size: 24px;
     margin-left: 90px;
+    width: 100%;
 }
-.content
+
+
+.friends
 {
-    float: right;
-    text-align: center;
-    width: 70%;
-    margin-right: 10px;
+    background: rgba(255, 255, 255, 0.75);
+    border-radius: 10px;
+    height: 100%;
+    width: 100%;
+}
+
+#friendSearch
+{
+    margin-top: 10px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16.6667px;
+    width: 80%;
+    padding: 7px;
+    background: rgba(255, 255, 255, 0.75);
+    border: 0.833333px solid #A7A4A4;
+    border-radius: 8.33333px;
 }
