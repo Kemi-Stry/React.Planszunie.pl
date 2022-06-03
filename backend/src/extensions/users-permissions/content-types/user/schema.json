@@ -92,6 +92,17 @@
       "relation": "oneToMany",
       "target": "api::opinion.opinion",
       "mappedBy": "owner"
+    },
+    "lists": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::list.list"
+    },
+    "list": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::list.list",
+      "inversedBy": "owner"
     }
   }
 }

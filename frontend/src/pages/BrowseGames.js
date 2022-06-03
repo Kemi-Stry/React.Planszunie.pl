@@ -20,7 +20,6 @@ const BrowseGames = () => {
     },[])
 
     const { loading, error, data } = useFetch('http://localhost:1337/api/games?populate=*')
-    
     const search = (e) => {
         setSearchText(e.target.value)
     }
@@ -51,7 +50,6 @@ const BrowseGames = () => {
 
     if(loading)
     return(<Loading/>)
-    
     return(
         <> 
             <Header/>

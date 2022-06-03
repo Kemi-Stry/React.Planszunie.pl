@@ -87,12 +87,6 @@
     "averageRating": {
       "type": "decimal",
       "default": 0
-    },
-    "Rate": {
-      "displayName": "Rate2",
-      "type": "component",
-      "repeatable": true,
-      "component": "rate3.rate2"
     }
   }
 }
