@@ -77,16 +77,6 @@
     "description": {
       "type": "text"
     },
-    "owned": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::game.game"
-    },
-    "wish": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::game.game"
-    },
     "opinions": {
       "type": "relation",
       "relation": "oneToMany",
@@ -96,13 +86,8 @@
     "lists": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::list.list"
-    },
-    "list": {
-      "type": "relation",
-      "relation": "oneToOne",
       "target": "api::list.list",
-      "inversedBy": "owner"
+      "mappedBy": "owner"
     }
   }
 }

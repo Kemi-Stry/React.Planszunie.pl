@@ -65,6 +65,7 @@ const Game = () => {
         }
         return ''
     }
+    
     const rateChange = async (e) => {
         e.preventDefault()
         let data1 = await fetch('http://localhost:1337/api/games/'+id+'?populate=*')

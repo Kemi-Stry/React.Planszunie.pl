@@ -8,12 +8,13 @@
     "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
     "ListName": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "games": {
       "type": "relation",
@@ -22,9 +23,9 @@
     },
     "owner": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "manyToOne",
       "target": "plugin::users-permissions.user",
-      "inversedBy": "list"
+      "inversedBy": "lists"
     }
   }
 }

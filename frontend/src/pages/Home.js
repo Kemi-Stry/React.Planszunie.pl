@@ -39,7 +39,9 @@ const Home = () =>
                         <img className="cover1" src={"http://localhost:1337"+game.attributes.icon.data.attributes.url} alt={game.attributes.title}/>
                     </div>
                 </Link>
+                
             ))}
+            
         </div>
         <div className="gif">
             <img src={img} alt="kotki planszunie" width="680px" height="360px"/>

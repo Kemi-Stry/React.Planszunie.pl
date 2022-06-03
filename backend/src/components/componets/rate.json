@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_componets_rates",
+  "info": {
+    "displayName": "Rate",
+    "icon": "ambulance"
+  },
+  "options": {},
+  "attributes": {
+    "user": {
+      "type": "string"
+    },
+    "rate": {
+      "type": "integer"
+    }
+  }
+}

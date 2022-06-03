@@ -87,6 +87,11 @@
     "averageRating": {
       "type": "decimal",
       "default": 0
+    },
+    "Rate": {
+      "type": "component",
+      "repeatable": true,
+      "component": "componets.rate"
     }
   }
 }
