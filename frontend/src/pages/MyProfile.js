@@ -34,7 +34,6 @@ const MyProfile = () => {
         }  
         fetchData() 
     },[])
-
     const createOpinion = async (e) => {
         e.preventDefault()
         const newList = newListRef.current.value
@@ -86,21 +85,25 @@ const MyProfile = () => {
                     </div>
                 <pre className="description">{userData.description}</pre>
                 <h1>Listy</h1>
-                    {userData.lists.map(list => (
-                        <div key={list.ListName}>
-                            <h3>{list.ListName}</h3>
-                            {list.games.map(game => (
-                            <Link key={game.title} to={"/gra/"+game.id}>
-                                <div className="game">
-                                    <img className="cover" src={"http://localhost:1337"+game.icon.url}/>
-                                </div>
-                            </Link>))}
-                        </div>
-                    ))}
-                     <form onSubmit={createOpinion}>
-                        <input type="text" placeholder="newList" ref={newListRef} required></input>
-                        <input type="submit" id="submit_opinion" value="Dodaj Liste" />
-                     </form>
+                <div className="content">
+                    <div className="games">
+                        {userData.lists.map(list => (
+                            <div key={list.ListName}>
+                                <h3>{list.ListName}</h3>
+                                {list.games.map(game => (
+                                <Link key={game.title} to={"/gra/"+game.id}>
+                                    <div className="game">
+                                        <img className="cover" src={"http://localhost:1337"+game.icon.url}/>
+                                    </div>
+                                </Link>))}
+                            </div>
+                        ))}
+                    </div>
+                </div>
+                <form onSubmit={createOpinion}>
+                    <input type="text" placeholder="newList" ref={newListRef} required></input>
+                    <input type="submit" id="submit_opinion" value="Dodaj Liste" />
+                </form>
                     
                 </div>
                 <div className="right">

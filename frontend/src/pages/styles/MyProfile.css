@@ -60,3 +60,40 @@
     border: 0.833333px solid #A7A4A4;
     border-radius: 8.33333px;
 }
+
+.game
+{
+    width: 300px;
+    height: 250px;
+    background: rgba(255, 255, 255, 0.75);
+    border-radius: 10px;
+}
+
+.game:hover
+{
+    cursor: pointer;
+}
+
+.games::-webkit-scrollbar 
+{
+    width: 10px;
+}
+
+.games::-webkit-scrollbar-track 
+{
+    background: transparent;
+    
+}
+
+.games::-webkit-scrollbar-thumb 
+{
+    background: rgb(70, 70, 70);
+    border-radius: 11px;
+}
+.content
+{
+    float: right;
+    text-align: center;
+    width: 70%;
+    margin-right: 10px;
+}

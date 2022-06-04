@@ -1,9 +1,9 @@
 import { useParams } from "react-router-dom"
-import { useRef } from "react"
+import { useState, useEffect, useRef } from "react"
 import Loading from '../components/Loading'
-import useFetch from "../hooks/useFetch"
 import Header from "../components/Header"
 import { getToken, getID, getUserName } from "../components/Auth"
+import useFetch from "../hooks/useFetch"
 import "./styles/Game.css"
 
 const Game = () => {
@@ -13,17 +13,64 @@ const Game = () => {
     const rateRef = useRef()
     const token = 'Bearer '+getToken()
 
-    if(error)
+    const [listError, setListError] = useState(null)
+    const [listLoading, setListLoading] = useState(true)
+
+
+    const [lists, setLists] = useState({})
+    // useEffect(() => {
+    //     const fetchData = async () =>
+    //     {
+    //         setLoading(true)
+    //         const token = 'Bearer '+getToken()
+    //         const response = await fetch('http://localhost:1337/api/users/'+getID()+'?populate[lists][populate][games][populate][0]=icon&populate[avatar][populate][1]=avatar', {
+    //             headers: {Authorization: token},
+    //         })
+
+    //         if(!response.ok){
+    //             setError("Błąd 😿")
+    //         }
+    //         else{
+    //             setError(null)
+    //             const json = await response.json()
+    //             setUserData(json)
+    //             setLoading(false)
+    //         }
+    //     }  
+    //     fetchData() 
+    // },[])
+    useEffect(() => {
+        const getList = async () =>{
+            setListLoading(true)
+            const cat = await fetch('http://localhost:1337/api/users/'+getID()+'?populate[lists][populate][games][populate][0]=games&populate[lists][populate][owner][populate][0]=owner')
+            if(!cat.ok){
+                setListError("Błąd 😿")
+            }
+            else{
+                setListError(null)
+                const listJson = await cat.json()
+                setLists(listJson.lists)
+                setListLoading(false)
+            }
+        }  
+        getList() 
+    },[])
+
+
+    const getListId = (nr) => {
+        return lists[nr].id
+    }
+
+    if(error || listError)
     return(error)
 
-    if(loading)
+    if(loading || listLoading)
     return(<Loading/>)
-   
+
     const img = "http://localhost:1337"+data.data.attributes.icon.data.attributes.url
     const gameID = data.data.id
-    
 
-    
+
     const createOpinion = async (e) => {
         e.preventDefault()
         const content = contentRef.current.value
@@ -95,6 +142,35 @@ const Game = () => {
         }
         window.location.reload(false);
     }
+    const listOnChange = async (e) => {
+        let gamesList = await fetch('http://localhost:1337/api/lists/'+getListId(e.target.value)+'?populate=*')
+        let gameJson = await gamesList.json()
+        if(e.target.checked){
+            gameJson.data.attributes.games.data.push(data.data)
+            await fetch('http://localhost:1337/api/lists/'+getListId(e.target.value),{
+                method: 'PUT',
+                headers: {Authorization: token, 'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    "data":{ "games":gameJson.data.attributes.games.data}
+                })
+            })
+        }
+        else{
+            for(var i=0;i<gameJson.data.attributes.games.data.length;i++){
+                if(gameJson.data.attributes.games.data.id==getListId(e.target.value))
+                //usuniecie z listy
+                console.log(gameJson.data.attributes.games.data)
+            }
+            // console.log(gameJson.data.attributes.games.data.id.find(getListId(e.target.value)))
+           
+            //PUT usuwający grę do listy
+        }
+    }
+    
+   var number=0
+    function takeNumber(){
+        return number++
+    }
          
     return(
         <>
@@ -102,6 +178,7 @@ const Game = () => {
             <div className="flex-game">
                 <div className="left">
                     <img src={img} className="img" alt={data.data.attributes.title}/> 
+                    <h1>Ocena: {data.data.attributes.averageRating}</h1>
                     <h4>Autorzy: {data.data.attributes.authors}</h4>
                     <h4>Ilustratorzy: {data.data.attributes.artists}</h4>
                     <h4>Wydawca: {data.data.attributes.publisher}</h4>
@@ -118,7 +195,15 @@ const Game = () => {
                     <div id="description">
                         <pre className="description">{data.data.attributes.description}</pre>
                     </div>
-                    <h2>Ocena: {data.data.attributes.averageRating}</h2>
+                   <div>
+                   <h1>Dodaj do listy:</h1>
+                            {lists.map(list=>(
+                            <div className="list1" key={list.ListName}>
+                                <input type="checkbox" id={list.ListName} value={takeNumber()} onChange={listOnChange}/>
+                                <label htmlFor="checkbox">{list.ListName}</label>
+                            </div>
+                             ))} *
+                   </div> 
                 </div>
             </div>
             <div className="opinions">
@@ -131,18 +216,17 @@ const Game = () => {
                 <textarea id="opinia" placeholder="Opinia" ref={contentRef} required></textarea>
                 <input type="submit" id="submit_opinion" value="Dodaj Opinie" />
             </form>
-                    {data.data.attributes.opinions.data.map(opinions =>(
-                    <div className="opin" key={opinions.attributes.publishedAt}>
-                        <div className="owner">
-                            <img className="avatar1" src={'http://localhost:1337'+opinions.attributes.owner.data.attributes.avatar.data.attributes.url} alt={opinions.attributes.owner.data.attributes.username} />
-                            <h3 className="opinRate">{opinions.attributes.owner.data.attributes.username}</h3>
-                        </div>
-                        <pre className="opinContent">{opinions.attributes.content}</pre>
-                        <hr />
+            {data.data.attributes.opinions.data.map(opinions =>(
+                <div className="opin" key={opinions.attributes.publishedAt}>
+                    <div className="owner">
+                        <img className="avatar1" src={'http://localhost:1337'+opinions.attributes.owner.data.attributes.avatar.data.attributes.url} alt={opinions.attributes.owner.data.attributes.username} />
+                        <h3 className="opinRate">{opinions.attributes.owner.data.attributes.username}</h3>
                     </div>
-                    ))}
+                    <pre className="opinContent">{opinions.attributes.content}</pre>
+                    <hr />
+                </div>
+            ))}
             </div>
-        
         </>
   
     )

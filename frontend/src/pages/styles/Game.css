@@ -143,3 +143,9 @@
     border-radius: 64px;
     margin-right: 10px;
 }
+
+.list1
+{
+    display: flex;
+    justify-content: center;
+}
