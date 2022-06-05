@@ -16,29 +16,7 @@ const Game = () => {
     const [listError, setListError] = useState(null)
     const [listLoading, setListLoading] = useState(true)
 
-
     const [lists, setLists] = useState({})
-    // useEffect(() => {
-    //     const fetchData = async () =>
-    //     {
-    //         setLoading(true)
-    //         const token = 'Bearer '+getToken()
-    //         const response = await fetch('http://localhost:1337/api/users/'+getID()+'?populate[lists][populate][games][populate][0]=icon&populate[avatar][populate][1]=avatar', {
-    //             headers: {Authorization: token},
-    //         })
-
-    //         if(!response.ok){
-    //             setError("Błąd 😿")
-    //         }
-    //         else{
-    //             setError(null)
-    //             const json = await response.json()
-    //             setUserData(json)
-    //             setLoading(false)
-    //         }
-    //     }  
-    //     fetchData() 
-    // },[])
     useEffect(() => {
         const getList = async () =>{
             setListLoading(true)
@@ -112,7 +90,14 @@ const Game = () => {
         }
         return ''
     }
-    
+    const youreLists=( listNumber) => {
+            for (var i=0; i<lists[listNumber].games.length;i++){
+                if(lists[listNumber].games[i].id==data.data.id){
+                    return true
+                }
+            }
+        return false
+    }
     const rateChange = async (e) => {
         e.preventDefault()
         let data1 = await fetch('http://localhost:1337/api/games/'+id+'?populate=*')
@@ -147,29 +132,34 @@ const Game = () => {
         let gameJson = await gamesList.json()
         if(e.target.checked){
             gameJson.data.attributes.games.data.push(data.data)
-            await fetch('http://localhost:1337/api/lists/'+getListId(e.target.value),{
-                method: 'PUT',
-                headers: {Authorization: token, 'Content-Type': 'application/json'},
-                body: JSON.stringify({
-                    "data":{ "games":gameJson.data.attributes.games.data}
-                })
-            })
         }
         else{
             for(var i=0;i<gameJson.data.attributes.games.data.length;i++){
-                if(gameJson.data.attributes.games.data.id==getListId(e.target.value))
-                //usuniecie z listy
-                console.log(gameJson.data.attributes.games.data)
-            }
-            // console.log(gameJson.data.attributes.games.data.id.find(getListId(e.target.value)))
-           
-            //PUT usuwający grę do listy
+                if(gameJson.data.attributes.games.data[i].id==data.data.id){
+                    gameJson.data.attributes.games.data.splice(i,1)
+                }
+            }   
         }
+        await fetch('http://localhost:1337/api/lists/'+getListId(e.target.value),{
+            method: 'PUT',
+            headers: {Authorization: token, 'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                "data":{ "games":gameJson.data.attributes.games.data}
+            })
+        })
     }
     
-   var number=0
+   var number=-1
+   var half=true;
     function takeNumber(){
-        return number++
+        if(half){
+            half=false
+            number++
+        }  
+        else{
+            half=true
+        }
+        return number
     }
          
     return(
@@ -199,10 +189,10 @@ const Game = () => {
                    <h1>Dodaj do listy:</h1>
                             {lists.map(list=>(
                             <div className="list1" key={list.ListName}>
-                                <input type="checkbox" id={list.ListName} value={takeNumber()} onChange={listOnChange}/>
+                                <input type="checkbox" id={list.ListName} value={takeNumber()} defaultChecked={youreLists(takeNumber())} onChange={listOnChange}/>
                                 <label htmlFor="checkbox">{list.ListName}</label>
                             </div>
-                             ))} *
+                             ))}
                    </div> 
                 </div>
             </div>

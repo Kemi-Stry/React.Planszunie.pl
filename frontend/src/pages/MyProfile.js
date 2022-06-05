@@ -21,7 +21,6 @@ const MyProfile = () => {
             const response = await fetch('http://localhost:1337/api/users/'+getID()+'?populate[lists][populate][games][populate][0]=icon&populate[avatar][populate][1]=avatar', {
                 headers: {Authorization: token},
             })
-
             if(!response.ok){
                 setError("Błąd 😿")
             }
@@ -85,9 +84,9 @@ const MyProfile = () => {
                     </div>
                 <pre className="description">{userData.description}</pre>
                 <h1>Listy</h1>
-                <div className="content">
-                    <div className="games">
                         {userData.lists.map(list => (
+                             <div className="content">
+                             <div className="games">
                             <div key={list.ListName}>
                                 <h3>{list.ListName}</h3>
                                 {list.games.map(game => (
@@ -97,9 +96,10 @@ const MyProfile = () => {
                                     </div>
                                 </Link>))}
                             </div>
-                        ))}
+                            </div>
                     </div>
-                </div>
+                        ))}
+              
                 <form onSubmit={createOpinion}>
                     <input type="text" placeholder="newList" ref={newListRef} required></input>
                     <input type="submit" id="submit_opinion" value="Dodaj Liste" />

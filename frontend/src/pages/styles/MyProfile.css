@@ -61,7 +61,7 @@
     border-radius: 8.33333px;
 }
 
-.game
+.gameMyP
 {
     width: 300px;
     height: 250px;
@@ -69,28 +69,28 @@
     border-radius: 10px;
 }
 
-.game:hover
+.gameMyP:hover
 {
     cursor: pointer;
 }
 
-.games::-webkit-scrollbar 
+.gamesMyP::-webkit-scrollbar 
 {
     width: 10px;
 }
 
-.games::-webkit-scrollbar-track 
+.gamesMyP::-webkit-scrollbar-track 
 {
     background: transparent;
     
 }
 
-.games::-webkit-scrollbar-thumb 
+.gamesMyP::-webkit-scrollbar-thumb 
 {
     background: rgb(70, 70, 70);
     border-radius: 11px;
 }
-.content
+.contentMyP
 {
     float: right;
     text-align: center;
