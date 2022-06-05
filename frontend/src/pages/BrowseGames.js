@@ -9,6 +9,7 @@ import { dblClick } from "@testing-library/user-event/dist/click"
 const BrowseGames = () => {
 
     const [categories, setCategories] = useState({})
+    const [filerPlayers, setFilterPlayers] = useState('')
     
     useEffect(() => {
         const getCategories = async () =>{
@@ -34,6 +35,9 @@ const BrowseGames = () => {
         else{
             setCategoriesList(categoriesList.filter(category=> category!=e.target.value))
         }
+    }
+    const filterOnChange = (e) => {
+        setFilterPlayers(e.target.value)
     }
     const addFilterCategory=(e) =>{
         setCategoriesList([...categoriesList,e])
@@ -66,6 +70,13 @@ const BrowseGames = () => {
                     </div>
                 </div> 
                 <div className="filtr">
+                    <h1>Filtry</h1>
+                        <div className="list" key={"numberOfPlayers"}>
+                            <h3> Ilość graczy:</h3>
+                            <input type="number" id={"numberOfPlayers"} defaultValue={"Ilość graczy: "} onChange={filterOnChange}/>
+                        </div>
+                </div>
+                <div className="filtr">
                     <h1>Kategorie</h1>
                     {categories.data.map(categories => (
                         <div className="list" key={categories.attributes.name}>
@@ -85,7 +96,10 @@ const BrowseGames = () => {
                     else if (game.attributes.title.toLowerCase().includes(searchText.toLocaleLowerCase()))
                         return game    
                 }).filter((game)=>{
-
+                     if((game.attributes.players_from<=filerPlayers && game.attributes.players_to>=filerPlayers) ||  filerPlayers==''){
+                        return game
+                     }
+                }).filter((game)=>{
                     if(categoriesList.length==0){
                         return game
                     }

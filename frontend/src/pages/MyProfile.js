@@ -8,11 +8,12 @@ import { Link } from 'react-router-dom'
 import neko from '../img/neko_fly.gif'
 
 const MyProfile = () => {
+    const [serachFriend, setSerachFriend] = useState('')
     const [userData, setUserData] = useState(null)
     const [error, setError] = useState(null)
     const [loading, setLoading] = useState(true)
     const newListRef = useRef()
-    // const { loading2, error2, data } = useFetch('http://localhost:1337/api/games?populate')
+    const { loading2, error2, data } = useFetch('http://localhost:1337/api/users')
     useEffect(() => {
         const fetchData = async () =>
         {
@@ -46,6 +47,9 @@ const MyProfile = () => {
         })  
         window.location.reload(false);
     }
+    const serachFriends = (e) => {
+        setSerachFriend(e.target.value)
+    }
 
     if (loading){
         return (
@@ -65,7 +69,6 @@ const MyProfile = () => {
         )
     }
     let avatar
-
     if (userData.avatar === null){
         avatar = neko
     }
@@ -85,7 +88,7 @@ const MyProfile = () => {
                 <pre className="description">{userData.description}</pre>
                 <h1>Listy</h1>
                         {userData.lists.map(list => (
-                             <div className="content">
+                        <div className="content">
                              <div className="games">
                             <div key={list.ListName}>
                                 <h3>{list.ListName}</h3>
@@ -96,7 +99,7 @@ const MyProfile = () => {
                                     </div>
                                 </Link>))}
                             </div>
-                            </div>
+                        </div>
                     </div>
                         ))}
               
@@ -108,8 +111,14 @@ const MyProfile = () => {
                 </div>
                 <div className="right">
                     <div className="friends">
-                        <input id='friendSearch' type="text" placeholder='Szukaj znajomych' />
-                    </div>
+                        <input id='friendSearch' type="text" placeholder='Szukaj znajomych' onChange={serachFriends}/>
+                        {data.filter( (user)=>{
+                        if (user.email.toLowerCase().includes(serachFriend.toLowerCase()) && serachFriend!='') 
+                                return user    
+                        }).map(user => (
+                            <h2 key={user.username}>{user.username}</h2>
+                        ))}
+                        </div>
                 </div>
             </div>
         </>
