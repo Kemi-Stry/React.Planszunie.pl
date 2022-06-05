@@ -88,6 +88,11 @@
       "relation": "oneToMany",
       "target": "api::list.list",
       "mappedBy": "owner"
+    },
+    "friends": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::friend.friend"
     }
   }
 }
