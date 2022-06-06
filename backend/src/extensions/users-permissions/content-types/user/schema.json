@@ -92,7 +92,8 @@
     "friends": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::friend.friend"
+      "target": "api::friend.friend",
+      "mappedBy": "owner"
     }
   }
 }

@@ -32,8 +32,10 @@ const MyProfile = () => {
                 setLoading(false)
             }
         }  
-        fetchData() 
+        fetchData()
     },[])
+
+    console.log(userData) 
     const createOpinion = async (e) => {
         e.preventDefault()
         const newList = newListRef.current.value
