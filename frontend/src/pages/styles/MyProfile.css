@@ -44,8 +44,9 @@
 {
     background: rgba(255, 255, 255, 0.75);
     border-radius: 10px;
-    height: 100%;
+    height: 50%;
     width: 100%;
+    overflow: auto;
 }
 
 #friendSearch
@@ -61,7 +62,7 @@
     border-radius: 8.33333px;
 }
 
-.gameMyP
+.game
 {
     width: 300px;
     height: 250px;
@@ -69,31 +70,48 @@
     border-radius: 10px;
 }
 
-.gameMyP:hover
+.game:hover
 {
     cursor: pointer;
 }
 
-.gamesMyP::-webkit-scrollbar 
+.games::-webkit-scrollbar 
 {
     width: 10px;
 }
 
-.gamesMyP::-webkit-scrollbar-track 
+.games::-webkit-scrollbar-track 
 {
     background: transparent;
     
 }
 
-.gamesMyP::-webkit-scrollbar-thumb 
+.games::-webkit-scrollbar-thumb 
 {
     background: rgb(70, 70, 70);
     border-radius: 11px;
 }
-.contentMyP
+.content
 {
     float: right;
     text-align: center;
     width: 70%;
     margin-right: 10px;
+}
+
+.friendo
+{
+    display: flex;
+    width: 100%;
+    margin: 5px;
+    align-content: center;
+    flex-direction: row;
+    text-decoration: none;
+}
+
+.avatarMini
+{
+    width: 64px;
+    height: 64px;
+    border-radius: 32px;
 }

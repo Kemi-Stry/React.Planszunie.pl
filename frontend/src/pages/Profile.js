@@ -38,7 +38,6 @@ const Profile = () => {
         }  
         fetchData() 
     },[])
-
     if(error || error2)
     return(error)
 
@@ -51,7 +50,7 @@ const Profile = () => {
         avatar = neko
     else
         avatar = 'http://localhost:1337'+data.avatar.url    
-    
+        
     return(
         <>
         <Header/>

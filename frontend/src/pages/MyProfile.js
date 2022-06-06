@@ -13,7 +13,7 @@ const MyProfile = () => {
     const [error, setError] = useState(null)
     const [loading, setLoading] = useState(true)
     const newListRef = useRef()
-    const { loading2, error2, data } = useFetch('http://localhost:1337/api/users')
+    const { loading2, error2, data } = useFetch('http://localhost:1337/api/users?populate=*')
     useEffect(() => {
         const fetchData = async () =>
         {
@@ -42,6 +42,20 @@ const MyProfile = () => {
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({"data":{
                 "ListName": newList,
+                "owner": getID()
+            }})
+        })  
+        window.location.reload(false);
+    }
+
+    const addFriend = async (e) => {
+        e.preventDefault()
+        const response = await fetch('http://localhost:1337/api/friends', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({"data":{
+                "accepted": true,
+                "user": e.target.value,
                 "owner": getID()
             }})
         })  
@@ -112,18 +126,29 @@ const MyProfile = () => {
                 <div className="right">
                     <div className="friends">
                         <div className="search1">
-                        <input id='friendSearch' type="text" placeholder='Szukaj znajomych' onChange={serachFriends}/>
+                        <h3>Szukaj znajomych</h3>
+                        <input id='friendSearch' type="text" placeholder='Podaj email znajomego' onChange={serachFriends}/>
                         {data.filter( (user)=>{
                         if (user.email.toLowerCase().includes(serachFriend.toLowerCase()) && serachFriend!='') 
-                                return user    
+                            return user    
                         }).map(user => (
-                            <h2 key={user.username}>{user.username}</h2>
+                            <div>
+                                <img className='avatarMini' src={'http://localhost:1337'+user.avatar.url} alt='user.username}'/>
+                                <h2 key={user.username}>{user.username}</h2>
+                                <button id="submit_opinion"  value={user.id} onClick={addFriend}>Dodaj znajomego</button>
+                            </div>
+                            
                         ))}
                         </div>
-                        </div>
+                    </div>
                         <div className="myfriends">
                             <h1>Moi znajomi</h1>
-                            {user.friends.map((user))}
+                            {userData.friends.map(user=> (
+                                <div className='friendo' key={user.id}>
+                                <img className='avatarMini' src={'http://localhost:1337'+user.user.avatar.url} alt='user.username}'/>
+                                <Link to={'/profil/'+user.user.id}><h2>{user.user.username}</h2></Link>
+                                </div>
+                            ))}
                         </div>
                 </div>
             </div>

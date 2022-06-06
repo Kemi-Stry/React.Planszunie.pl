@@ -187,10 +187,10 @@ const Game = () => {
                     </div>
                    <div>
                    <h1>Dodaj do listy:</h1>
-                            {lists.map(list=>(
-                            <div className="list1" key={list.ListName}>
-                                <input type="checkbox" id={list.ListName} value={takeNumber()} defaultChecked={youreLists(takeNumber())} onChange={listOnChange}/>
-                                <label htmlFor="checkbox">{list.ListName}</label>
+                        {lists.map(list=>(
+                        <div className="list1" key={list.ListName}>
+                            <input type="checkbox" id={list.ListName} value={takeNumber()} defaultChecked={youreLists(takeNumber())} onChange={listOnChange}/>
+                            <label htmlFor="checkbox">{list.ListName}</label>
                             </div>
                              ))}
                    </div> 
