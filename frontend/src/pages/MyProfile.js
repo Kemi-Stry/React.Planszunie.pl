@@ -19,7 +19,7 @@ const MyProfile = () => {
         {
             setLoading(true)
             const token = 'Bearer '+getToken()
-            const response = await fetch('http://localhost:1337/api/users/'+getID()+'?populate[lists][populate][games][populate][0]=icon&populate[avatar][populate][1]=avatar', {
+            const response = await fetch('http://localhost:1337/api/users/'+getID()+'?populate[lists][populate][games][populate][0]=icon&populate[avatar][populate][1]=avatar&populate[friends][populate][user][populate][avatar][populate][2]=avatar', {
                 headers: {Authorization: token},
             })
             if(!response.ok){
@@ -111,6 +111,7 @@ const MyProfile = () => {
                 </div>
                 <div className="right">
                     <div className="friends">
+                        <div className="search1">
                         <input id='friendSearch' type="text" placeholder='Szukaj znajomych' onChange={serachFriends}/>
                         {data.filter( (user)=>{
                         if (user.email.toLowerCase().includes(serachFriend.toLowerCase()) && serachFriend!='') 
@@ -118,6 +119,11 @@ const MyProfile = () => {
                         }).map(user => (
                             <h2 key={user.username}>{user.username}</h2>
                         ))}
+                        </div>
+                        </div>
+                        <div className="myfriends">
+                            <h1>Moi znajomi</h1>
+                            {user.friends.map((user))}
                         </div>
                 </div>
             </div>
