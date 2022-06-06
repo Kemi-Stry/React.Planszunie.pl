@@ -95,7 +95,7 @@ const MyProfile = () => {
         <>
             <Header/>
                 <div className="grid">
-                    <div className="left">
+                    <div className="left1">
                     <div className="user">
                         <img className="avatar" defaultValue={neko} src={avatar} alt="avatar" />
                         <h1 className='username'>{userData.username}</h1>
@@ -104,19 +104,17 @@ const MyProfile = () => {
                 <pre className="description">{userData.description}</pre>
                 <h1>Listy</h1>
                         {userData.lists.map(list => (
-                        <div className="content">
-                             <div className="games">
                             <div key={list.ListName}>
-                                <h3>{list.ListName}</h3>
+                            <h3>{list.ListName}</h3>
+                             <div key={list.ListName} className="games5">
                                 {list.games.map(game => (
                                 <Link key={game.title} to={"/gra/"+game.id}>
-                                    <div className="game">
-                                        <img className="cover" src={"http://localhost:1337"+game.icon.url}/>
+                                    <div className="game5">
+                                        <img className="coverMini" src={"http://localhost:1337"+game.icon.url}/>
                                     </div>
                                 </Link>))}
                             </div>
-                        </div>
-                    </div>
+                            </div>
                         ))}
               
                 <form onSubmit={createOpinion}>
@@ -125,10 +123,10 @@ const MyProfile = () => {
                 </form>
                     
                 </div>
-                <div className="right">
+                <div className="right1">
                     <div className="friends">
                         <div className="search1">
-                        <h3>Szukaj znajomych</h3>
+                        <h2>Szukaj znajomych</h2>
                         <input id='friendSearch' type="text" placeholder='Podaj email znajomego' onChange={serachFriends}/>
                         {data.filter( (user)=>{
                         if (user.email.toLowerCase().includes(serachFriend.toLowerCase()) && serachFriend!='') 
@@ -142,9 +140,8 @@ const MyProfile = () => {
                             
                         ))}
                         </div>
-                    </div>
                         <div className="myfriends">
-                            <h1>Moi znajomi</h1>
+                            <h2>Moi znajomi</h2>
                             {userData.friends.map(user=> (
                                 <div className='friendo' key={user.id}>
                                 <img className='avatarMini' src={'http://localhost:1337'+user.user.avatar.url} alt='user.username}'/>
@@ -152,6 +149,8 @@ const MyProfile = () => {
                                 </div>
                             ))}
                         </div>
+                    </div>
+                        
                 </div>
             </div>
         </>

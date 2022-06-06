@@ -120,3 +120,19 @@
 input[type="checkbox"]{
     margin: left 20px;
 }
+
+#numberOfPlayers
+{
+    width: 22%;
+    opacity: 0.5;
+    border: 3px solid #888888;
+    border-radius: 3px;
+    border-color: gray;
+    margin-left: 10px;
+    text-align: center;
+    padding: 5px;
+}
+
+#numberOfPlayers::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}

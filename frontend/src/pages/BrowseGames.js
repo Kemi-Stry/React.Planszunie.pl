@@ -71,9 +71,9 @@ const BrowseGames = () => {
                 </div> 
                 <div className="filtr">
                     <h1>Filtry</h1>
-                        <div className="list" key={"numberOfPlayers"}>
+                        <div className="list">
                             <h3> Ilość graczy:</h3>
-                            <input type="number" id={"numberOfPlayers"} defaultValue={"Ilość graczy: "} onChange={filterOnChange}/>
+                            <input type="number" id="numberOfPlayers" defaultValue={"Ilość graczy: "} onChange={filterOnChange}/>
                         </div>
                 </div>
                 <div className="filtr">

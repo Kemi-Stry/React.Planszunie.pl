@@ -85,14 +85,14 @@ const Game = () => {
     }
     const youreRate= () => {
         for (var i=0; i<data.data.attributes.Rate.length;i++){
-            if(data.data.attributes.Rate[i].user==getUserName())
+            if(data.data.attributes.Rate[i].user===getUserName())
                 return data.data.attributes.Rate[i].rate
         }
         return ''
     }
     const youreLists=( listNumber) => {
             for (var i=0; i<lists[listNumber].games.length;i++){
-                if(lists[listNumber].games[i].id==data.data.id){
+                if(lists[listNumber].games[i].id===data.data.id){
                     return true
                 }
             }
@@ -106,7 +106,7 @@ const Game = () => {
         let value=e.target[0].value
         if(value){
             for (var i=0; i<json1.data.attributes.Rate.length;i++){
-                if(json1.data.attributes.Rate[i].user==getUserName()){
+                if(json1.data.attributes.Rate[i].user===getUserName()){
                     json1.data.attributes.Rate[i].rate=value
                     changed=true
                     break;
@@ -135,7 +135,7 @@ const Game = () => {
         }
         else{
             for(var i=0;i<gameJson.data.attributes.games.data.length;i++){
-                if(gameJson.data.attributes.games.data[i].id==data.data.id){
+                if(gameJson.data.attributes.games.data[i].id===data.data.id){
                     gameJson.data.attributes.games.data.splice(i,1)
                 }
             }   
@@ -168,7 +168,7 @@ const Game = () => {
             <div className="flex-game">
                 <div className="left">
                     <img src={img} className="img" alt={data.data.attributes.title}/> 
-                    <h1>Ocena: {data.data.attributes.averageRating}</h1>
+                    <h1>Ocena: {data.data.attributes.averageRating}/10</h1>
                     <h4>Autorzy: {data.data.attributes.authors}</h4>
                     <h4>Ilustratorzy: {data.data.attributes.artists}</h4>
                     <h4>Wydawca: {data.data.attributes.publisher}</h4>
