@@ -52,7 +52,7 @@ const MyProfile = () => {
 
     const addFriend = async (e) => {
         e.preventDefault()
-        const response = await fetch('http://localhost:1337/api/friends', {
+        await fetch('http://localhost:1337/api/friends', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({"data":{
@@ -60,7 +60,18 @@ const MyProfile = () => {
                 "user": e.target.value,
                 "owner": getID()
             }})
-        })  
+        })
+
+        await fetch('http://localhost:1337/api/friends', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({"data":{
+                "accepted": true,
+                "user": getID(),
+                "owner": e.target.value
+            }})
+        })
+
         window.location.reload(false);
     }
     const serachFriends = (e) => {
