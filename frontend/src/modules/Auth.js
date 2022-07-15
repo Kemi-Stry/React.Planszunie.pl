@@ -23,6 +23,7 @@ export const getID = () =>
     const user = getUser()
     return user.user.id
 }
+
 export const getUserName = () =>
 {
     const user = getUser()

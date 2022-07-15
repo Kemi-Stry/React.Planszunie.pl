@@ -1,7 +1,7 @@
 import './styles/Login.css'
 import { Link, useNavigate } from 'react-router-dom'
 import { useRef, useState } from 'react'
-import { setUser } from '../components/Auth' 
+import { setUser } from '../modules/Auth' 
 
 const Login = () =>
 {

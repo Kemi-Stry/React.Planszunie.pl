@@ -2,7 +2,7 @@ import './styles/AddGame.css'
 import { Link, useNavigate } from 'react-router-dom'
 import { useRef, useState } from 'react'
 import Header from '../components/Header'
-import { getToken } from '../components/Auth'
+import { getToken } from '../modules/Auth'
 import { wait } from '@testing-library/user-event/dist/utils'
 
 

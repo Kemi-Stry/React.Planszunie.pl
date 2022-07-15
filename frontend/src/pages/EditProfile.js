@@ -1,6 +1,6 @@
 import './styles/EditProfile.css'
 import { useEffect, useState, useRef } from "react"
-import { getID, getToken } from '../components/Auth'
+import { getID, getToken } from '../modules/Auth'
 import Header from '../components/Header' 
 
 const EditProfile = () => {

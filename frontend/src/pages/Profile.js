@@ -5,7 +5,7 @@ import './styles/Profile.css'
 import Header from '../components/Header'
 import neko from '../img/neko_fly.gif'
 
-import { getToken, getID } from '../components/Auth'
+import { getToken, getID } from '../modules/Auth'
 import { useState, useEffect, useRef } from "react"
 import { Link } from 'react-router-dom'
 

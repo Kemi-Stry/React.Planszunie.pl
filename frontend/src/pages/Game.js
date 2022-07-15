@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom"
 import { useState, useEffect, useRef } from "react"
 import Loading from '../components/Loading'
 import Header from "../components/Header"
-import { getToken, getID, getUserName } from "../components/Auth"
+import { getToken, getID, getUserName } from "../modules/Auth"
 import useFetch from "../hooks/useFetch"
 import "./styles/Game.css"
 

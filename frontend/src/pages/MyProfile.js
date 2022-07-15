@@ -1,7 +1,7 @@
 import './styles/MyProfile.css'
 import Header from "../components/Header"
 import Loading from '../components/Loading'
-import { getToken, getID } from '../components/Auth'
+import { getToken, getID } from '../modules/Auth'
 import { useState, useEffect, useRef } from "react"
 import useFetch from "../hooks/useFetch"
 import { Link } from 'react-router-dom'
