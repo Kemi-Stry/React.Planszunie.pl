@@ -1,11 +1,11 @@
-import './styles/Regulations.css'
+import style from './styles/Regulations.module.css'
 
 const Regulations = () =>
 {
     return(
-        <div className="regulations">
-            <h1 id="h1">REGULAMIN SERWISU PLANSZUNIE.PL</h1>
-            <h2 id="h2">Art. 1 Postanowienia ogólne</h2>
+        <div className={style.regulations}>
+            <h1>REGULAMIN SERWISU PLANSZUNIE.PL</h1>
+            <h2>Art. 1 Postanowienia ogólne</h2>
             <ol>
                 <li>Niniejszy Regulamin określa zasady funkcjonowania oraz korzystania z serwisu pod nazwą „PLANSZUNIE.PL”, zdefiniowanego w dalszej części Regulaminu w szczególności prawa i obowiązki administratora Serwisu i jego Użytkowników związane ze świadczeniem Usług drogą elektroniczną.</li>
                 <li>Regulamin udostępniany jest Użytkownikom przez Administratora przed zawarciem Umowy o świadczenie Usług.</li>
@@ -29,7 +29,7 @@ const Regulations = () =>
                 </li>
                 <li>Zawarcie Umowy z Administratorem jest możliwe wyłącznie w języku polskim, zgodnie z Regulaminem.</li>
             </ol>
-            <h2 id="h2">Art. 2 Definicje</h2>
+            <h2>Art. 2 Definicje</h2>
             <p>Na potrzeby niniejszego Regulaminu, użyte poniżej określenia oznaczają:</p>
             <ol>
                 <li>Administrator/Usługodawca — Planszunie.pl, Administrator świadczy na rzecz Użytkowników usługi drogą elektroniczną w tym w szczególności usługę udostępnienia zasobów i funkcjonalności Serwisu.</li>
@@ -63,13 +63,13 @@ const Regulations = () =>
                 <li>Znaki towarowe (Znaki) - wszelkie odnoszące się do Serwisu informacje zastrzeżone oraz wszystkie elementy Serwisu poddane ochronie na podstawie obowiązującego prawa.</li>
             </ol>
             <p>Wyrażenia lub zwroty niezdefiniowane w Regulaminie będą mieć znaczenie przypisywane im przez prawo, a przy braku takiej definicji powinny być rozumiane zgodnie ze znaczeniami obowiązującymi w branży teleinformatycznej lub prawniczej.</p>
-            <h2 id="h2">Art. 3 Warunki techniczne korzystania z Serwisu</h2>
+            <h2>Art. 3 Warunki techniczne korzystania z Serwisu</h2>
             <ol>
                 <li>Warunkiem koniecznym dla korzystania z Serwisu jest posiadanie przez Użytkownika urządzenia pozwalającego na dostęp do sieci Internet, włącznie z programem służącym do przeglądania jej zasobów, akceptującym pliki typu cookies oraz konta poczty e-mail. Dla poprawnego funkcjonowania Serwisu wymagana jest jedna z przeglądarek: Firefox, Opera, Chrome i Safari dla Mac OS X; w ich najnowszych wersjach. Starsze od aktualnych wersji wersje przeglądarek, mogą nie być obsługiwane lub nie być obsługiwane w pełni.</li>
                 <li>W przypadku korzystania przez Użytkownika z nietypowych lub nie stosowanych powszechnie rozwiązań technicznych lub informatycznych Serwis może nie być dostępny.</li>
                 <li>Administrator zobowiązuje się do rozpoczęcia świadczenia Usług wybranych przez Użytkownika niezwłocznie, a Usług wybranych przez Użytkownika Zarejestrowanego nie później niż 24 godziny od momentu utworzenia aktywnego Konta.</li>
             </ol>
-            <h2 id="h2">Art. 4 Zawarcie umowy, rejestracja i korzystanie z Serwisu</h2>
+            <h2>Art. 4 Zawarcie umowy, rejestracja i korzystanie z Serwisu</h2>
             <ol>
                 <li>Usługi świadczone na rzecz wszystkich Użytkowników:
                     <ul>
@@ -100,14 +100,14 @@ const Regulations = () =>
                     </li>
                     <li>Zabrania się korzystania z Kont innych Użytkowników Zarejestrowanych.</li>
                 </ol>
-                <h2 id="h2">Art. 5 Baza danych serwisu</h2>
+                <h2>Art. 5 Baza danych serwisu</h2>
                 <ol>
                     <li>Administrator jest producentem Bazy Danych Serwisu w rozumieniu ustawy o bazach danych zawierającej zbiór Danych Gier Planszowych.</li>
                     <li>Wszelkie informacje stanowiące Dane Gier Planszowych, które zamieszczane są w Serwisie przez Użytkowników, stanowią część Bazy Danych Serwisu.</li>
                     <li>Informacje stanowiące Bazę Danych Serwisu mogą być moderowane przez Administratora, co oznacza, iż Administrator może odmówić opublikowania ich w Serwisie lub zmienić ich treść, w szczególności jeżeli informacje te będą niedozwolone ze względu na polskie lub międzynarodowe przepisy prawa, treść niniejszego Regulaminu lub dobre obyczaje, a także gdy naruszają moralność publiczną lub są niezgodne z rzeczywistościąWszelkie informacje stanowiące Dane Gier Planszowych, które zamieszczane są w Serwisie przez Użytkowników, stanowią część Bazy Danych Serwisu.</li>
                     <li>Administratorowi jako producentowi Bazy Danych Serwisu przysługuje wyłączne prawo pobierania danych i wtórnego ich wykorzystania w całości lub w istotnej części, co do jakości lub ilości. Użytkownik może korzystać z informacji, które zamieścił w Bazie Danych Serwisu wyłącznie na zasadach określonych w ustawie o bazach danych.</li>
                 </ol>
-                <h2 id="h2">Art. 6 Ochrona danych osobowych</h2>
+                <h2>Art. 6 Ochrona danych osobowych</h2>
                 <ol>
                     <li>Z chwilą rejestracji Użytkownik wyraża zgodę na umieszczenie i przetwarzanie jego danych osobowych przez Administratora, zgodnie z warunkami, w sposób i w celach określonych w Polityce Prywatności oraz zgodnie z postanowieniami Regulaminu.</li>
                     <li>Usługodawca przywiązuje szczególną wagę do poszanowania prywatności Użytkowników.</li>
@@ -115,7 +115,7 @@ const Regulations = () =>
                     <li>Zasady przetwarzania Danych osobowych przez Usługodawcę, katalog praw przysługujących osobom, których dane dotyczą, oraz sposób wykonywania praw przysługujących w związku z przetwarzaniem danych osobowych określa Polityka prywatności.</li>
                     <li>Administrator nie będzie udostępniać zgromadzonych danych osobowych Użytkowników Zarejestrowanych innym osobom lub instytucjom, chyba że nastąpi to za wyraźną zgodą lub na życzenie Użytkownika. Administrator uprawniony jest do ujawnienia i udostępnienia danych osobowych wyłącznie podmiotom upoważnionym na podstawie właściwych przepisów prawa, zgodnie z postanowieniami Regulaminu i obowiązującymi przepisami prawa.</li>
                 </ol>
-                <h2 id="h2">Art. 7 Zmiana Regulaminu</h2>
+                <h2>Art. 7 Zmiana Regulaminu</h2>
                 <ol>
                     <li>Regulamin, w tym polityki oraz warunki, o których mowa w tym Regulaminie, stanowią całość Umowy i regulują korzystanie przez Użytkownika z Serwisu, zastępując wszelkie wcześniejsze umowy pomiędzy Użytkownikiem i Administratorem.</li>
                     <li>
@@ -135,7 +135,7 @@ const Regulations = () =>
                     </ul>
                     </li>
                 </ol>
-                <h2 id="h2">Art. 8 Wypowiedzenie Umowy przez Administratora</h2>
+                <h2>Art. 8 Wypowiedzenie Umowy przez Administratora</h2>
                 <ol>
                     <li>
                         W przypadku rażącego naruszenia zasad korzystania z Serwisu określonych w niniejszym Regulaminie lub powszechnie obowiązujących przepisów prawa Administrator może usunąć Konto, wypowiadając Umowę ze skutkiem natychmiastowym. Za rażące naruszenie należy uznać w szczególności sytuacje gdy:
@@ -148,7 +148,7 @@ const Regulations = () =>
                         </ul>
                     </li>
                 </ol>
-                <h2 id="h2">Art. 9 Postępowanie reklamacyjne i odstąpienie od umowy konsumenckiej</h2>
+                <h2>Art. 9 Postępowanie reklamacyjne i odstąpienie od umowy konsumenckiej</h2>
                 <ol>
                     <li>Użytkownicy mogą składać reklamacje dotyczące spraw związanych z funkcjonowaniem Serwisu. Reklamacje mogą być składane w formie pisemnej na adres Administratora lub drogą elektroniczną za pomocą wiadomości przesłanej na adres poczty elektronicznej (e-mail) Administratora: admin@planszunie.pl.</li>
                     <li>
@@ -162,14 +162,14 @@ const Regulations = () =>
                     <li>Użytkownikowi przysługuje prawo usunięcia konta za pomocą wniosku wysyłanego na adres poczty elektronicznej Administratora.</li>
                     <li>Administrator udziela odpowiedzi na reklamację drogą elektroniczną w terminie 14 (czternastu) dni od dnia jej złożenia, chyba że reklamacja została w całości zrealizowana (np. zgłoszony przez Użytkownika błąd w Serwisie został już naprawiony przez Administratora). Odpowiedź na reklamację wysyłana będzie na adres e-mail Użytkownika przypisany do Konta lub na adres wskazany w reklamacji składanej na piśmie. Administrator zastrzega sobie prawo do wydłużenia powyższego terminu maksymalnie do 30 dni w przypadku, gdy rozpoznanie reklamacji wymaga wiadomości specjalnych lub napotka przeszkody z przyczyn niezależnych od Administratora (takie jak awarie sprzętu lub sieci internetowej). Administrator ponadto zastrzega, że rozpatrzenie reklamacji może wymagać uzyskania od Użytkownika dodatkowych wyjaśnień – czas udzielania wyjaśnień przez Użytkownika każdorazowo przedłuża okres rozpoznania reklamacji.</li>
                 </ol>
-                <h2 id="h2">Art. 10 Wyłączenie odpowiedzialności Administratora</h2>
+                <h2>Art. 10 Wyłączenie odpowiedzialności Administratora</h2>
                 <ol>
                     <li>Administrator zobowiązuje się do dołożenia wszelkich starań celem zapewnienia działania Serwisu bez jakichkolwiek zakłóceń, jednakże Administrator nie ponosi odpowiedzialności za zakłócenia spowodowane siłą wyższą lub niedozwoloną ingerencją Użytkowników, Użytkowników Zarejestrowanych lub osób trzecich.</li>
                     <li>Administrator nie ponosi odpowiedzialności za sposób korzystania przez Użytkownika lub Użytkownika Zarejestrowanego z Serwisu i skutki korzystania z Serwisu, jeżeli korzystanie nastąpiło w sposób sprzeczny z postanowieniami niniejszego Regulaminu.</li>
                     <li>Administrator zastrzega, iż zakres Usług może być zmieniany przez Administratora, w szczególności w ważnych powodów biznesowych lub prawnych. Administrator będzie informował za pośrednictwem wiadomości wysyłanych na adres e-mail podany przez Użytkownika w momencie rejestracji o każdej zmianie zakresu udostępnianych funkcji z odpowiednim wyprzedzeniem.</li>
                     <li>W Serwisie mogą znajdować się aktywne linki, umożliwiające Użytkownikowi lub Użytkownikowi Zarejestrowanemu dotarcie do stron internetowych innych niż Serwis; w przypadku stron internetowych innych podmiotów niż Administratora, Administrator zastrzega, iż nie ma on wpływu na zawarte na tych stronach treści ani tych treści nie weryfikuje oraz nie ma wpływu na prowadzoną przez administratorów tych stron politykę prywatności oraz zaleca zapoznanie się ze wszelkimi regulaminami i innymi dokumentami dotyczącymi polityki prywatności oraz oferowanych na tych stronach produktów lub usług.</li>
                 </ol>
-                <h2 id="h2">Art. 11 Postanowienia końcowe</h2>
+                <h2>Art. 11 Postanowienia końcowe</h2>
                 <ol>
                     <li>Użytkownicy i Użytkownicy Zarejestrowani zgadzają się, że Umowa może zostać scedowana przez Administratora, w całości lub w części, na rzecz osoby trzecie. Użytkownicy Zarejestrowani nie mogą scedować Umowy na rzecz jakichkolwiek podmiotów z uwagi na charakter Konta Użytkownika.</li>
                     <li>Niniejszy dokument jak również dokumenty w nim powołane podlegają przepisom polskiego prawa, w tym w szczególności przepisom: ustawy z dnia 23 kwietnia 1964 r. Kodeks cywilny, ustawy z dnia 27 lipca 2001 r. o ochronie baz danych, ustawy z dnia 18 lipca 2002 r. o świadczeniu usług drogą elektroniczną oraz ustawy z dnia 4 lutego 1994 r. o prawie autorskim i prawach pokrewnych.</li>

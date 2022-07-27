@@ -1,0 +1,21 @@
+.gif
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0%;
+}
+
+.content
+{
+    text-align: center;
+    width: 100%;
+    margin-left: 60px;
+    margin-right: 60px;
+}

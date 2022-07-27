@@ -26,7 +26,8 @@
     margin-right: auto;
 }
 
-.flex-game{
+.flexgame
+{
     display: flex;
     justify-content: right;
     align-items: right;
@@ -35,7 +36,8 @@
    
 }
 
-.left{
+.left
+{
     text-align: left;
     width: 40%;
     margin: 1em;
@@ -136,7 +138,7 @@
     align-items: center;
 }
 
-.avatar1
+.avatar
 {
     width: 128px;
     height: 128px;
@@ -144,7 +146,7 @@
     margin-right: 10px;
 }
 
-.list1
+.list
 {
     display: flex;
     justify-content: center;

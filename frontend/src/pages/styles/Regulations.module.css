@@ -7,7 +7,6 @@
     margin-left: auto;
     margin-right: auto;
     text-align: justify;
-    
 }
 
 ul
@@ -18,27 +17,27 @@ ul
 li 
 {
     word-wrap: break-word;
-    font-size: 14px;
+    font-size: 1em;
     list-style-position: outside;
 
 }
 
 p
 {
-    font-size: 14px;
+    font-size: 1em;
 }
 
-#h1
+h1
 {
     text-align: center;
-    font-size: 24px;
+    font-size: 2em;
     font-weight: bold;
 }
 
-#h2
+h2
 {
     text-align: center;
-    font-size: 16px;
+    font-size: 1em;
     font-weight: bold;
 }
 

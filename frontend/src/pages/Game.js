@@ -4,7 +4,7 @@ import Loading from '../components/Loading'
 import Header from "../components/Header"
 import { getToken, getID, getUserName } from "../modules/Auth"
 import useFetch from "../hooks/useFetch"
-import "./styles/Game.css"
+import style from "./styles/Game.module.css"
 
 const Game = () => {
     const { id }  = useParams()
@@ -34,11 +34,6 @@ const Game = () => {
         getList() 
     },[])
 
-
-    const getListId = (nr) => {
-        return lists[nr].id
-    }
-
     if(error || listError)
     return(error)
 
@@ -48,6 +43,9 @@ const Game = () => {
     const img = "http://localhost:1337"+data.data.attributes.icon.data.attributes.url
     const gameID = data.data.id
 
+    const getListId = (nr) => {
+        return lists[nr].id
+    }
 
     const createOpinion = async (e) => {
         e.preventDefault()
@@ -165,9 +163,9 @@ const Game = () => {
     return(
         <>
             <Header/>
-            <div className="flex-game">
-                <div className="left">
-                    <img src={img} className="img" alt={data.data.attributes.title}/> 
+            <div className={style.flexgame}>
+                <div className={style.left}>
+                    <img src={img} className={style.img} alt={data.data.attributes.title}/> 
                     <h1>Ocena: {data.data.attributes.averageRating}/10</h1>
                     <h4>Autorzy: {data.data.attributes.authors}</h4>
                     <h4>Ilustratorzy: {data.data.attributes.artists}</h4>
@@ -180,15 +178,15 @@ const Game = () => {
                         <ul key={categories.attributes.name}><li>{categories.attributes.name}</li></ul>
                     ))}
                 </div>
-                <div className="right">
+                <div className={style.right}>
                     <h1>{data.data.attributes.title}</h1>
                     <div id="description">
-                        <pre className="description">{data.data.attributes.description}</pre>
+                        <pre className={style.description}>{data.data.attributes.description}</pre>
                     </div>
                    <div>
                    <h1>Dodaj do listy:</h1>
                         {lists.map(list=>(
-                        <div className="list1" key={list.ListName}>
+                        <div className={style.list} key={list.ListName}>
                             <input type="checkbox" id={list.ListName} value={takeNumber()} defaultChecked={youreLists(takeNumber())} onChange={listOnChange}/>
                             <label htmlFor="checkbox">{list.ListName}</label>
                             </div>
@@ -196,7 +194,7 @@ const Game = () => {
                    </div> 
                 </div>
             </div>
-            <div className="opinions">
+            <div className={style.opinions}>
             <form onSubmit={rateChange}>
                 <input id="ocena" type="number" placeholder="Ocena/10" defaultValue={youreRate(data)} ref={rateRef} max={10} min={1} required/> 
                 <input type="submit" id="submit_opinion" value="Dodaj Ocene" />
@@ -207,12 +205,12 @@ const Game = () => {
                 <input type="submit" id="submit_opinion" value="Dodaj Opinie" />
             </form>
             {data.data.attributes.opinions.data.map(opinions =>(
-                <div className="opin" key={opinions.attributes.publishedAt}>
-                    <div className="owner">
-                        <img className="avatar1" src={'http://localhost:1337'+opinions.attributes.owner.data.attributes.avatar.data.attributes.url} alt={opinions.attributes.owner.data.attributes.username} />
-                        <h3 className="opinRate">{opinions.attributes.owner.data.attributes.username}</h3>
+                <div className={style.opin} key={opinions.attributes.publishedAt}>
+                    <div className={style.owner}>
+                        <img className={style.avatar} src={'http://localhost:1337'+opinions.attributes.owner.data.attributes.avatar.data.attributes.url} alt={opinions.attributes.owner.data.attributes.username} />
+                        <h3 className={style.opinRate}>{opinions.attributes.owner.data.attributes.username}</h3>
                     </div>
-                    <pre className="opinContent">{opinions.attributes.content}</pre>
+                    <pre className={style.opinContent}>{opinions.attributes.content}</pre>
                     <hr />
                 </div>
             ))}

@@ -1,7 +1,7 @@
-import './styles/Login.css'
 import { Link, useNavigate } from 'react-router-dom'
 import { useRef, useState } from 'react'
 import { setUser } from '../modules/Auth' 
+import style from './styles/Login.module.css'
 
 const Login = () =>
 {
@@ -44,18 +44,20 @@ const Login = () =>
     }
     
     return(
-        <div className="login">
-            <h1 className="title">Logowanie</h1>
-                <h3 className="error">{error}</h3>
+        <div className={style.wrapper}>
+        <div className={style.login}>
+            <h1 className={style.title}>Logowanie</h1>
+                <h3 className={style.error}>{error}</h3>
             <form onSubmit= {onSubmit}>
-                <input className='input' ref={indentifierRef} type="text" name="identifier" placeholder="Nazwa użytkownika"/><br />
-                <input className='input' ref={passwordRef} type="password" name="password" placeholder="Hasło"/><br />
-                <input className="submitButton" type="submit" value="Zaloguj"/>
+                <input className={style.input} ref={indentifierRef} type="text" name="identifier" placeholder="Nazwa użytkownika"/><br />
+                <input className={style.input} ref={passwordRef} type="password" name="password" placeholder="Hasło"/><br />
+                <input className={style.submitButton} type="submit" value="Zaloguj"/>
             </form>
-            <div className="link">
-                <h6 className='text'>Nie masz konta?</h6>
-                <Link to="/rejestracja"><h6 className='text' id='text-link'>Zarejestruj się!</h6></Link>
+            <div className={style.link}>
+                <h6>Nie masz konta?</h6>
+                <Link to="/rejestracja"><h6 className={style.textLink}>Zarejestruj się!</h6></Link>
             </div>
+        </div>
         </div>
     )
 }

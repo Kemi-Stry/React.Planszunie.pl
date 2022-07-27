@@ -5,13 +5,13 @@
     height: 80vh;
 }
 
-.left1
+.left
 {
     min-width: 100%;
     padding-left: 10px;
 }
 
-.right1
+.right
 {
     min-width: 90%;
     margin-right: 10px;
@@ -22,7 +22,16 @@
 .username
 {
     font-weight: 700;
-    font-size: 48px;
+    font-size: 3em;
+}
+
+.avatar
+{
+    width: 128px;
+    height: 128px;
+    border-radius: 64px;
+    margin-left: 90px;
+    margin-right: 10px;
 }
 
 .editProfile
@@ -37,7 +46,7 @@
 .description
 {
     font-weight: 400;
-    font-size: 24px;
+    font-size: 1.5em;
     margin-left: 90px;
     width: 100%;
 }
@@ -65,7 +74,7 @@
     border-radius: 8.33333px;
 }
 
-.games5
+.games
 {
     display: flex;
     flex-direction: row;
@@ -77,7 +86,7 @@
 }
 
 
-.game5
+.game
 {
     width: 150px;
     height: 125px;
@@ -85,23 +94,23 @@
     border-radius: 10px;
 }
 
-.game5:hover
+.game:hover
 {
     cursor: pointer;
 }
 
-.games5::-webkit-scrollbar 
+.games::-webkit-scrollbar 
 {
     width: 10px;
 }
 
-.games5::-webkit-scrollbar-track 
+.games::-webkit-scrollbar-track 
 {
     background: transparent;
     
 }
 
-.games5::-webkit-scrollbar-thumb 
+.games::-webkit-scrollbar-thumb 
 {
     background: rgb(70, 70, 70);
     border-radius: 11px;

@@ -1,3 +1,12 @@
+.wrapper
+{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
 .register
 {
     width: 40%;
@@ -17,7 +26,8 @@
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.input{
+.input
+{
     width: 60%;
     height: 55px;
     padding-left: 15px;
@@ -30,7 +40,8 @@
     font-size: 24px;
     filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.05));
 }
-.submitButton1
+
+.submitButton
 {
     width: 200px;
     height: 68.67px;
@@ -44,20 +55,21 @@
     border-radius: 46.25px;
     border-color: rgba(0, 0, 0, 0);
 }
-.submitButton1:hover
+
+.submitButton:hover
 {
     cursor: pointer;
     background: #FF8BA7;
 }
 
-.submitButton1:disabled
+.submitButton:disabled
 {
     background-color: #A8A5A5;
     cursor: default;
     box-shadow: none;
 }
 
-.text1
+.text
 {
     font-weight: 400;
     font-size: 24px;

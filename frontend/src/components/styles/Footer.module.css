@@ -1,0 +1,55 @@
+.footer
+{
+    display: flex;
+    margin-top: auto;
+    margin-bottom: 0px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-weight: 400;
+    font-family: 'Rubik';
+    font-size: 24px;
+    font-style: normal; 
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1%;
+}
+
+.love
+{
+    width: 30px;
+    height: 27px;
+    margin-left: 10px;
+    margin-right: 10px;
+    object-fit: scale-down;
+    animation: breathing 2s ease-out infinite normal;
+}
+
+@keyframes breathing {
+    0% {
+      -webkit-transform: scale(0.9);
+      -ms-transform: scale(0.9);
+      transform: scale(0.9);
+    }
+  
+    25% {
+      -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+      transform: scale(1);
+    }
+  
+    60% {
+      -webkit-transform: scale(0.9);
+      -ms-transform: scale(0.9);
+      transform: scale(0.9);
+    }
+  
+    100% {
+      -webkit-transform: scale(0.9);
+      -ms-transform: scale(0.9);
+      transform: scale(0.9);
+    }
+  }

@@ -1,6 +1,6 @@
-import './styles/Register.css'
 import { Link, useNavigate } from 'react-router-dom'
 import { useRef, useState } from 'react'
+import style from './styles/Register.module.css'
 
 const Register = () =>
 {   
@@ -69,20 +69,22 @@ const Register = () =>
     }
 
     return(
-    <div className="register">
-        <h1 className="title">Rejestracja</h1>
-        <form onSubmit= {onSubmit}>
-            <h3 className="error">{error}</h3>
-            <input className='input' ref={usernameRef} type="text" name="username" placeholder="Nazwa użytkownika" minLength="3" required/><br />
-            <input className='input' ref={emailRef} type="email" name="email" placeholder="Email" required/><br />
-            <input className='input' ref={passwordRef} type="text" name="password" placeholder="Hasło" minLength="6" required/><br />
-            <input className='input' ref={checkPasswordRef} type="text" name="chechPassword" placeholder="Powtórz hasło" minLength="6" required/><br />
-            <div className="accept">
-                <input type="checkbox" id="checkbox" onChange={handleChange} /> 
+        <div className={style.wrapper}>
+        <div className={style.register}>
+            <h1 className={style.title}>Rejestracja</h1>
+            <form onSubmit = {onSubmit}>
+                <h3 className={style.error}>{error}</h3>
+                <input ref={usernameRef} className={style.input} type="text" name="username" placeholder="Nazwa użytkownika" minLength="3" required/><br />
+                <input ref={emailRef} className={style.input} type="email" name="email" placeholder="Email" required/><br />
+                <input ref={passwordRef} className={style.input} type="password" name="password" placeholder="Hasło" minLength="6" required/><br />
+                <input ref={checkPasswordRef} className={style.input} type="password" name="chechPassword" placeholder="Powtórz hasło" minLength="6" required/><br />
+            <div className={style.accept}>
+                <input type="checkbox" onChange={handleChange} /> 
                 <label htmlFor="checkbox">Akceptuję <Link id="text-link" to="/regulamin" target="_blank">Regulamin</Link></label><br />
             </div>
-            <input className="submitButton1" type="submit" value="Zarejestruj się" disabled={disabled}/>
+            <input className={style.submitButton} type="submit" value="Zarejestruj się" disabled={disabled}/>
         </form>
+    </div>
     </div>
     )
     

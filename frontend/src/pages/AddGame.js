@@ -1,10 +1,7 @@
-import './styles/AddGame.css'
-import { Link, useNavigate } from 'react-router-dom'
 import { useRef, useState } from 'react'
 import Header from '../components/Header'
 import { getToken } from '../modules/Auth'
-import { wait } from '@testing-library/user-event/dist/utils'
-
+import style from './styles/AddGame.module.css'
 
 const AddGame = () => {
     const titleRef = useRef()  
@@ -29,7 +26,6 @@ const AddGame = () => {
     const onSubmit = async (e) => {
         e.preventDefault()
         console.log(picture)
-        // const image = imageRef.current.value
         const title = titleRef.current.value
         const description = decritionRef.current.value
         const authors = authorRef.current.value
@@ -100,8 +96,8 @@ const AddGame = () => {
         <Header/>
         <h1>{error}</h1>
             <form onSubmit={onSubmit}>
-                <div className="form">
-                    <div className="basics">
+                <div className={style.form}>
+                    <div className={style.basics}>
                         <input ref={imageRef} type="file" id="image" name="image" onChange={onChange} required /><br />
                         <input ref={titleRef} type="text" placeholder='Tytył' required/><br />
                         <textarea ref={decritionRef} name="" id="" cols="30" rows="10" placeholder='Opis' required></textarea><br />

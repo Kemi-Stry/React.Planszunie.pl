@@ -1,11 +1,11 @@
-import './styles/MyProfile.css'
+import { useState, useEffect, useRef } from "react"
+import { Link } from 'react-router-dom'
+import { getToken, getID } from '../modules/Auth'
+import useFetch from "../hooks/useFetch"
 import Header from "../components/Header"
 import Loading from '../components/Loading'
-import { getToken, getID } from '../modules/Auth'
-import { useState, useEffect, useRef } from "react"
-import useFetch from "../hooks/useFetch"
-import { Link } from 'react-router-dom'
 import neko from '../img/neko_fly.gif'
+import style from './styles/MyProfile.module.css'
 
 const MyProfile = () => {
     const [serachFriend, setSerachFriend] = useState('')
@@ -39,7 +39,7 @@ const MyProfile = () => {
     const createOpinion = async (e) => {
         e.preventDefault()
         const newList = newListRef.current.value
-        const response = await fetch('http://localhost:1337/api/lists', {
+        await fetch('http://localhost:1337/api/lists', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({"data":{
@@ -105,23 +105,23 @@ const MyProfile = () => {
     return(
         <>
             <Header/>
-                <div className="grid">
-                    <div className="left1">
-                    <div className="user">
-                        <img className="avatar" defaultValue={neko} src={avatar} alt="avatar" />
-                        <h1 className='username'>{userData.username}</h1>
-                        <Link className="editProfile" to="/profil/edytuj">Edytuj profil</Link>
+                <div className={style.grid}>
+                    <div className={style.left}>
+                    <div className={style.user}>
+                        <img className={style.avatar} defaultValue={neko} src={avatar} alt="avatar" />
+                        <h1 className={style.username}>{userData.username}</h1>
+                        <Link className={style.editProfile} to="/profil/edytuj">Edytuj profil</Link>
                     </div>
-                <pre className="description">{userData.description}</pre>
+                <pre className={style.description}>{userData.description}</pre>
                 <h1>Listy</h1>
                         {userData.lists.map(list => (
                             <div key={list.ListName}>
                             <h3>{list.ListName}</h3>
-                             <div key={list.ListName} className="games5">
+                             <div key={list.ListName} className={style.games}>
                                 {list.games.map(game => (
                                 <Link key={game.title} to={"/gra/"+game.id}>
-                                    <div className="game5">
-                                        <img className="coverMini" src={"http://localhost:1337"+game.icon.url}/>
+                                    <div className={style.game}>
+                                        <img className={style.coverMini} alt='covet' src={"http://localhost:1337"+game.icon.url}/>
                                     </div>
                                 </Link>))}
                             </div>
@@ -134,28 +134,28 @@ const MyProfile = () => {
                 </form>
                     
                 </div>
-                <div className="right1">
-                    <div className="friends">
-                        <div className="search1">
+                <div className={style.right}>
+                    <div className={style.friends}>
+                        <div className={style.search}>
                         <h2>Szukaj znajomych</h2>
                         <input id='friendSearch' type="text" placeholder='Podaj email znajomego' onChange={serachFriends}/>
-                        {data.filter( (user)=>{
-                        if (user.email.toLowerCase().includes(serachFriend.toLowerCase()) && serachFriend!='') 
+                        {data.filter((user) => {
+                        if (user.email.toLowerCase().includes(serachFriend.toLowerCase()) && serachFriend!=='') 
                             return user    
                         }).map(user => (
                             <div>
-                                <img className='avatarMini' src={'http://localhost:1337'+user.avatar.url} alt='user.username}'/>
+                                <img className={style.avatarMini} src={'http://localhost:1337'+user.avatar.url} alt='user.username}'/>
                                 <h2 key={user.username}>{user.username}</h2>
                                 <button id="submit_opinion"  value={user.id} onClick={addFriend}>Dodaj znajomego</button>
                             </div>
                             
                         ))}
                         </div>
-                        <div className="myfriends">
+                        <div className={style.myfriends}>
                             <h2>Moi znajomi</h2>
                             {userData.friends.map(user=> (
-                                <div className='friendo' key={user.id}>
-                                <img className='avatarMini' src={'http://localhost:1337'+user.user.avatar.url} alt='user.username}'/>
+                                <div className={style.friendo} key={user.id}>
+                                <img className={style.avatarMini} src={'http://localhost:1337'+user.user.avatar.url} alt='user.username}'/>
                                 <Link to={'/profil/'+user.user.id}><h2>{user.user.username}</h2></Link>
                                 </div>
                             ))}

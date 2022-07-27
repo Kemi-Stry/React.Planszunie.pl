@@ -18,13 +18,12 @@
     margin-top: 120px;
 }
 
-
 .filtr
 {
     display: flex;
     flex-direction: column;
     overflow: auto;
-    max-height: 55vh;
+    max-height: 30vh;
     width: 100%;
     padding-left: 15px;
     padding-bottom: 20px;
@@ -35,6 +34,7 @@
     border-radius: 10px;
     border-color: transparent;
 }
+
 .content
 {
     float: right;
@@ -117,6 +117,7 @@
     height: 250px;
     object-fit: scale-down;
 }
+
 input[type="checkbox"]{
     margin: left 20px;
 }

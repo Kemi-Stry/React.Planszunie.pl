@@ -8,13 +8,13 @@
     margin-bottom: 10px;
 }
 
-.links{
+.links
+{
     display: flex;
     margin-left: auto;
     align-items: flex-start;
     gap: 20px;
 }
-
 
 .homelink
 {
@@ -24,6 +24,7 @@
     font-size: 48px;
     font-weight: bold;
 }
+
 .headerlink
 {
     justify-self: center;
@@ -32,7 +33,6 @@
     font-weight: 400;
     font-size: 24px;
     color: black;
-    
 }
 
 .buttonlink
@@ -60,7 +60,7 @@
     cursor: pointer;
 }
 
-#profil
+.profil
 {
     justify-self: flex-end;
     margin-left: auto;
@@ -69,6 +69,7 @@
     font-size: 24px;
     color: black;
 }
+
 .dice
 {
     margin-left: 10px;

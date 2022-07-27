@@ -1,0 +1,64 @@
+.top10
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Rubik';
+  font-weight: 700;
+  font-size: 36px;
+}
+
+.numbers
+{
+  position: absolute;
+  width: 49px;
+  height: 62px;
+  top: 204px;
+  font-family: 'Rubik';
+  font-style: italic;
+  font-weight: 700;
+  font-size: 65px;
+  line-height: 77px;
+  display: flex;
+  align-items: center;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.games
+{ 
+  display: flex;
+  text-align: center;
+  flex-flow: row;
+  flex-wrap: wrap;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  gap: 10px;
+}
+
+.cover
+{
+    width: 225px;
+    height: 190px;
+    object-fit: scale-down;
+}
+
+.game
+{
+  width: 225px;
+  height: auto;
+  background: rgba(255, 255, 255, 0.75);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px; 
+}
+
+.num
+{
+  width: 33%;
+  color: black;
+  margin-right: auto;
+}

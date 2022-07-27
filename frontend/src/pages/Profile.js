@@ -1,9 +1,9 @@
 import { useParams } from "react-router-dom"
 import useFetch from "../hooks/useFetch"
 import Loading from '../components/Loading'
-import './styles/Profile.css'
 import Header from '../components/Header'
 import neko from '../img/neko_fly.gif'
+import style from './styles/Profile.module.css'
 
 import { getToken, getID } from '../modules/Auth'
 import { useState, useEffect, useRef } from "react"
@@ -54,21 +54,21 @@ const Profile = () => {
     return(
         <>
         <Header/>
-        <div className="user">
-            <img className="avatar" src={avatar} alt="avatar" />
-            <h1 className='username'>{data.username}</h1>
+        <div className={style.user}>
+            <img className={style.avatar} src={avatar} alt="avatar" />
+            <h1 className={style.username}>{data.username}</h1>
         </div>
-        <pre className="description">{data.description}</pre>
+        <pre className={style.description}>{data.description}</pre>
         <h1>Listy</h1>
                         {userData.lists.map(list => (
-                             <div className="content">
-                             <div className="games">
+                             <div className={style.content}>
+                             <div className={style.games}>
                             <div key={list.ListName}>
                                 <h3>{list.ListName}</h3>
                                 {list.games.map(game => (
                                 <Link key={game.title} to={"/gra/"+game.id}>
-                                    <div className="game">
-                                        <img className="cover" src={"http://localhost:1337"+game.icon.url}/>
+                                    <div className={style.game}>
+                                        <img className={style.cover} src={"http://localhost:1337"+game.icon.url}/>
                                     </div>
                                 </Link>))}
                             </div>

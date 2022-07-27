@@ -12,10 +12,12 @@
 {
     flex-direction: row;
 }
+
 .Column
 {
     flex-direction: column;
 }
+
 .Image
 {
     box-sizing: border-box;

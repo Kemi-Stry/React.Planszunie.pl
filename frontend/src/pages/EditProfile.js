@@ -1,4 +1,4 @@
-import './styles/EditProfile.css'
+import './styles/EditProfile.module.css'
 import { useEffect, useState, useRef } from "react"
 import { getID, getToken } from '../modules/Auth'
 import Header from '../components/Header' 
