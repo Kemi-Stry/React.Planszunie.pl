@@ -1,13 +1,12 @@
 import { useParams } from "react-router-dom"
+import { getToken, getID } from '../modules/Auth'
+import { useState, useEffect } from "react"
+import { Link } from 'react-router-dom'
 import useFetch from "../hooks/useFetch"
 import Loading from '../components/Loading'
 import Header from '../components/Header'
 import neko from '../img/neko_fly.gif'
 import style from './styles/Profile.module.css'
-
-import { getToken, getID } from '../modules/Auth'
-import { useState, useEffect, useRef } from "react"
-import { Link } from 'react-router-dom'
 
 
 const Profile = () => {

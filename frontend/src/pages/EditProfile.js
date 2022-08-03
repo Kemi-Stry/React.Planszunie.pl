@@ -1,7 +1,7 @@
-import './styles/EditProfile.module.css'
 import { useEffect, useState, useRef } from "react"
 import { getID, getToken } from '../modules/Auth'
-import Header from '../components/Header' 
+import Header from '../components/Header'
+import './styles/EditProfile.module.css'
 
 const EditProfile = () => {
     const [data, setData] = useState({})

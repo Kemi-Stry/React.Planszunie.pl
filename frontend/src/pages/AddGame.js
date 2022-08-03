@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react'
-import Header from '../components/Header'
 import { getToken } from '../modules/Auth'
+import Header from '../components/Header'
 import style from './styles/AddGame.module.css'
 
 const AddGame = () => {
@@ -102,7 +102,7 @@ const AddGame = () => {
                         <input ref={titleRef} type="text" placeholder='Tytył' required/><br />
                         <textarea ref={decritionRef} name="" id="" cols="30" rows="10" placeholder='Opis' required></textarea><br />
                     </div>  
-                    <div className="parameters">
+                    <div className={style.parameters}>
                         <label htmlFor="authors">Autorzy:</label><br />
                         <input ref={authorRef} type="text" name='authors' className='long' placeholder='Autor1, Autor2...' required/><br />
                         <label htmlFor="illustrators">Ilustratorzy:</label><br />

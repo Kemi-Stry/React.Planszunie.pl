@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import { isLogged, setUser } from '../modules/Auth'
+import { isLogged } from '../modules/Auth'
 import dice from '../img/dice.png'
 import style from './styles/Header.module.css'
 
@@ -23,7 +23,7 @@ useEffect(() => {
     }, [])
 
     const logout = () => {
-      setUser({})
+      window.localStorage.removeItem('user')
       setLogged(false)
     }
 
