@@ -1,6 +1,5 @@
 import style from "./styles/BrowseGame.module.css"
 import useFetch from "../hooks/useFetch"
-import Header from "../components/Header"
 import Loading from "../components/Loading"
 import { Link } from "react-router-dom"
 import { useState, useEffect } from "react"
@@ -55,7 +54,6 @@ const BrowseGames = () => {
     return(<Loading/>)
     return(
         <> 
-            <Header/>
             <div className={style.options}>
                 <div className={style.filtr}>
                     <h1>Sortowanie</h1>

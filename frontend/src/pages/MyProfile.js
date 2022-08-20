@@ -2,7 +2,6 @@ import { useState, useEffect, useRef } from "react"
 import { Link } from 'react-router-dom'
 import { getToken, getID } from '../modules/Auth'
 import useFetch from "../hooks/useFetch"
-import Header from "../components/Header"
 import Loading from '../components/Loading'
 import neko from '../img/neko_fly.gif'
 import style from './styles/MyProfile.module.css'
@@ -81,7 +80,6 @@ const MyProfile = () => {
     if (loading){
         return (
         <>
-            <Header/>
             <Loading/>
         </>
         )
@@ -90,7 +88,6 @@ const MyProfile = () => {
     if (error){
         return(
             <>
-            <Header/>
             {error}
             </>
         )
@@ -104,7 +101,6 @@ const MyProfile = () => {
     } 
     return(
         <>
-            <Header/>
                 <div className={style.grid}>
                     <div className={style.left}>
                     <div className={style.user}>

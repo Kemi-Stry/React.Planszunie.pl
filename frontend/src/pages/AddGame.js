@@ -1,6 +1,5 @@
 import { useRef, useState } from 'react'
 import { getToken } from '../modules/Auth'
-import Header from '../components/Header'
 import style from './styles/AddGame.module.css'
 
 const AddGame = () => {
@@ -93,7 +92,6 @@ const AddGame = () => {
 
     return(
         <>
-        <Header/>
         <h1>{error}</h1>
             <form onSubmit={onSubmit}>
                 <div className={style.form}>

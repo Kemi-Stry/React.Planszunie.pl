@@ -4,7 +4,6 @@ import { useState, useEffect } from "react"
 import { Link } from 'react-router-dom'
 import useFetch from "../hooks/useFetch"
 import Loading from '../components/Loading'
-import Header from '../components/Header'
 import neko from '../img/neko_fly.gif'
 import style from './styles/Profile.module.css'
 
@@ -52,7 +51,6 @@ const Profile = () => {
         
     return(
         <>
-        <Header/>
         <div className={style.user}>
             <img className={style.avatar} src={avatar} alt="avatar" />
             <h1 className={style.username}>{data.username}</h1>

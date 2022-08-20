@@ -11,12 +11,15 @@ import Profile from './pages/Profile';
 import Game from './pages/Game';
 import BrowseGames from './pages/BrowseGames';
 import EditProfile from './pages/EditProfile';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
+        <Header/>
           <Routes>
             <Route path="/" element={<Home/>} />
             <Route path="/logowanie" element={<Login/>} />
@@ -30,6 +33,7 @@ function App() {
             <Route path="/regulamin" element={<Regulations/>} />
             <Route path="*" element={<ErrorPage/>}/>
           </Routes>
+        <Footer/>
       </BrowserRouter>
     </div>
   );

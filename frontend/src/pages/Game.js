@@ -3,7 +3,6 @@ import { useState, useEffect, useRef } from "react"
 import { getToken, getID, getUserName } from "../modules/Auth"
 import useFetch from "../hooks/useFetch"
 import Loading from '../components/Loading'
-import Header from "../components/Header"
 import style from "./styles/Game.module.css"
 
 const Game = () => {
@@ -162,7 +161,6 @@ const Game = () => {
          
     return(
         <>
-            <Header/>
             <div className={style.flexgame}>
                 <div className={style.left}>
                     <img src={img} className={style.img} alt={data.data.attributes.title}/> 
