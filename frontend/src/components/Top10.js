@@ -20,7 +20,7 @@ const Top10 = () => {
 
     return(
         <>
-        <h1>TOP 10</h1>
+        <h1 name="top10">TOP 10</h1>
         <div className={style.games}>
             {data.data.sort((a, b) => b.attributes.averageRating- a.attributes.averageRating).slice(0,10).map(game => (
                 <Link key={game.attributes.title} to={"/gra/"+game.id}>

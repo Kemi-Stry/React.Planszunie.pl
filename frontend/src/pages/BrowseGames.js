@@ -85,7 +85,7 @@ const BrowseGames = () => {
             </div> 
            
             <div className={style.content}>
-                <input className={style.search} type="text" placeholder="Wyszukiwanko" value={searchText} onChange={search}/>
+                <input className={style.search} name="search" type="text" placeholder="Wyszukiwanko" value={searchText} onChange={search}/>
                 <div className={style.games}>
                 {data.data.filter((game)=>{
                     if (searchText === "")

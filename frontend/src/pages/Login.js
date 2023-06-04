@@ -51,7 +51,7 @@ const Login = () =>
             <form onSubmit= {onSubmit}>
                 <input className={style.input} ref={indentifierRef} type="text" name="identifier" placeholder="Nazwa użytkownika"/><br />
                 <input className={style.input} ref={passwordRef} type="password" name="password" placeholder="Hasło"/><br />
-                <input className={style.submitButton} type="submit" value="Zaloguj"/>
+                <input className={style.submitButton} name='submit' type="submit" value="Zaloguj"/>
             </form>
             <div className={style.link}>
                 <h6>Nie masz konta?</h6>
