@@ -177,7 +177,7 @@ const Game = () => {
                     ))}
                 </div>
                 <div className={style.right}>
-                    <h1>{data.data.attributes.title}</h1>
+                    <h1 name="title">{data.data.attributes.title}</h1>
                     <div id="description">
                         <pre className={style.description}>{data.data.attributes.description}</pre>
                     </div>

@@ -119,7 +119,7 @@ const BrowseGames = () => {
                     }
                     return a
                 }).map(game => (
-                    <Link key={game.attributes.title} to={"/gra/"+game.id}>
+                    <Link className="gamelink" key={game.attributes.title} to={"/gra/"+game.id}>
                         <div className={style.game}>
                             <img className={style.cover} src={"http://localhost:1337"+game.attributes.icon.data.attributes.url} alt={game.attributes.title}/>
                         </div>

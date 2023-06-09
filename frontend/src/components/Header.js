@@ -50,7 +50,7 @@ useEffect(() => {
                   <Link className={style.headerlink} to="/przegladaj">Przeglądaj gry</Link>
                   <Link className={style.headerlink} to="/dodawanie">Dodaj grę</Link>
             </div>
-           <Link className={style.profil} to="/profil/me">Mój profil</Link>
+           <Link name="myprofile" className={style.profil} to="/profil/me">Mój profil</Link>
            <button className={style.loginbutton} onClick={logout}>Wyloguj</button>
         </div>
     )

@@ -47,7 +47,7 @@ const Login = () =>
         <div className={style.wrapper}>
         <div className={style.login}>
             <h1 className={style.title}>Logowanie</h1>
-                <h3 className={style.error}>{error}</h3>
+                <h3 name="error" className={style.error}>{error}</h3>
             <form onSubmit= {onSubmit}>
                 <input className={style.input} ref={indentifierRef} type="text" name="identifier" placeholder="Nazwa użytkownika"/><br />
                 <input className={style.input} ref={passwordRef} type="password" name="password" placeholder="Hasło"/><br />

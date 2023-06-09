@@ -105,7 +105,7 @@ const MyProfile = () => {
                     <div className={style.left}>
                     <div className={style.user}>
                         <img className={style.avatar} defaultValue={neko} src={avatar} alt="avatar" />
-                        <h1 className={style.username}>{userData.username}</h1>
+                        <h1 name="username" className={style.username}>{userData.username}</h1>
                         <Link className={style.editProfile} to="/profil/edytuj">Edytuj profil</Link>
                     </div>
                 <pre className={style.description}>{userData.description}</pre>
